@@ -2,6 +2,8 @@ package de.invesdwin.maven.plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
@@ -30,6 +32,10 @@ public class InitializeMojo extends AInvesdwinMojo {
 
 	private static final String SETTINGS_SCM_IGNORE = ".settings/scm_ignore";
 	private static final String INVESDWIN_ECLIPSE_SETTINGS = "invesdwin-eclipse-settings";
+	private static final List<String> CODE_COMPLIANCE_SETTINGS = Arrays.asList(
+			"org.eclipse.jdt.core.compiler.source=",
+			"org.eclipse.jdt.core.compiler.codegen.targetPlatform=",
+			"org.eclipse.jdt.core.compiler.compliance=");
 	private String springBeansConfigs;
 
 	protected void internalExecute() throws MojoExecutionException,
@@ -84,6 +90,12 @@ public class InitializeMojo extends AInvesdwinMojo {
 							.getBasedir().getAbsolutePath());
 					newContent = newContent.replace("[SPRINGBEANS_CONFIGS]",
 							getSpringBeansConfigs());
+					for (String codeComplianceSetting : CODE_COMPLIANCE_SETTINGS) {
+						newContent = newContent.replace(codeComplianceSetting
+								+ DEFAULT_CODE_COMPLIANCE_LEVEL,
+								codeComplianceSetting
+										+ getCodeComplianceLevel());
+					}
 
 					if (writeFileIfDifferent(toPath, newContent)) {
 						getLog().debug(

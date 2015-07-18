@@ -15,6 +15,8 @@ import org.sonatype.plexus.build.incremental.BuildContext;
 @NotThreadSafe(/* Threadsafe for maven execution with multiple instances, but not a threadsafe instance */)
 public abstract class AInvesdwinMojo extends AbstractMojo {
 
+	public static final String DEFAULT_CODE_COMPLIANCE_LEVEL = "1.8";
+	
 	/**
 	 * @parameter default-value="${project}"
 	 * @required
@@ -30,7 +32,11 @@ public abstract class AInvesdwinMojo extends AbstractMojo {
 	 * @required
 	 */
 	private boolean useInvesdwinEclipseSettings;
-	
+	/**
+	 * @parameter default-value="1.8"
+	 * @required
+	 */
+	private String codeComplianceLevel = DEFAULT_CODE_COMPLIANCE_LEVEL;
 
 	@Override
 	public final void execute() throws MojoExecutionException,
@@ -51,6 +57,10 @@ public abstract class AInvesdwinMojo extends AbstractMojo {
 	
 	public boolean isUseInvesdwinEclipseSettings() {
 		return useInvesdwinEclipseSettings;
+	}
+	
+	public String getCodeComplianceLevel() {
+		return codeComplianceLevel;
 	}
 
 	protected abstract void internalExecute() throws MojoExecutionException, MojoFailureException;
