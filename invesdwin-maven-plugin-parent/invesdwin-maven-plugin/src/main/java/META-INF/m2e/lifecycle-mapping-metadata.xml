@@ -1,0 +1,21 @@
+<lifecycleMappingMetadata>
+	<pluginExecutions>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<groupId>de.invesdwin</groupId>
+				<artifactId>invesdwin-maven-plugin</artifactId>
+				<goals>
+					<goal>initialize</goal>
+					<goal>generate-sources</goal>
+					<goal>compile</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<execute>
+					<runOnConfiguration>true</runOnConfiguration>
+					<runOnIncremental>true</runOnIncremental>
+				</execute>
+			</action>
+		</pluginExecution>
+	</pluginExecutions>
+</lifecycleMappingMetadata>
