@@ -507,6 +507,12 @@
 			<property name="message" value="Use org.apache.commons.io.IOUtils instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin\.).*\.Throwables;" />
+			<property name="message" value="Use de.invesdwin..Throwables instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
 
 
 		<!--<module name="TodoComment"/> -->
