@@ -4,7 +4,7 @@
 	xsd:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
 	version="2.1">
 	<globalBindings>
-		<xjc:superClass name="de.invesdwin.common.beans.AValueObject" />
+		<xjc:superClass name="de.invesdwin.util.bean.AValueObject" />
 		<xjc:serializable uid="1" />
 		<!-- primitive types are not good because they are initialized with default 
 			values and thus the required check does not work properly -->
