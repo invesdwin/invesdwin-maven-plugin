@@ -44,7 +44,9 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 							generateMergedJaxbContextPath(xpath, xsdFile);
 						}
 					}
-				} catch (XPathExpressionException | IOException e) {
+				} catch (XPathExpressionException e) {
+					throw new RuntimeException(e);
+				} catch(IOException e){
 					throw new RuntimeException(e);
 				}
 			}
