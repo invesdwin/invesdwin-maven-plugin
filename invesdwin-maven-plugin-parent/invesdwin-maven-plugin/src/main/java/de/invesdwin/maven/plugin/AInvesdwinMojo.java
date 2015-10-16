@@ -67,11 +67,15 @@ public abstract class AInvesdwinMojo extends AbstractMojo {
 
 	protected boolean writeFileIfDifferent(File file,
 			String newContent) throws IOException {
-		final boolean write;
+		boolean write;
 		if (file.exists()) {
+			try{
 			String existingContent = FileUtils
 					.readFileToString(file);
 			write = !existingContent.equals(newContent);
+			}catch(IOException e){
+				write = true;
+			}
 		} else {
 			write = true;
 		}
