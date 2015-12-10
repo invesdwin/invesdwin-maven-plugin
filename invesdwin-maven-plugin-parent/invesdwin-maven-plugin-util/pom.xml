@@ -7,7 +7,7 @@
 		<artifactId>invesdwin-maven-plugin-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>invesdwin-maven-plugin-util</artifactId>
 	<packaging>jar</packaging>
 
@@ -19,6 +19,10 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
 		</dependency>
 	</dependencies>
 
