@@ -8,7 +8,7 @@ When using the included checkstyle config, please make sure you have the [invesd
 
 Releases and snapshots are deployed to this maven repository:
 ```
-http://invesdwin.de:8081/artifactory/invesdwin-oss
+http://invesdwin.de/artifactory/invesdwin-oss
 ```
 
 Dependency declaration:
