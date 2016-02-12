@@ -298,7 +298,7 @@
 				value="new Task() is not allowed. Use ATask instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		<module name="Regexp">
+		<module name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
 			<property name="format"
 				value="(interface [a-zA-Z0-9 &lt;&gt;,\./*?[\s]]* \{|(@Immutable|@ThreadSafe|@NotThreadSafe)(.*[\r\n])*.*(class|enum) [a-zA-Z0-9\s&lt;&gt;,\./*?]* \{)" />
 			<property name="message"
