@@ -42,8 +42,10 @@ public class InitializeMojo extends AInvesdwinMojo {
 			MojoFailureException {
 		extractConfigFiles();
 		if (isUseInvesdwinEclipseSettings()) {
+			if(new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE).exists()){
 			updateSvnProperties();
 			updateGitProperties();
+			}
 			createDefaultFolders();
 		}
 	}
@@ -222,8 +224,7 @@ public class InitializeMojo extends AInvesdwinMojo {
 					FileUtils.forceMkdir(new File(getProject().getBasedir(),
 							mandatoryDir));
 				}
-				for (String optionalDir : new String[] { "src/main/resources",
-						"src/test/resources" }) {
+				for (String optionalDir : new String[] { "src/main/resources", "src/test/resources" }) {
 					File dir = new File(getProject().getBasedir(), optionalDir);
 					if (dir.exists() && dir.list().length == 0) {
 						dir.delete();
