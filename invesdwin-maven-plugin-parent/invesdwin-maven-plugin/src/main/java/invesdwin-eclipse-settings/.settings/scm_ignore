@@ -19,3 +19,4 @@ bin
 .idea
 *.iml
 .sessions
+.~lock.*
