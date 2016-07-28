@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
 org.moreunit.extendedTestMethodSearch=true
 org.moreunit.preferences.version=2
-org.moreunit.test_superclass=de.invesdwin.common.test.ATest
+org.moreunit.test_superclass=de.invesdwin.context.test.ATest
 org.moreunit.unitsourcefolder=[PROJECTNAME]\:src/main/java\:[PROJECTNAME]\:src/test/java
 org.moreunit.useprojectsettings=true

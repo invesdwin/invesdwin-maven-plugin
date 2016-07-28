@@ -280,7 +280,7 @@
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*\.(Assert(ions)?|Preconditions);" />
 			<property name="message"
-				value="Use de.invesdwin.common.lang.Assertions.* instead" />
+				value="Use de.invesdwin...Assertions.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -363,7 +363,7 @@
 			<property name="format"
 				value="import\s+org\.springframework\.data\.repository\.cdi\.Eager;" />
 			<property name="message"
-				value="Maybe you wanted de.invesdwin.common.client.wicket.*.Eager?" />
+				value="Maybe you wanted de.invesdwin...*.Eager?" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<!-- https://jira.springsource.org/browse/SPR-9616 -->
