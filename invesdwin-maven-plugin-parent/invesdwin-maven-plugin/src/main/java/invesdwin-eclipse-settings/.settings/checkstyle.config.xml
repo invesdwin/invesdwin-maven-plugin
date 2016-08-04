@@ -184,6 +184,7 @@
 		<module name="MutableException" />
 		<module name="ReturnCount">
 			<property name="max" value="20" />
+			<property name="maxForVoid" value="20" />
 		</module>
 
 		<!-- Checks for class design -->
