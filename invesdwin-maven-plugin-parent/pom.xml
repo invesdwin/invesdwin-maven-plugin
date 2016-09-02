@@ -32,7 +32,6 @@
 
 		<version.plexus-build-api>0.0.7</version.plexus-build-api>
 		<version.maven>3.2.1</version.maven>
-		<version.commons-io>2.4</version.commons-io>
 		<version.commons-lang3>3.3.2</version.commons-lang3>
 
 		<version.invesdwin-bom>1.0.0-SNAPSHOT</version.invesdwin-bom>
@@ -61,11 +60,6 @@
 				<groupId>org.apache.maven</groupId>
 				<artifactId>maven-core</artifactId>
 				<version>${version.maven}</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${version.commons-io}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
