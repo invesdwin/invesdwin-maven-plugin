@@ -2,6 +2,7 @@ package de.invesdwin.maven.plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -84,8 +85,10 @@ public class InitializeMojo extends AInvesdwinMojo {
 							.indexOf(INVESDWIN_ECLIPSE_SETTINGS)
 							+ INVESDWIN_ECLIPSE_SETTINGS.length() + 1);
 					File toPath = new File(getProject().getBasedir(), path);
-					String newContent = IOUtils.toString(resource
-							.getInputStream());
+					InputStream in = resource
+							.getInputStream();
+					String newContent = IOUtils.toString(in);
+					in.close();
 					newContent = newContent.replace("[PROJECTNAME]",
 							getProject().getName());
 					newContent = newContent.replace("[BASEDIR]", getProject()
