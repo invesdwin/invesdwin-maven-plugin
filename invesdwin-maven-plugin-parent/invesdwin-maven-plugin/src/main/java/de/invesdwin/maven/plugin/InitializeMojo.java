@@ -78,7 +78,7 @@ public class InitializeMojo extends AInvesdwinMojo {
 					// only xjb file should be extracted if no eclipse settings
 					// are used
 					if (!isUseInvesdwinEclipseSettings()
-							&& !uri.endsWith("invesdwin-common.xjb")) {
+							&& !uri.endsWith("invesdwin.xjb")) {
 						continue;
 					}
 					String path = uri.substring(uri
