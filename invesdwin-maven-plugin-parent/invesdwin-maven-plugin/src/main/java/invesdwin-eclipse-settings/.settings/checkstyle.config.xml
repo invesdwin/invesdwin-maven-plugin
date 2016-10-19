@@ -334,6 +334,11 @@
 			<property name="message" value="Use de.invesdwin...* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Integers|Doubles|Longs|BigIntegers|BigDecimals);" />
+			<property name="message" value="Use de.invesdwin...* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format" value="import\s+(?!de\.invesdwin).*Duration;" />
 			<property name="message" value="Use de.invesdwin...Duration instead" />
 		</module>
