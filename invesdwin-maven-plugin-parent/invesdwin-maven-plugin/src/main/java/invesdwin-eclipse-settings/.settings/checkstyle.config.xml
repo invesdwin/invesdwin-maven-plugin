@@ -381,11 +381,11 @@
 				value="import\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider;" />
 			<property name="message" value="Use de.invesdwin.*.ClassPathScanner instead" />
 		</module>
-		<module name="RegexpSinglelineJava">
+		<!-- <module name="RegexpSinglelineJava">
 			<property name="format" value="&lt;&gt;" />
 			<property name="message"
 				value="The diamond operator should not be used because it hides other errors in eclipse..." />
-		</module>
+		</module>-->
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+(Big)?(Integer|Decimal)\((-)?[0-9]+\)" />
 			<property name="message" value="Use the String constructor instead" />
