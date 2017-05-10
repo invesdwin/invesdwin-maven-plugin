@@ -20,3 +20,4 @@ bin
 *.iml
 .sessions
 **/.~lock.*
+.pydevproject
