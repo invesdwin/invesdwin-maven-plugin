@@ -339,7 +339,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Integers|Doubles|Longs|BigIntegers|BigDecimals);" />
+				value="import\s+(?!de\.invesdwin).*(Booleans|Bytes|Characters|Chars|Shorts|Ints|Integers|Longs|Floats|Doubles|BigIntegers|BigDecimals);" />
 			<property name="message" value="Use de.invesdwin...* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
