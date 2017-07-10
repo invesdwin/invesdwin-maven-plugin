@@ -41,3 +41,7 @@ The plugins has the following goals which you can include/exclude:
   - the configuration parameter `codeComplianceLevel` can be used to set the java code compliance level for the eclipse project
 * `generate-sources`: this generates a helper class with which the JAXB context finds out about XSD files used by the invesdwin platform
 * `compile`: this sets up checkstyle and findbugs builder and nature for this eclipse project
+
+## Support
+
+If you need further assistance or have some ideas for improvements and don't want to create an issue here on github, feel free to ask a question in our [invesdwin-platform googlegroup](https://groups.google.com/forum/#!forum/invesdwin-platform).
