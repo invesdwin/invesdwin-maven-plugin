@@ -450,13 +450,13 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.google\.common\.collect\.Lists|org\.apache\.commons\.collections\.ListUtils);" />
+				value="import\s+(com\.google\.common\.collect\.Lists|org\.apache\.commons\.collections4\.ListUtils);" />
 			<property name="message" value="Use de.invesdwin...Lists instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.google\.common\.collect\.Lists|org\.apache\.commons\.collections\.ListUtils);" />
-			<property name="message" value="Use de.invesdwin...Lists instead" />
+				value="import\s+org\.apache\.commons\.collections\..*;" />
+			<property name="message" value="Use org.apache.commons.collections4... instead" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
