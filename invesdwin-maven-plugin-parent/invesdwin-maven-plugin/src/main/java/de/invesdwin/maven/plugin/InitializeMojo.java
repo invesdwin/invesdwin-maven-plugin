@@ -3,6 +3,7 @@ package de.invesdwin.maven.plugin;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,26 +27,23 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  * @threadSafe true
  */
 @NotThreadSafe(/*
-				 * Threadsafe for maven execution with multiple instances, but
-				 * not a threadsafe instance
+				 * Threadsafe for maven execution with multiple instances, but not a threadsafe
+				 * instance
 				 */)
 public class InitializeMojo extends AInvesdwinMojo {
 
 	private static final String SETTINGS_SCM_IGNORE = ".settings/scm_ignore";
 	private static final String INVESDWIN_ECLIPSE_SETTINGS = "invesdwin-eclipse-settings";
-	private static final List<String> CODE_COMPLIANCE_SETTINGS = Arrays.asList(
-			"org.eclipse.jdt.core.compiler.source=",
-			"org.eclipse.jdt.core.compiler.codegen.targetPlatform=",
-			"org.eclipse.jdt.core.compiler.compliance=");
+	private static final List<String> CODE_COMPLIANCE_SETTINGS = Arrays.asList("org.eclipse.jdt.core.compiler.source=",
+			"org.eclipse.jdt.core.compiler.codegen.targetPlatform=", "org.eclipse.jdt.core.compiler.compliance=");
 	private String springBeansConfigs;
 
-	protected void internalExecute() throws MojoExecutionException,
-			MojoFailureException {
+	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
 		extractConfigFiles();
 		if (isUseInvesdwinEclipseSettings()) {
-			if(new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE).exists()){
-			updateSvnProperties();
-			updateGitProperties();
+			if (new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE).exists()) {
+				updateSvnProperties();
+				updateGitProperties();
 			}
 			createDefaultFolders();
 		}
@@ -67,48 +65,35 @@ public class InitializeMojo extends AInvesdwinMojo {
 	private void extractConfigFiles() {
 		try {
 			PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-			Resource[] resources = resolver.getResources("classpath*:/"
-					+ INVESDWIN_ECLIPSE_SETTINGS + "/**");
+			Resource[] resources = resolver.getResources("classpath*:/" + INVESDWIN_ECLIPSE_SETTINGS + "/**");
 
 			for (Resource resource : resources) {
 				File resourceFile = resourceToFile(resource);
-				if ((resourceFile == null || !resourceFile.isDirectory())
-						&& resource.contentLength() > 0) {
+				if ((resourceFile == null || !resourceFile.isDirectory()) && resource.contentLength() > 0) {
 					String uri = resource.getURI().toString();
 					// only xjb file should be extracted if no eclipse settings
 					// are used
-					if (!isUseInvesdwinEclipseSettings()
-							&& !uri.endsWith("invesdwin.xjb")) {
+					if (!isUseInvesdwinEclipseSettings() && !uri.endsWith("invesdwin.xjb")) {
 						continue;
 					}
-					String path = uri.substring(uri
-							.indexOf(INVESDWIN_ECLIPSE_SETTINGS)
-							+ INVESDWIN_ECLIPSE_SETTINGS.length() + 1);
+					String path = uri.substring(
+							uri.indexOf(INVESDWIN_ECLIPSE_SETTINGS) + INVESDWIN_ECLIPSE_SETTINGS.length() + 1);
 					File toPath = new File(getProject().getBasedir(), path);
-					InputStream in = resource
-							.getInputStream();
-					String newContent = IOUtils.toString(in);
+					InputStream in = resource.getInputStream();
+					String newContent = IOUtils.toString(in, Charset.defaultCharset());
 					in.close();
-					newContent = newContent.replace("[PROJECTNAME]",
-							getProject().getName());
-					newContent = newContent.replace("[BASEDIR]", getProject()
-							.getBasedir().getAbsolutePath());
-					newContent = newContent.replace("[SPRINGBEANS_CONFIGS]",
-							getSpringBeansConfigs());
+					newContent = newContent.replace("[PROJECTNAME]", getProject().getName());
+					newContent = newContent.replace("[BASEDIR]", getProject().getBasedir().getAbsolutePath());
+					newContent = newContent.replace("[SPRINGBEANS_CONFIGS]", getSpringBeansConfigs());
 					for (String codeComplianceSetting : CODE_COMPLIANCE_SETTINGS) {
-						newContent = newContent.replace(codeComplianceSetting
-								+ DEFAULT_CODE_COMPLIANCE_LEVEL,
-								codeComplianceSetting
-										+ getCodeComplianceLevel());
+						newContent = newContent.replace(codeComplianceSetting + DEFAULT_CODE_COMPLIANCE_LEVEL,
+								codeComplianceSetting + getCodeComplianceLevel());
 					}
 
 					if (writeFileIfDifferent(toPath, newContent)) {
-						getLog().debug(
-								"Extracted [" + path + "] to [" + toPath + "]");
+						getLog().debug("Extracted [" + path + "] to [" + toPath + "]");
 					} else {
-						getLog().debug(
-								"Skipping [" + path + "] since [" + toPath
-										+ "] is already up to date");
+						getLog().debug("Skipping [" + path + "] since [" + toPath + "] is already up to date");
 					}
 				}
 			}
@@ -127,21 +112,17 @@ public class InitializeMojo extends AInvesdwinMojo {
 
 	private String getSpringBeansConfigs() throws IOException {
 		if (springBeansConfigs == null) {
-			File[] dirs = {
-					new File(getProject().getBasedir(),
-							"src/main/resources/META-INF"),
-					new File(getProject().getBasedir(),
-							"src/test/resources/META-INF") };
+			File[] dirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF"),
+					new File(getProject().getBasedir(), "src/test/resources/META-INF") };
 			StringBuilder sb = new StringBuilder();
 			for (File dir : dirs) {
 				if (dir.exists()) {
 					for (File file : dir.listFiles()) {
 						if (file.getName().endsWith(".xml")) {
-							String content = FileUtils.readFileToString(file);
+							String content = FileUtils.readFileToString(file, Charset.defaultCharset());
 							if (content.contains("<beans")) {
-								String path = file.getAbsolutePath().replace(
-										getProject().getBasedir()
-												.getAbsolutePath() + "/", "");
+								String path = file.getAbsolutePath()
+										.replace(getProject().getBasedir().getAbsolutePath() + "/", "");
 								sb.append("\n\t\t<config>" + path + "</config>");
 							}
 						}
@@ -161,29 +142,23 @@ public class InitializeMojo extends AInvesdwinMojo {
 		Throwable svnCommandException = null;
 		try {
 			String command = "svn propset svn:ignore --file "
-					+ new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE)
-							.getAbsolutePath() + " "
+					+ new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE).getAbsolutePath() + " "
 					+ getProject().getBasedir().getAbsolutePath();
 
-			int returnCode = CommandLineUtils.executeCommandLine(
-					new Commandline(command), new StreamConsumer() {
-						@Override
-						public void consumeLine(String line) {
-							getLog().debug(line);
-						}
-					}, new StreamConsumer() {
-						@Override
-						public void consumeLine(String line) {
-							getLog().error(line);
-						}
-					});
+			int returnCode = CommandLineUtils.executeCommandLine(new Commandline(command), new StreamConsumer() {
+				@Override
+				public void consumeLine(String line) {
+					getLog().debug(line);
+				}
+			}, new StreamConsumer() {
+				@Override
+				public void consumeLine(String line) {
+					getLog().error(line);
+				}
+			});
 			if (returnCode != 0) {
-				svnCommandException = new IllegalStateException(
-						"["
-								+ command
-								+ "] failed with return code ["
-								+ returnCode
-								+ "]. Maybe the svn command line tools are not installed or are missing in PATH?");
+				svnCommandException = new IllegalStateException("[" + command + "] failed with return code ["
+						+ returnCode + "]. Maybe the svn command line tools are not installed or are missing in PATH?");
 			}
 		} catch (CommandLineException e) {
 			svnCommandException = e;
@@ -199,8 +174,8 @@ public class InitializeMojo extends AInvesdwinMojo {
 		}
 
 		try {
-			String newContent = FileUtils.readFileToString(new File(
-					getProject().getBasedir(), SETTINGS_SCM_IGNORE));
+			String newContent = FileUtils.readFileToString(new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE),
+					Charset.defaultCharset());
 
 			// filter only in current directory
 			// see:
@@ -212,8 +187,7 @@ public class InitializeMojo extends AInvesdwinMojo {
 				}
 			}
 
-			writeFileIfDifferent(new File(getProject().getBasedir(),
-					".gitignore"), newAdjContent);
+			writeFileIfDifferent(new File(getProject().getBasedir(), ".gitignore"), newAdjContent);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -222,10 +196,8 @@ public class InitializeMojo extends AInvesdwinMojo {
 	private void createDefaultFolders() {
 		if (checkSourceFolderExists()) {
 			try {
-				for (String mandatoryDir : new String[] { "src/main/java",
-						"src/test/java" }) {
-					FileUtils.forceMkdir(new File(getProject().getBasedir(),
-							mandatoryDir));
+				for (String mandatoryDir : new String[] { "src/main/java", "src/test/java" }) {
+					FileUtils.forceMkdir(new File(getProject().getBasedir(), mandatoryDir));
 				}
 				for (String optionalDir : new String[] { "src/main/resources", "src/test/resources" }) {
 					File dir = new File(getProject().getBasedir(), optionalDir);

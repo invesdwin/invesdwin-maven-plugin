@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.Resource;
@@ -18,7 +19,7 @@ public class TransformerResource implements Resource {
 
 	public TransformerResource(String resource, InputStream inputStream) throws IOException {
 		this.resource = resource;
-		this.content = IOUtils.toString(inputStream);
+		this.content = IOUtils.toString(inputStream, Charset.defaultCharset());
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package de.invesdwin.maven.plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
@@ -14,27 +15,29 @@ import org.apache.maven.plugin.MojoFailureException;
  * @goal compile
  * @threadSafe true
  */
-@NotThreadSafe(/* Threadsafe for maven execution with multiple instances, but not a threadsafe instance */)
+@NotThreadSafe(/*
+				 * Threadsafe for maven execution with multiple instances, but not a threadsafe
+				 * instance
+				 */)
 public class CompileMojo extends AInvesdwinMojo {
 
 	private static final String[] ADDITIONAL_PROJECT_BUILD_COMMANDS_FOR_JAVA_PROJECTS = {
-			"net.sf.eclipsecs.core.CheckstyleBuilder",
-			"edu.umd.cs.findbugs.plugin.eclipse.findbugsBuilder" };
+			"net.sf.eclipsecs.core.CheckstyleBuilder", "com.github.spotbugs.plugin.eclipse.findbugsBuilder" };
 	private static final String[] ADDITIONAL_PROJECT_NATURES_FOR_JAVA_PROJECTS = {
-			"net.sf.eclipsecs.core.CheckstyleNature",
+			"net.sf.eclipsecs.core.CheckstyleNature", "com.github.spotbugs.plugin.eclipse.findbugsNature" };
+	private static final String[] REMOVE_PROJECT_NATURES = { "org.eclipse.pde.PluginNature",
 			"edu.umd.cs.findbugs.plugin.eclipse.findbugsNature" };
-	private static final String[] REMOVE_PROJECT_NATURES = { "org.eclipse.pde.PluginNature" };
+	private static final String[] REMOVE_PROJECT_BUILD_COMMANDS = {
+			"edu.umd.cs.findbugs.plugin.eclipse.findbugsBuilder" };
 
-	protected void internalExecute() throws MojoExecutionException,
-			MojoFailureException {
+	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
 		if (isUseInvesdwinEclipseSettings()) {
 			File projectFile = new File(getProject().getBasedir(), ".project");
 			if (!projectFile.exists()) {
 				return;
 			}
 			try {
-				final String existingContent = FileUtils
-						.readFileToString(projectFile);
+				final String existingContent = FileUtils.readFileToString(projectFile, Charset.defaultCharset());
 
 				String newContent = existingContent;
 
@@ -43,10 +46,10 @@ public class CompileMojo extends AInvesdwinMojo {
 				} else {
 					newContent = removeProjectNaturesAndBuildersForJavaProjects(newContent);
 				}
-				newContent = removeUnwantedProjectNatures(newContent);
+				newContent = removeUnwantedProjectNaturesAndBuilders(newContent);
 
 				if (!existingContent.equals(newContent)) {
-					FileUtils.writeStringToFile(projectFile, newContent);
+					FileUtils.writeStringToFile(projectFile, newContent, Charset.defaultCharset());
 					getBuildContext().refresh(projectFile);
 				}
 
@@ -56,11 +59,14 @@ public class CompileMojo extends AInvesdwinMojo {
 		}
 	}
 
-	private String removeUnwantedProjectNatures(String content) {
+	private String removeUnwantedProjectNaturesAndBuilders(String content) {
 		String newContent = content;
 		for (String nature : REMOVE_PROJECT_NATURES) {
-			newContent = newContent.replaceAll("(?s)<nature>\\s*" + nature
-					+ "</nature>", "");
+			newContent = newContent.replaceAll("(?s)<nature>\\s*" + nature + "</nature>", "");
+		}
+		for (String command : REMOVE_PROJECT_BUILD_COMMANDS) {
+			newContent = newContent.replaceAll("(?s)<buildCommand>\\s*<name>" + command
+					+ "</name>\\s*<arguments>\\s*</arguments>\\s*</buildCommand>", "");
 		}
 		return newContent;
 	}
@@ -69,24 +75,18 @@ public class CompileMojo extends AInvesdwinMojo {
 		String newContent = content;
 
 		for (String command : ADDITIONAL_PROJECT_BUILD_COMMANDS_FOR_JAVA_PROJECTS) {
-			newContent = newContent
-					.replaceAll(
-							"(?s)<buildCommand>\\s*<name>"
-									+ command
-									+ "</name>\\s*<arguments>\\s*</arguments>\\s*</buildCommand>",
-							"");
+			newContent = newContent.replaceAll("(?s)<buildCommand>\\s*<name>" + command
+					+ "</name>\\s*<arguments>\\s*</arguments>\\s*</buildCommand>", "");
 		}
 
 		for (String nature : ADDITIONAL_PROJECT_NATURES_FOR_JAVA_PROJECTS) {
-			newContent = newContent.replaceAll("(?s)<nature>\\s*" + nature
-					+ "</nature>", "");
+			newContent = newContent.replaceAll("(?s)<nature>\\s*" + nature + "</nature>", "");
 		}
 
 		return newContent;
 	}
 
-	private String addProjectNaturesAndBuildersForJavaProjects(String content)
-			throws IOException {
+	private String addProjectNaturesAndBuildersForJavaProjects(String content) throws IOException {
 		String newContent = content;
 
 		// put new builders before m2e builder to prevent m2e warning about
@@ -94,17 +94,15 @@ public class CompileMojo extends AInvesdwinMojo {
 		String buildSpecTag = "<name>org.eclipse.m2e.core.maven2Builder</name>";
 		for (String buildCommand : ADDITIONAL_PROJECT_BUILD_COMMANDS_FOR_JAVA_PROJECTS) {
 			if (!newContent.contains(buildCommand)) {
-				newContent = newContent.replace(buildSpecTag, "\t"
-						+ newBuildCommandXml(buildCommand) + "\n\t\t"
-						+ buildSpecTag);
+				newContent = newContent.replace(buildSpecTag,
+						"\t" + newBuildCommandXml(buildCommand) + "\n\t\t" + buildSpecTag);
 			}
 		}
 
 		String naturesTag = "</natures>";
 		for (String nature : ADDITIONAL_PROJECT_NATURES_FOR_JAVA_PROJECTS) {
 			if (!newContent.contains(nature)) {
-				newContent = newContent.replace(naturesTag, "\t"
-						+ newNatureXml(nature) + "\n\t" + naturesTag);
+				newContent = newContent.replace(naturesTag, "\t" + newNatureXml(nature) + "\n\t" + naturesTag);
 			}
 		}
 

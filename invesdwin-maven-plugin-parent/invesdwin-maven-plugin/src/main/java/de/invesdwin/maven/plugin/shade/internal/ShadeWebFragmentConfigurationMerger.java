@@ -15,22 +15,22 @@ public class ShadeWebFragmentConfigurationMerger extends AWebFragmentConfigurati
 
 	private List<? extends Resource> resources;
 
-	public ShadeWebFragmentConfigurationMerger(List<? extends Resource> resources){
+	public ShadeWebFragmentConfigurationMerger(List<? extends Resource> resources) {
 		this.resources = resources;
 	}
-	
-    @Override
-    protected void logWebFragmentsBeingLoaded(final List<WebFragmentResource> webFragments) {
-    }
 
-    public String getMergedContent() throws IOException {
-    	final String merged = mergeConfigs();
-        return merged;
-    }
+	@Override
+	protected void logWebFragmentsBeingLoaded(final List<WebFragmentResource> webFragments) {
+	}
 
-    @Override
-    protected Iterable<? extends Resource> getResources() throws IOException {
-        return resources;
-    }
+	public String getMergedContent() throws IOException {
+		final String merged = mergeConfigs();
+		return merged;
+	}
+
+	@Override
+	protected Iterable<? extends Resource> getResources() throws IOException {
+		return resources;
+	}
 
 }

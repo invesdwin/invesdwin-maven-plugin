@@ -24,17 +24,16 @@ import org.xml.sax.InputSource;
  * @goal generate-sources
  * @threadSafe true
  */
-@NotThreadSafe(/* Threadsafe for maven execution with multiple instances, but not a threadsafe instance */)
+@NotThreadSafe(/*
+				 * Threadsafe for maven execution with multiple instances, but not a threadsafe
+				 * instance
+				 */)
 public class GenerateSourcesMojo extends AInvesdwinMojo {
 
 	@Override
-	protected void internalExecute() throws MojoExecutionException,
-			MojoFailureException {
-		File[] xsdDirs = {
-				new File(getProject().getBasedir(),
-						"src/main/resources/META-INF/xsd"),
-				new File(getProject().getBasedir(),
-						"src/main/java/META-INF/xsd") };
+	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
+		File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
+				new File(getProject().getBasedir(), "src/main/java/META-INF/xsd") };
 		for (File xsdDir : xsdDirs) {
 			if (xsdDir.exists()) {
 				XPath xpath = XPathFactory.newInstance().newXPath();
@@ -46,18 +45,16 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 					}
 				} catch (XPathExpressionException e) {
 					throw new RuntimeException(e);
-				} catch(IOException e){
+				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
 			}
 		}
 	}
 
-	private void generateMergedJaxbContextPath(XPath xpath, File xsdFile)
-			throws IOException, XPathExpressionException {
-		String targetNamespace = (String) xpath.evaluate(
-				"//*[local-name()='schema']/@targetNamespace", new InputSource(
-						new FileInputStream(xsdFile)), XPathConstants.STRING);
+	private void generateMergedJaxbContextPath(XPath xpath, File xsdFile) throws IOException, XPathExpressionException {
+		String targetNamespace = (String) xpath.evaluate("//*[local-name()='schema']/@targetNamespace",
+				new InputSource(new FileInputStream(xsdFile)), XPathConstants.STRING);
 		targetNamespace = targetNamespace.replace("http://www.", "");
 		targetNamespace = targetNamespace.replace("http://", "");
 
@@ -73,16 +70,13 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 			packageDeclaration += p + ".";
 			packageFilePath += p + "/";
 		}
-		packageDeclaration = packageDeclaration.substring(0,
-				packageDeclaration.length() - 1);
-		packageFilePath = packageFilePath.substring(0,
-				packageFilePath.length() - 1);
+		packageDeclaration = packageDeclaration.substring(0, packageDeclaration.length() - 1);
+		packageFilePath = packageFilePath.substring(0, packageFilePath.length() - 1);
 
 		String schemaPath = xsdFile.getAbsolutePath().replace("\\", "/");
 		schemaPath = schemaPath.substring(schemaPath.indexOf("/META-INF/"));
 
-		String className = "MergedJaxbContextPath_"
-				+ xsdFile.getName().replace(".xsd", "").replace(".", "_");
+		String className = "MergedJaxbContextPath_" + xsdFile.getName().replace(".xsd", "").replace(".", "_");
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("package " + packageDeclaration + ";\n");
@@ -90,10 +84,8 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		sb.append("import de.invesdwin.context.integration.IMergedJaxbContextPath;\n");
 		sb.append("import javax.inject.Named;\n");
 		sb.append("\n");
-		sb.append("@Named(\"mergedJaxbContextPath_" + packageDeclaration
-				+ "\")\n");
-		sb.append("public class " + className
-				+ " implements IMergedJaxbContextPath {\n");
+		sb.append("@Named(\"mergedJaxbContextPath_" + packageDeclaration + "\")\n");
+		sb.append("public class " + className + " implements IMergedJaxbContextPath {\n");
 		sb.append("\n");
 		sb.append("    @Override\n");
 		sb.append("    public String getContextPath() {\n");
@@ -108,17 +100,13 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		sb.append("}\n");
 		String newContent = sb.toString();
 
-		File genDir = new File(getProject().getBasedir().getAbsolutePath()
-				+ "/target/generated-sources/invesdwin");
+		File genDir = new File(getProject().getBasedir().getAbsolutePath() + "/target/generated-sources/invesdwin");
 		FileUtils.forceMkdir(genDir);
-		File genFile = new File(genDir, packageFilePath + "/" + className
-				+ ".java");
+		File genFile = new File(genDir, packageFilePath + "/" + className + ".java");
 		if (writeFileIfDifferent(genFile, newContent)) {
 			getLog().debug("Generated [" + genFile + "]");
 		} else {
-			getLog().debug(
-					"Skipping [" + genFile
-							+ "] because file is already up to date");
+			getLog().debug("Skipping [" + genFile + "] because file is already up to date");
 		}
 	}
 

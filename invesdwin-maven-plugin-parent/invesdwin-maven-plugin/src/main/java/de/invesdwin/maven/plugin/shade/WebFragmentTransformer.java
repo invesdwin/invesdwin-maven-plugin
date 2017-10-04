@@ -28,8 +28,7 @@ public class WebFragmentTransformer implements ResourceTransformer {
 		return false;
 	}
 
-	public void processResource(String resource, InputStream is,
-			List<Relocator> relocators) throws IOException {
+	public void processResource(String resource, InputStream is, List<Relocator> relocators) throws IOException {
 		resources.add(new TransformerResource(resource, is));
 	}
 
@@ -40,8 +39,7 @@ public class WebFragmentTransformer implements ResourceTransformer {
 	public void modifyOutputStream(JarOutputStream jos) throws IOException {
 		jos.putNextEntry(new JarEntry(resource));
 
-		String content = new ShadeWebFragmentConfigurationMerger(resources)
-				.getMergedContent();
+		String content = new ShadeWebFragmentConfigurationMerger(resources).getMergedContent();
 
 		IOUtil.copy(new ByteArrayInputStream(content.getBytes()), jos);
 		resources.clear();
