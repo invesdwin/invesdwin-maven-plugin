@@ -14,3 +14,4 @@ sudo chmod +x /usr/local/bin/eclipse
 sudo apt-get -y install libsvn-java
 echo "-Djava.library.path=/usr/lib/jni:/usr/lib/x86_64-linux-gnu/jni/" | sudo tee -a /opt/eclipse/eclipse.ini
 echo "-Dfile.encoding=UTF-8" | sudo tee -a /opt/eclipse/eclipse.ini
+echo "--add-modules=ALL-SYSTEM" | sudo tee -a /opt/eclipse/eclipse.ini
