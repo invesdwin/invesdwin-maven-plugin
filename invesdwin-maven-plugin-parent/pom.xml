@@ -2,11 +2,14 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>de.invesdwin</groupId>
+	<parent>
+		<groupId>de.invesdwin</groupId>
+		<artifactId>invesdwin-bom</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
 	<artifactId>invesdwin-maven-plugin-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.0-SNAPSHOT</version>
 
 	<modules>
 		<module>invesdwin-maven-plugin</module>
@@ -25,41 +28,13 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<version.compiler>1.6</version.compiler>
 
-		<version.maven-compiler-plugin>3.1</version.maven-compiler-plugin>
-		<version.maven-source-plugin>2.2.1</version.maven-source-plugin>
+		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
 		<version.maven-shade-plugin>3.1.0</version.maven-shade-plugin>
 		<version.license-check-maven-plugin>0.5.4-inv</version.license-check-maven-plugin>
-
-		<version.plexus-build-api>0.0.7</version.plexus-build-api>
-		<version.maven>3.2.1</version.maven>
-
-		<version.invesdwin-bom>1.0.0-SNAPSHOT</version.invesdwin-bom>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>de.invesdwin</groupId>
-				<artifactId>invesdwin-bom</artifactId>
-				<version>${version.invesdwin-bom}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.maven</groupId>
-				<artifactId>maven-plugin-api</artifactId>
-				<version>${version.maven}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.sonatype.plexus</groupId>
-				<artifactId>plexus-build-api</artifactId>
-				<version>${version.plexus-build-api}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.maven</groupId>
-				<artifactId>maven-core</artifactId>
-				<version>${version.maven}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -108,20 +83,6 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${version.maven-compiler-plugin}</version>
-				<configuration>
-					<source>${version.compiler}</source>
-					<target>${version.compiler}</target>
-					<complianceLevel>${version.compiler}</complianceLevel>
-					<encoding>${file.encoding}</encoding>
-					<compilerArgument>-proc:none</compilerArgument>
-					<Xlint>ignore</Xlint>
-					<verbose>false</verbose>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>${version.maven-source-plugin}</version>
 				<executions>
@@ -161,6 +122,9 @@
 						<param>commons-io.*</param>
 						<!-- MIT license -->
 						<param>org\.slf4j.*</param>
+						<!-- CDDL/GPL with classpath exception -->
+						<param>org\.glassfish\.jaxb.*</param>
+						<param>javax\.activation:javax\.activation-api.*</param>
 					</excludesRegex>
 				</configuration>
 			</plugin>
@@ -192,6 +156,11 @@
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>3.5</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

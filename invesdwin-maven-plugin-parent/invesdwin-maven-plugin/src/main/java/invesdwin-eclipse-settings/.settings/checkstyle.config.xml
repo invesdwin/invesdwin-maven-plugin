@@ -507,6 +507,20 @@
 		</module>
 		<module name="Regexp">
 			<property name="format"
+				value="import\s+.*org\.junit\.runners\..*" />
+			<property name="message"
+				value="Use Junit 5 alternative @RunWith(JUnitPlatform.class) and @SelectClasses(...)" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="import\s+.*org\.junit\.(A-Za-z);" />
+			<property name="message"
+				value="Use Junit 5 alternative @RunWith(JUnitPlatform.class) and @SelectClasses(...)" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
 				value="import\s+.*org.apache.wicket.authroles.authentication.(pages|panel)..*" />
 			<property name="message" value="Use de.invesdwin... instead" />
 			<property name="illegalPattern" value="true" />

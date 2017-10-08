@@ -2,11 +2,18 @@ package de.invesdwin.maven.plugin;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import javax.annotation.concurrent.NotThreadSafe;
 import javax.xml.xpath.XPath;
@@ -15,9 +22,18 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.springframework.util.ReflectionUtils;
 import org.xml.sax.InputSource;
+import org.zeroturnaround.exec.InvalidExitValueException;
+import org.zeroturnaround.exec.ProcessExecutor;
+import org.zeroturnaround.exec.stop.ProcessStopper;
+import org.zeroturnaround.exec.stream.slf4j.Slf4jStream;
+
+import com.sun.tools.xjc.XJCFacade;
 
 /**
  * @phase generate-sources
@@ -32,8 +48,69 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 
 	@Override
 	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
-		File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
-				new File(getProject().getBasedir(), "src/main/java/META-INF/xsd") };
+		invokeXjc();
+		generateMergedJaxbContextPaths();
+	}
+
+	private void invokeXjc() throws MojoExecutionException {
+		final List<String> args = new ArrayList<String>();
+		args.add("-extension");
+		args.add("-d");
+		File genDir = getGenDir();
+		args.add(genDir.getAbsolutePath());
+		args.add("-b");
+		args.add(new File(getProject().getBasedir(), ".settings/invesdwin.xjb").getAbsolutePath());
+
+		boolean xsdFound = false;
+		final File[] xsdDirs = getXsdDirs();
+		for (File xsdDir : xsdDirs) {
+			File[] xsds = xsdDir.listFiles(new FilenameFilter() {
+				@Override
+				public boolean accept(File dir, String name) {
+					return name.endsWith(".xsd");
+				}
+			});
+			if (xsds != null) {
+				for (File xsd : xsds) {
+					args.add(xsd.getAbsolutePath());
+					xsdFound = true;
+				}
+			}
+		}
+
+		if (xsdFound) {
+			try {
+				FileUtils.forceMkdir(genDir);
+				callXjcFacade(args);
+			} catch (Throwable e) {
+				throw new MojoExecutionException("XJC args: " + args.toString(), e);
+			}
+		}
+	}
+
+	private void callXjcFacade(List<String> args) throws Exception {
+		final String javaExecutable = System.getProperty("java.home") + "/bin/java";
+		final URLClassLoader classLoader = (URLClassLoader) Thread.currentThread().getContextClassLoader();
+		StringBuilder classpath = new StringBuilder();
+		for (final URL url : classLoader.getURLs()) {
+			if (classpath.length() > 0) {
+				classpath.append(":");
+			}
+			classpath.append(url.toString());
+		}
+		List<String> command = new ArrayList<String>();
+		command.add(javaExecutable);
+		command.add("-classpath");
+		command.add(classpath.toString());
+		command.add(XJCFacade.class.getName());
+		command.addAll(args);
+		new ProcessExecutor().command(command).destroyOnExit().exitValueNormal()
+				.redirectOutput(Slf4jStream.of(GenerateSourcesMojo.class).asInfo())
+				.redirectError(Slf4jStream.of(GenerateSourcesMojo.class).asWarn()).execute();
+	}
+
+	private void generateMergedJaxbContextPaths() {
+		File[] xsdDirs = getXsdDirs();
 		for (File xsdDir : xsdDirs) {
 			if (xsdDir.exists()) {
 				XPath xpath = XPathFactory.newInstance().newXPath();
@@ -50,6 +127,12 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 				}
 			}
 		}
+	}
+
+	private File[] getXsdDirs() {
+		File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
+				new File(getProject().getBasedir(), "src/main/java/META-INF/xsd") };
+		return xsdDirs;
 	}
 
 	private void generateMergedJaxbContextPath(XPath xpath, File xsdFile) throws IOException, XPathExpressionException {
@@ -100,7 +183,7 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		sb.append("}\n");
 		String newContent = sb.toString();
 
-		File genDir = new File(getProject().getBasedir().getAbsolutePath() + "/target/generated-sources/invesdwin");
+		File genDir = getGenDir();
 		FileUtils.forceMkdir(genDir);
 		File genFile = new File(genDir, packageFilePath + "/" + className + ".java");
 		if (writeFileIfDifferent(genFile, newContent)) {
@@ -108,6 +191,11 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		} else {
 			getLog().debug("Skipping [" + genFile + "] because file is already up to date");
 		}
+	}
+
+	private File getGenDir() {
+		File genDir = new File(getProject().getBasedir().getAbsolutePath() + "/target/generated-sources/invesdwin");
+		return genDir;
 	}
 
 }

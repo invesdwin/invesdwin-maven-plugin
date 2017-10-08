@@ -45,6 +45,22 @@
 			<groupId>de.invesdwin</groupId>
 			<artifactId>invesdwin-maven-plugin-util</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-xjc-jdk9</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>javax.activation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.zeroturnaround</groupId>
+			<artifactId>zt-exec</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
