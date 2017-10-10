@@ -30,7 +30,6 @@ public class CompileMojo extends AInvesdwinMojo {
 			"org.eclipse.wst.common.modulecore.ModuleCoreNature", "org.eclipse.wst.common.project.facet.core.nature" };
 	private static final String[] REMOVE_PROJECT_BUILD_COMMANDS = {
 			"edu.umd.cs.findbugs.plugin.eclipse.findbugsBuilder", "org.eclipse.wst.common.project.facet.core.builder",
-			"org.springframework.ide.eclipse.boot.validation.springbootbuilder",
 			"org.eclipse.wst.validation.validationbuilder" };
 
 	protected void internalExecute() throws MojoExecutionException, MojoFailureException {

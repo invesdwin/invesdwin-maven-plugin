@@ -507,16 +507,23 @@
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org\.junit\.runners\..*" />
+				value="import\s+.*org\.junit\.platform\..*" />
 			<property name="message"
-				value="Use Junit 5 alternative @RunWith(JUnitPlatform.class) and @SelectClasses(...)" />
+				value="Use Junit 4 for now..." />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org\.junit\.(A-Za-z);" />
+				value="import\s+.*org\.junit\.jupiter\.api\.(A-Za-z);" />
 			<property name="message"
-				value="Use Junit 5 alternative @RunWith(JUnitPlatform.class) and @SelectClasses(...)" />
+				value="Use Junit 4 for now..." />
+			<property name="illegalPattern" value="true" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="import\s+.*org\.junit\.jupiter\.api\.extension\.(A-Za-z);" />
+			<property name="message"
+				value="Use Junit 4 for now..." />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
