@@ -30,6 +30,7 @@
 
 		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
 		<version.maven-shade-plugin>3.1.0</version.maven-shade-plugin>
+		<version.jsonschema2pojo>0.5.1</version.jsonschema2pojo>
 	</properties>
 
 	<dependencyManagement>
@@ -44,6 +45,17 @@
 				<groupId>de.invesdwin</groupId>
 				<artifactId>invesdwin-maven-plugin-util</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsonschema2pojo</groupId>
+				<artifactId>jsonschema2pojo-core</artifactId>
+				<version>${version.jsonschema2pojo}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
