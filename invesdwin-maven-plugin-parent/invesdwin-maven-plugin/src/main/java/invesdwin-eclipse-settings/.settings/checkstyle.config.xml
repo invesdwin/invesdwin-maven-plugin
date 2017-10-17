@@ -544,6 +544,14 @@
 			<property name="message" value="Use de.invesdwin..Throwables instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
+			<module name="Regexp">
+			<property name="format"
+				value="import\s+.*com\.google\.errorprone\.annotations\..*;" />
+			<property name="message"
+				value="Use javax.annotation..* instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		
 
 
 		<!--<module name="TodoComment"/> -->
