@@ -20,41 +20,41 @@
 		<javaType name="java.lang.Boolean" xmlType="xsd:boolean" />
 		<javaType name="de.invesdwin.util.math.decimal.Decimal"
 			xmlType="xsd:decimal"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseDecimal"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printDecimal" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseDecimal"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printDecimal" />
 		<!-- XmlGregorianCalendar is quity unhandy, thus we replace it with Calendar -->
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:time"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseTime"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printTime" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseTime"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printTime" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:date"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseDate"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printDate" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseDate"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printDate" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:dateTime"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseDateTime"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printDateTime" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseDateTime"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printDateTime" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:gDay"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseGDay"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printGDay" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseGDay"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printGDay" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:gMonth"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseGMonth"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printGMonth" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseGMonth"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printGMonth" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:gMonthDay"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseGMonthDay"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printGMonthDay" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseGMonthDay"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printGMonthDay" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:gYear"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseGYear"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printGYear" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseGYear"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printGYear" />
 		<javaType name="de.invesdwin.util.time.fdate.FDate"
 			xmlType="xsd:gYearMonth"
-			parseMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.parseGYearMonth"
-			printMethod="de.invesdwin.util.internal.jaxb.DatatypeConverter.printGYearMonth" />
+			parseMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.parseGYearMonth"
+			printMethod="de.invesdwin.util.marshallers.jaxb.DatatypeConverter.printGYearMonth" />
 	</globalBindings>
 
 </bindings>
