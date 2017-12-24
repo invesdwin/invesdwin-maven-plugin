@@ -211,14 +211,14 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 	}
 
 	private void callXjcFacade(List<String> args) throws Exception {
-		final String javaExecutable = System.getProperty("java.home") + "/bin/java";
+		final String javaExecutable = System.getProperty("java.home") + File.separator+"bin"+File.separator+"java";
 		final URLClassLoader classLoader = (URLClassLoader) Thread.currentThread().getContextClassLoader();
 		StringBuilder classpath = new StringBuilder();
 		for (final URL url : classLoader.getURLs()) {
 			if (classpath.length() > 0) {
-				classpath.append(":");
+				classpath.append(File.pathSeparator);
 			}
-			classpath.append(url.toString());
+			classpath.append(new File(url.getFile()).getAbsolutePath());
 		}
 		List<String> command = new ArrayList<String>();
 		command.add(javaExecutable);
