@@ -20,18 +20,6 @@
 	<!-- <module name="StrictDuplicateCode"> <property name="min" value="30" 
 		/> </module> -->
 
-	<!-- Allow CHECKSTYLE:OFF and CHECKSTYLE:ON comments -->
-	<module name="SuppressionCommentFilter" />
-	<!-- Allow CS:OFF and CS:ON comments for specific checks -->
-	<module name="SuppressionCommentFilter">
-		<property name="offCommentFormat" value="CS\:OFF[\s]+([\w\|]+)" />
-		<property name="onCommentFormat" value="CS\:ON[\s]+([\w\|]+)" />
-		<property name="checkFormat" value="$1" />
-	</module>
-
-	<!-- Allow SUPPRESS CHECKSTYLE <check> -->
-	<module name="SuppressWithNearbyCommentFilter" />
-
 	<module name="FileLength">
 		<property name="max" value="1000" />
 	</module>
@@ -39,6 +27,17 @@
 		<property name="eachLine" value="true" />
 	</module>
 	<module name="TreeWalker">
+		<!-- Allow CHECKSTYLE:OFF and CHECKSTYLE:ON comments -->
+		<module name="SuppressionCommentFilter" />
+		<!-- Allow CS:OFF and CS:ON comments for specific checks -->
+		<module name="SuppressionCommentFilter">
+			<property name="offCommentFormat" value="CS\:OFF[\s]+([\w\|]+)" />
+			<property name="onCommentFormat" value="CS\:ON[\s]+([\w\|]+)" />
+			<property name="checkFormat" value="$1" />
+		</module>
+		<!-- Allow SUPPRESS CHECKSTYLE <check> -->
+		<module name="SuppressWithNearbyCommentFilter" />
+
 		<!-- Make comments available -->
 		<module name="FileContentsHolder" />
 
@@ -110,7 +109,7 @@
 		<module name="MethodParamPad" />
 		<!--<module name="NoWhitespaceAfter"/> -->
 		<!--<module name="NoWhitespaceBefore"/> -->
-		<!--<module name="ParenPad" />-->
+		<!--<module name="ParenPad" /> -->
 		<module name="TypecastParenPad" />
 		<!--<module name="WhitespaceAfter"/> -->
 		<!--<module name="WhitespaceAround"/> -->
@@ -284,8 +283,7 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*\.(Assert(ions)?|Preconditions);" />
-			<property name="message"
-				value="Use de.invesdwin...Assertions.* instead" />
+			<property name="message" value="Use de.invesdwin...Assertions.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -303,7 +301,8 @@
 				value="new Task() is not allowed. Use ATask instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		<module name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
+		<module
+			name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
 			<property name="format"
 				value="(interface [a-zA-Z0-9 &lt;&gt;,\./*?[\s]]* \{|(@Immutable|@ThreadSafe|@NotThreadSafe)(.*[\r\n])*.*(class|enum) [a-zA-Z0-9\s&lt;&gt;\[\],\./*?]* \{)" />
 			<property name="message"
@@ -372,8 +371,7 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+org\.springframework\.data\.repository\.cdi\.Eager;" />
-			<property name="message"
-				value="Maybe you wanted de.invesdwin...*.Eager?" />
+			<property name="message" value="Maybe you wanted de.invesdwin...*.Eager?" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<!-- https://jira.springsource.org/browse/SPR-9616 -->
@@ -381,11 +379,9 @@
 				value="import\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider;" />
 			<property name="message" value="Use de.invesdwin.*.ClassPathScanner instead" />
 		</module>
-		<!-- <module name="RegexpSinglelineJava">
-			<property name="format" value="&lt;&gt;" />
-			<property name="message"
-				value="The diamond operator should not be used because it hides other errors in eclipse..." />
-		</module>-->
+		<!-- <module name="RegexpSinglelineJava"> <property name="format" value="&lt;&gt;" 
+			/> <property name="message" value="The diamond operator should not be used 
+			because it hides other errors in eclipse..." /> </module> -->
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+(Big)?(Integer|Decimal)\((-)?[0-9]+\)" />
 			<property name="message" value="Use the String constructor instead" />
@@ -456,7 +452,8 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+org\.apache\.commons\.collections\..*;" />
-			<property name="message" value="Use org.apache.commons.collections4... instead" />
+			<property name="message"
+				value="Use org.apache.commons.collections4... instead" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
@@ -506,24 +503,20 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
-			<property name="format"
-				value="import\s+.*org\.junit\.platform\..*" />
-			<property name="message"
-				value="Use Junit 4 for now..." />
+			<property name="format" value="import\s+.*org\.junit\.platform\..*" />
+			<property name="message" value="Use Junit 4 for now..." />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
 				value="import\s+.*org\.junit\.jupiter\.api\.(A-Za-z);" />
-			<property name="message"
-				value="Use Junit 4 for now..." />
+			<property name="message" value="Use Junit 4 for now..." />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
 				value="import\s+.*org\.junit\.jupiter\.api\.extension\.(A-Za-z);" />
-			<property name="message"
-				value="Use Junit 4 for now..." />
+			<property name="message" value="Use Junit 4 for now..." />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
@@ -539,19 +532,17 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
-			<property name="format"
-				value="import\s+(?!de\.invesdwin\.).*\.Throwables;" />
+			<property name="format" value="import\s+(?!de\.invesdwin\.).*\.Throwables;" />
 			<property name="message" value="Use de.invesdwin..Throwables instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-			<module name="Regexp">
+		<module name="Regexp">
 			<property name="format"
 				value="import\s+.*com\.google\.errorprone\.annotations\..*;" />
-			<property name="message"
-				value="Use javax.annotation..* instead" />
+			<property name="message" value="Use javax.annotation..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		
+
 
 
 		<!--<module name="TodoComment"/> -->
