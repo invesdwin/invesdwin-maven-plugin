@@ -134,4 +134,10 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<scm>
+		<url>https://github.com/subes/invesdwin-maven-plugin</url>
+		<connection>scm:git:https://github.com/subes/invesdwin-maven-plugin.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
 </project>
