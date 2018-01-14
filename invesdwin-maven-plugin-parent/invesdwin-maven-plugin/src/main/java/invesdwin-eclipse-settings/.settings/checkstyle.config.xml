@@ -20,9 +20,9 @@
 	<!-- <module name="StrictDuplicateCode"> <property name="min" value="30" 
 		/> </module> -->
 
-	<module name="FileLength">
+	<!-- <module name="FileLength">
 		<property name="max" value="1000" />
-	</module>
+	</module>-->
 	<module name="FileTabCharacter">
 		<property name="eachLine" value="true" />
 	</module>
