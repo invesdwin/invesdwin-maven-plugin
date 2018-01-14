@@ -175,7 +175,7 @@ public class InitializeMojo extends AInvesdwinMojo {
 
 		try {
 			String newContent = FileUtils.readFileToString(new File(getProject().getBasedir(), SETTINGS_SCM_IGNORE),
-					Charset.defaultCharset());
+					Charset.defaultCharset()).replaceAll("[\n\r]+", "\n");
 
 			// filter only in current directory
 			// see:
