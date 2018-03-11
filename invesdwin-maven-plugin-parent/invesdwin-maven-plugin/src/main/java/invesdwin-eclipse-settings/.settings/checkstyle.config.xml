@@ -301,7 +301,7 @@
 		<module
 			name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
 			<property name="format"
-				value="(interface [a-zA-Z0-9 &lt;&gt;,\./*?[\s]]* \{|(@Immutable|@ThreadSafe|@NotThreadSafe)(.*[\r\n])*.*(class|enum) [a-zA-Z0-9\s&lt;&gt;\[\],\./*?]* \{)" />
+				value="(interface [a-zA-Z0-9\s&lt;&gt;&amp;\[\],\./*?]* \{|(@Immutable|@ThreadSafe|@NotThreadSafe)(.*[\r\n])*.*(class|enum) [a-zA-Z0-9\s&lt;&gt;&amp;\[\],\./*?]* \{)" />
 			<property name="message"
 				value="Classes should be annotated with @Immutable, @ThreadSafe or @NotThreadSafe" />
 			<property name="illegalPattern" value="false" />
