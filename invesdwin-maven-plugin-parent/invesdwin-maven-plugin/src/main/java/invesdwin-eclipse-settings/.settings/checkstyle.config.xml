@@ -230,6 +230,10 @@
 			<property name="message" value="Use URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format" value="new\s+(ReentrantLock|ReentrantReadWriteLock)\(" />
+			<property name="message" value="Use Threads.getCycleDetectingLockFactory().new... instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+NoSuchElementException\(" />
 			<property name="message" value="Use FastNoSuchElementException instead" />
 		</module>
