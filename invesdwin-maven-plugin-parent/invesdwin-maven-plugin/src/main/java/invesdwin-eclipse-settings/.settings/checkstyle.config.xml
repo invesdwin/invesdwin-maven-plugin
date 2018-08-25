@@ -231,7 +231,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+(ReentrantLock|ReentrantReadWriteLock)\(" />
-			<property name="message" value="Use Threads.getCycleDetectingLockFactory().new... instead" />
+			<property name="message" value="Use Locks.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+NoSuchElementException\(" />
