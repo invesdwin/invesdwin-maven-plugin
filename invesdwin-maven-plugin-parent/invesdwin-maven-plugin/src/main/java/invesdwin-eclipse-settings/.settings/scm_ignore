@@ -22,3 +22,4 @@ bin
 **/.~lock.*
 .pydevproject
 Report_*.java
+octave-workspace
