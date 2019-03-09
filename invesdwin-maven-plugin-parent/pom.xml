@@ -28,7 +28,6 @@
 		<version.compiler>1.6</version.compiler>
 
 		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
-		<version.maven-shade-plugin>3.1.0</version.maven-shade-plugin>
 		<version.jsonschema2pojo>0.5.1</version.jsonschema2pojo>
 	</properties>
 
@@ -37,7 +36,6 @@
 			<dependency>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>${version.maven-shade-plugin}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
