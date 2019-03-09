@@ -34,11 +34,6 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
 				<groupId>de.invesdwin</groupId>
 				<artifactId>invesdwin-maven-plugin-util</artifactId>
 				<version>${project.version}</version>
