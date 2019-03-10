@@ -375,6 +375,12 @@
 			<property name="message" value="Maybe you wanted de.invesdwin...*.Eager?" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="(void finalize\(\)|import\s+io\.netty\.util\.internal\.ObjectCleaner;|import\s+java\.lang\.ref\.Cleaner;)" />
+			<property name="message" value="Use de.invesdwin...*.CleanableManager instead" />
+		</module>
+		
+		<module name="RegexpSinglelineJava">
 			<!-- https://jira.springsource.org/browse/SPR-9616 -->
 			<property name="format"
 				value="import\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider;" />
