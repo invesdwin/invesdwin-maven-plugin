@@ -377,7 +377,7 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="(void finalize\(\)|import\s+io\.netty\.util\.internal\.ObjectCleaner;|import\s+java\.lang\.ref\.Cleaner;)" />
-			<property name="message" value="Use de.invesdwin...*.CleanableManager instead" />
+			<property name="message" value="Use de.invesdwin...*.FinalizerManager instead" />
 		</module>
 		
 		<module name="RegexpSinglelineJava">
