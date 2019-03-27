@@ -315,6 +315,15 @@
 			<property name="message" value="Use SystemProperties.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format" value="IOUtils\.closeQuietly\(\)" />
+			<property name="message" value="Use de.invesdwin...Closeables.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Closeables);" />
+			<property name="message" value="Use de.invesdwin...Closeables instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format" value="&quot;.*\{\}.*&quot;" />
 			<property name="message" value="Use %s instead" />
 		</module>
