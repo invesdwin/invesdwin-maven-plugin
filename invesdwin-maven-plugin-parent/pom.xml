@@ -29,8 +29,6 @@
 
 		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
 		<version.jsonschema2pojo>0.5.1</version.jsonschema2pojo>
-		
-		 <maven.javadoc.skip>true</maven.javadoc.skip>
 	</properties>
 
 	<dependencyManagement>
