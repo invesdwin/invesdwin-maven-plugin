@@ -3,11 +3,11 @@
 	<parent>
 		<groupId>de.invesdwin</groupId>
 		<artifactId>invesdwin-bom</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>invesdwin-maven-plugin-parent</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -131,7 +131,7 @@
 	<scm>
 		<url>https://github.com/subes/invesdwin-maven-plugin</url>
 		<connection>scm:git:https://github.com/subes/invesdwin-maven-plugin.git</connection>
-		<tag>HEAD</tag>
+		<tag>invesdwin-maven-plugin-parent-1.0.3</tag>
 	</scm>
 
 </project>
