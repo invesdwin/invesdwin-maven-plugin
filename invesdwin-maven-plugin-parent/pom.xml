@@ -131,5 +131,10 @@
 		<connection>scm:git:https://github.com/subes/invesdwin-maven-plugin.git</connection>
 		<tag>HEAD</tag>
 	</scm>
+	
+	<ciManagement>
+		<system>jenkins</system>
+		<url>https://invesdwin.de/jenkins/job/dgr-deploy-invesdwin-maven-plugin/</url>
+	</ciManagement>
 
 </project>
