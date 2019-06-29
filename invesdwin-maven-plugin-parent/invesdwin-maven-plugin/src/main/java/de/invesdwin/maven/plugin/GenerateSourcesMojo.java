@@ -87,11 +87,6 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 				}
 
 				@Override
-				public boolean isUseCommonsLang3() {
-					return true;
-				}
-
-				@Override
 				public boolean isIncludeJsr303Annotations() {
 					return true;
 				}
