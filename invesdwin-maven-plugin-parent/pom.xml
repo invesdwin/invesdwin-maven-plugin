@@ -23,6 +23,8 @@
 	</licenses>
 
 	<properties>
+		<project.version.invesdwin-maven-plugin>${project.version}</project.version.invesdwin-maven-plugin>
+	
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<version.compiler>1.6</version.compiler>
@@ -36,7 +38,7 @@
 			<dependency>
 				<groupId>de.invesdwin</groupId>
 				<artifactId>invesdwin-maven-plugin-util</artifactId>
-				<version>${project.version}</version>
+				<version>${project.version.invesdwin-maven-plugin}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jsonschema2pojo</groupId>
