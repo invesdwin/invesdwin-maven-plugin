@@ -16,7 +16,7 @@ Dependency declaration:
 <plugin>
 	<groupId>de.invesdwin</groupId>
 	<artifactId>invesdwin-maven-plugin</artifactId>
-	<version>1.0.4</version><!---version.invesdwin-maven-plugin-parent-->
+	<version>1.0.5</version><!---version.invesdwin-maven-plugin-parent-->
 	<executions>
 		<execution>
 			<goals>
