@@ -249,7 +249,13 @@
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Dates|DateUtil(s)?);" />
 			<property name="message"
-				value="Use de.invesdwin...FDate instead" />
+				value="Use de.invesdwin...FDates instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Files|FileUtil(s)?);" />
+			<property name="message"
+				value="Use de.invesdwin...Files instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="InetAddress\.getByName\(" />
