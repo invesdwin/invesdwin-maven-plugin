@@ -383,6 +383,12 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="import\s+(?!de\.invesdwin).*TextDescription;" />
+			<property name="message"
+				value="Use de.invesdwin...TextDescription instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+(?!de\.invesdwin).*Instant;" />
 			<property name="message"
 				value="Use de.invesdwin...Instant instead" />
