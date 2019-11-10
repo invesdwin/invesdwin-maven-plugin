@@ -232,7 +232,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="new\s+(ReentrantLock|ReentrantReadWriteLock)\(" />
+				value="new\s+(ReentrantLock|ReentrantReadWriteLock|CompositeLock)\(" />
 			<property name="message" value="Use Locks.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
