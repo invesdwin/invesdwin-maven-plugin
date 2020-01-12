@@ -355,9 +355,15 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="(SwingUtilities|EventQueue)\.(invokeLater|invokeAndWait)" />
+				value="(SwingUtilities|EventQueue)\.(invokeLater|invokeAndWait|isDispatchThread)" />
 			<property name="message"
 				value="Use EventDispatchThreadUtil.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="(Platform|PlatformImpl)\.(runLater|runAndWait|isFxApplicationThread)" />
+			<property name="message"
+				value="Use FxApplicationThreadUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="import\s+.*OptionPane;" />
