@@ -207,9 +207,8 @@
 		<module name="ClassDataAbstractionCoupling">
 			<property name="max" value="40" />
 		</module>
-		<!-- <module name="IllegalType">
-			<property name="illegalAbstractClassNameFormat" value="null" />
-		</module>-->
+		<!-- <module name="IllegalType"> <property name="illegalAbstractClassNameFormat" 
+			value="null" /> </module> -->
 
 		<!-- Miscellaneous other checks. -->
 		<!-- See http://checkstyle.sf.net/config_misc.html -->
@@ -303,7 +302,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.google\.common\.base\.Strings|.*\.StringUtil(s)?);" />
+				value="import\s+(com\.google\.common\.base\.Strings|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil)(s)?);" />
 			<property name="message" value="Use Strings.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
