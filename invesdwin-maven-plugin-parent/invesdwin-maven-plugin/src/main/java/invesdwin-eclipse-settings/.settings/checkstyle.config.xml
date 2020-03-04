@@ -484,9 +484,9 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="TimeZone\.getTimeZone\(" />
+			<property name="format" value="(TimeZone\.getTimeZone\(|ZoneId\.of\()" />
 			<property name="message"
-				value="Use de.invesdwin...TimeZones.getTimeZone(...) instead" />
+				value="Use de.invesdwin...TimeZones instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
