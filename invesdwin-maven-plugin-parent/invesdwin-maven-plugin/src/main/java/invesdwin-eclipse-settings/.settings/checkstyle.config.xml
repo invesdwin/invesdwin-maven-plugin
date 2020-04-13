@@ -261,6 +261,14 @@
 			<property name="message" value="Use NetworkUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format" value="String\.format\(" />
+			<property name="message" value="Use de.invesdwin...TextDescription.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="Strings\.split\(" />
+			<property name="message" value="Use splitPreserveAllTokens instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+(com\.mysql\.stereotype\..*|org.springframework.stereotype\.(Component|Repository));" />
 			<property name="message" value="Use @Named instead" />
