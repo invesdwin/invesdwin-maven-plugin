@@ -199,7 +199,7 @@
 		</module>
 		<module name="NPathComplexity" />
 		<module name="JavaNCSS">
-			<property name="methodMaximum" value="100" />
+			<property name="methodMaximum" value="150" />
 		</module>
 		<module name="ClassFanOutComplexity">
 			<property name="max" value="80" />
