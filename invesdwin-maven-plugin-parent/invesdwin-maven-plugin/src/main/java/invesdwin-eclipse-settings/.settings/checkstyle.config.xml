@@ -384,6 +384,12 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="Double.(MIN|MAX)_VALUE;" />
+			<property name="message"
+				value="Use de.invesdwin...Doubles.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Booleans|Bytes|Characters|Chars|Shorts|Ints|Integers|Longs|Floats|Doubles|BigIntegers|BigDecimals);" />
 			<property name="message"
 				value="Use de.invesdwin...* instead" />
