@@ -143,7 +143,14 @@ cd invesdwin-oss
 		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
-	* [Checkstyle]
+		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after auto make
+	* [Checkstyle](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) and configure
+		* File -> Preferences -> Tools -> Checkstyle -> Third-Party Checks -> [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin).jar
+		* Download [checkstyle.config.suppression.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.suppression.xml) and [checkstyle.config.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.xml)
+		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml `
+		* set `config_loc` property to the path where `checkstyle.config.suppression.xml` resides
+		* activate the new configuration file (checkbox column)
+		* (it might be interesting to switch to SonarLint plugin in the future)
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 * To enable automatic builds configure (not recommended, does not work when delegating build to maven)
