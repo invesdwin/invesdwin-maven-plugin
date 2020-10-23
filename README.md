@@ -126,12 +126,16 @@ cd invesdwin-oss
 	* or use Project Explorer instead
 * In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
+* Change some general settings
+	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling
+	* Window -> Preferences -> General -> Show heap status
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
 	* or use `mr commit` or direct git commands per project/repository on the console
 * You can configure IntelliJ Keymap if desired using [this plugin](https://github.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse)
 	* with Eclipse Keymap on macOS `CTRL+SPACE` might require remapping so that code completion becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
+* Some modules do not support getting resolved from inside Eclipse, you can resolve them from the maven repository instead by closing or removing the project in eclipse. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. Though normally the pom.xml contains hints/tips like this for specific modules that require workarounds like this.
 
 ## IntelliJ Tips
 
@@ -141,31 +145,44 @@ cd invesdwin-oss
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
 		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+		* Remove any: File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*'
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
-		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
-		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after auto make
+		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after compile
+		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after auto make
+		* File -> Preferences -> Tools -> SpotBugs -> Analysis Effort -> Minimal
 	* [Checkstyle](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) and configure
 		* File -> Preferences -> Tools -> Checkstyle -> Third-Party Checks -> [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin).jar
 		* Download [checkstyle.config.suppression.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.suppression.xml) and [checkstyle.config.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.xml)
 		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml `
 		* set `config_loc` property to the path where `checkstyle.config.suppression.xml` resides
 		* activate the new configuration file (checkbox column)
-		* (it might be interesting to switch to SonarLint plugin in the future because intellij does not run checkstyle during IDE builds, instead it needs to be invoked manually)
-* To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
-* You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
-* To enable automatic builds configure (not recommended, does not work when delegating build to maven)
+* To prevent import errors for `sun.misc.Unsafe` uncheck: 
+	* File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
+* You can configure Eclipse Keymap if desired via: 
+	* File -> Settings -> Keymap -> Eclipse
+* To enable automatic builds configure
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
-	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
+* Some modules do not support getting resolved from inside IntelliJ. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. You can resolve them from the maven repository instead by ignoring the project in IntelliJ:
+	* Right Click Project -> Maven -> Ignore Project -> Yes
+        * then Right Click Parent Project -> Maven -> Reload Project
 
 ### IntelliJ Annotation Processing
-Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
+Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
+* Use Eclipse compiler (more robust with errors): File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
 * Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
 	* OR just uncheck "Enable annotation processing" for all modules individually.
-	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
-* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
+	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: 
+		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
+* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: 
+	* Right Click Root Project -> Maven -> Generate Sources and Update Folders
+* Reported Bugs: 
+	* https://youtrack.jetbrains.com/issue/IDEA-253719
+	* https://youtrack.jetbrains.com/issue/IDEA-253720
 
 Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
