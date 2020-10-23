@@ -199,9 +199,9 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven -> Check
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests -> Check
-Then speed up build by enabling parallel maven builds
-* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
-	* "1C" stands for one thread per available cpu core
+* Then speed up build by enabling parallel maven builds
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
+		* "1C" stands for one thread per available cpu core
 
 ## Support
 
