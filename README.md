@@ -140,12 +140,16 @@ cd invesdwin-oss
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-	* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
 	* [Checkstyle]
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
+* To enable automatic builds configure
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
+	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
 
 ## Support
 
