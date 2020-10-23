@@ -143,13 +143,36 @@ cd invesdwin-oss
 		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
-	* [Checkstyle]
+		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after auto make
+	* [Checkstyle](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) and configure
+		* File -> Preferences -> Tools -> Checkstyle -> Third-Party Checks -> [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin).jar
+		* Download [checkstyle.config.suppression.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.suppression.xml) and [checkstyle.config.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.xml)
+		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml `
+		* set `config_loc` property to the path where `checkstyle.config.suppression.xml` resides
+		* activate the new configuration file (checkbox column)
+		* (it might be interesting to switch to SonarLint plugin in the future because intellij does not run checkstyle during IDE builds, instead it needs to be invoked manually)
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
-* To enable automatic builds configure
+* To enable automatic builds configure (not recommended, does not work when delegating build to maven)
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
+
+### IntelliJ Annotation Processing
+Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
+* Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
+* Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
+	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
+	* OR just uncheck "Enable annotation processing" for all modules individually.
+	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
+* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
+
+Alternatively you can use Maven for building in IntelliJ by checking:
+* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
+* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests
+Then speed up build by enabling parallel maven builds
+* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
+	* "1C" stands for one thread per available cpu core
 
 ## Support
 
