@@ -42,6 +42,115 @@ The plugins has the following goals which you can include/exclude:
 * `generate-sources`: this generates a helper class with which the JAXB context finds out about XSD files used by the invesdwin platform
 * `compile`: this sets up checkstyle and findbugs builder and nature for this eclipse project
 
+## Handling Multiple Projects/Repositories
+* Check out individual git repos and create a parent pom to build them all in one go:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.invesdwin</groupId>
+	<artifactId>invesdwin-build-all</artifactId>
+	<version>0.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<!-- list all projects here -->
+		<module>invesdwin-oss</module>
+        	<module>invesdwin-trading/invesdwin-trading-parent</module>
+        	<module>invesdwin-trading-test/invesdwin-trading-backtest-test</module>
+        	<module>invesdwin-trading-jforex/invesdwin-trading-jforex-parent</module>
+        	<module>invesdwin-trading-fxcm/invesdwin-trading-fxcm-parent</module>
+        	<module>invesdwin-trading-metatrader/invesdwin-trading-metatrader-parent</module>
+        	<module>orbox/orbox-parent</module>
+        	<module>irisalpha/irisalpha-parent</module>
+  	</modules>
+
+</project>
+```
+* Install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
+	* run `mr register <PROJECT_FOLDER>` for each repository
+	* with that you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
+	* edit `.mrconfig` as below
+```sh
+# use special update scripts for invesdwin-oss that properly handle git submodules
+[/ABSOLUTE/PATH/TO/invesdwin/invesdwin-oss]
+update = bash pull.sh
+push = bash push.sh
+commit = bash commit.sh
+checkout = git clone 'https://github.com/subes/invesdwin-oss.git' 'invesdwin-oss'
+# private repos might require credentials in the URL to allow checkout (otherwise 404 might be returned)
+[/ABSOLUTE/PATH/TO/invesdwin-trading]
+checkout = git clone 'https://<USERNAME>:<PASSWORD>@github.com/subes/invesdwin-trading.git' 'invesdwin-trading'
+```
+
+* Alternatively on Windows
+	* install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
+	* use a pull script like this:
+```sh
+#! /bin/bash
+
+for dir in *
+do
+  test "dependencies" = "$dir" && continue
+  test -d "$dir" || continue
+  echo -- $dir
+  cd $dir
+
+  git pull
+
+  cd ..
+done
+
+cd invesdwin-oss
+./pull.sh
+```
+* To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
+* There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
+
+## Eclipse Tips
+* Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
+	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): `apt install alacarte`
+	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
+* Install Plugins
+	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
+		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
+	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
+	* [spring tool suite 4](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
+	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
+	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
+* Prefer Java Perspective over JEE Perspective (top right buttons)
+* In Package Explorer configure (three dots)
+	* Top Level Elemements -> Working Sets
+	* Package Presentation -> Hierarchical
+	* or use Project Explorer instead
+* In Problems View configure (three dots)
+	* Show -> Show All (default in Java Perspective)
+* Import each project into a separate Working Set
+	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
+	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
+	* or use `mr commit` or direct git commands per project/repository on the console
+* You can configure IntelliJ Keymap if desired using [this plugin](https://github.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse)
+	* with Eclipse Keymap on macOS `CTRL+SPACE` might require remapping so that code completion becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
+
+## IntelliJ Tips
+
+* Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
+* Install plugins
+	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
+		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
+	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
+		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
+		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
+	* [Checkstyle]
+* To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
+* You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
+* To enable automatic builds configure
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
+	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
+
 ## Support
 
 If you need further assistance or have some ideas for improvements and don't want to create an issue here on github, feel free to start a discussion in our [invesdwin-platform](https://groups.google.com/forum/#!forum/invesdwin-platform) mailing list.
