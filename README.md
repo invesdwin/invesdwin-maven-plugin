@@ -119,8 +119,10 @@ cd invesdwin-oss
 	* With that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* Except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
 	* Or use `mr commit` or direct git commands per project/repository on the console
+* You can configure IntelliJ keymaps using [this plugin](https://github.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse)
+	* On macOS `CTRL+SPACE` might require remapping so that "Content Assist" (aka code completion or intellisense) becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
 
-## Intellij Tips
+## IntelliJ Tips
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
 * Install Eclipse-Code-Formatter and [follow instructions](https://github.com/krasa/EclipseCodeFormatter#instructions):
@@ -135,6 +137,7 @@ cd invesdwin-oss
 	* Add missing @Override annotations
 	* Remove unnecessary semicolon
 	* And/Or "Use external Eclipse configuration file (.epf): [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+* You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 
 ## Support
 
