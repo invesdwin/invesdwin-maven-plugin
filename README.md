@@ -146,6 +146,13 @@ cd invesdwin-oss
 	* [Checkstyle]
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
+* Sadly annotation processing IntelliJ is buggy and aborts with invalid compilation errors. The only workaround seems to be using maven generating classes and disabling annotation processing completely in IntelliJ
+	* Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
+	* Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
+		* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
+		* OR just uncheck "Enable annotation processing" for all modules individually.
+		* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules.
+	* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
 * To enable automatic builds configure
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
