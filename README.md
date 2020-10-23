@@ -146,7 +146,7 @@ cd invesdwin-oss
 	* [Checkstyle]
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
-* To enable automatic builds configure (not recommended)
+* To enable automatic builds configure (not recommended, does not work when delegating build to maven)
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
