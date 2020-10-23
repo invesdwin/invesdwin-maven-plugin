@@ -144,6 +144,7 @@ cd invesdwin-oss
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
 	* [Checkstyle]
+* To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 
 ## Support
