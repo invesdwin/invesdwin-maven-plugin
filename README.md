@@ -151,7 +151,7 @@ cd invesdwin-oss
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
 
-### Annotation Processing in IntelliJ
+### IntelliJ Annotation Processing
 Sadly annotation processing IntelliJ is buggy and aborts with invalid compilation errors. The only workaround seems to be using maven generating classes and disabling annotation processing completely in IntelliJ
 	* Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
 	* Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
@@ -159,6 +159,13 @@ Sadly annotation processing IntelliJ is buggy and aborts with invalid compilatio
 		* OR just uncheck "Enable annotation processing" for all modules individually.
 		* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
 	* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
+
+Alternatively you can use Maven for building in IntelliJ by checking
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests
+Then speed up build by enabling parallel maven builds
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> "C"
+		* C means one thread per available cpu core
 
 ## Support
 
