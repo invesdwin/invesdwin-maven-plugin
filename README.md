@@ -127,11 +127,9 @@ cd invesdwin-oss
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
 * Install Eclipse-Code-Formatter and [follow instructions](https://github.com/krasa/EclipseCodeFormatter#instructions):
-	* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")
-	* use "Optimize Imports from File" as [<SOME_PROJECT>/.settings/org.eclipse.jdt.ui.prefs](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
+	* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 * Install [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-	* Use external Eclipse configuration file (.epf): [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
-	* this imports the configuration
+	* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 
 ## Support
