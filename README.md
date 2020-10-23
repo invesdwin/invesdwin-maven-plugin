@@ -187,7 +187,7 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 * File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
-	* OR just uncheck "Enable annotation processing" for all modules individually.
+	* OR just uncheck "Enable annotation processing" for all profiles individually.
 	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by: 
 		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts -> Uncheck
 * Run `mvn clean generate-sources` from command line or do it in IntelliJ via: 
