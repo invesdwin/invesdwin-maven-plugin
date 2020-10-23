@@ -70,7 +70,8 @@ The plugins has the following goals which you can include/exclude:
 ```
 * Install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
 	* run `mr register <PROJECT_FOLDER>` for each reposity
-	* edit `.mrconfig`:
+	* with that you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
+	* edit `.mrconfig` as below
 ```sh
 # use special update scripts for invesdwin-oss that properly handle git submodules
 [/ABSOLUTE/PATH/TO/invesdwin/invesdwin-oss]
@@ -78,11 +79,11 @@ update = bash pull.sh
 push = bash push.sh
 commit = bash commit.sh
 checkout = git clone 'https://github.com/subes/invesdwin-oss.git' 'invesdwin-oss'
-# private repos might require credentials in the URL
+# private repos might require credentials in the URL to allow checkout (otherwise 404 might be returned)
 [/ABSOLUTE/PATH/TO/invesdwin-trading]
 checkout = git clone 'https://<USERNAME>:<PASSWORD>@github.com/subes/invesdwin-trading.git' 'invesdwin-trading'
 ```
-	* now you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
+
 * Alternatively on Windows
 	* Install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
 	* use a pull script like this:
