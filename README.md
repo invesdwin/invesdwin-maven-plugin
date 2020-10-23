@@ -69,7 +69,7 @@ The plugins has the following goals which you can include/exclude:
 </project>
 ```
 * Install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
-	* run `mr register <PROJECT_FOLDER>` for each reposity
+	* run `mr register <PROJECT_FOLDER>` for each repository
 	* with that you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
 	* edit `.mrconfig` as below
 ```sh
