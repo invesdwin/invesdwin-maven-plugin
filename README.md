@@ -175,8 +175,10 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
 	* OR just uncheck "Enable annotation processing" for all modules individually.
-	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
-* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
+	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: 
+		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
+* Run `mvn clean generate-sources` from command line or do it in IntelliJ via: 
+	* Right Click Root Project -> Maven -> Generate Sources and Update Folders
 * Reported Bugs: 
 	* https://youtrack.jetbrains.com/issue/IDEA-253719
 	* https://youtrack.jetbrains.com/issue/IDEA-253720
