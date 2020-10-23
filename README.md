@@ -144,10 +144,16 @@ cd invesdwin-oss
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 		* Remove any: File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*'
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
+		* File -> Preferences -> Other Settings -> Save Actions -> Activate save actions on save
+		* File -> Preferences -> Other Settings -> Save Actions -> Optimize imports
+		* File -> Preferences -> Other Settings -> Save Actions -> Reformat file
+		* File -> Preferences -> Other Settings -> Save Actions -> Add final modifier to field
+		* File -> Preferences -> Other Settings -> Save Actions -> Add final modifier to local variable or parameter except if it is implicit
+		* File -> Preferences -> Other Settings -> Save Actions -> Add missing @Override annotations
+		* File -> Preferences -> Other Settings -> Save Actions -> Add blocks to if/while/for statements
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after compile
 		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after auto make
