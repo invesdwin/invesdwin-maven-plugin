@@ -132,6 +132,7 @@ cd invesdwin-oss
 	* or use `mr commit` or direct git commands per project/repository on the console
 * You can configure IntelliJ Keymap if desired using [this plugin](https://github.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse)
 	* with Eclipse Keymap on macOS `CTRL+SPACE` might require remapping so that code completion becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
+* Some modules do not support getting resolved from inside Eclipse, you can resolve them from the maven repository instead by closing or removing the project in eclipse. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. Though normally the pom.xml contains hints/tips like this for specific modules that require workarounds like this.
 
 ## IntelliJ Tips
 
@@ -157,6 +158,9 @@ cd invesdwin-oss
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
+* Some modules do not support getting resolved from inside IntelliJ. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. You can resolve them from the maven repository instead by ignoring the project in IntelliJ:
+	* Right Click Project -> Maven -> Ignore Project -> Yes
+        * then Right Click Parent Project -> Maven -> Reload Project
 
 ### IntelliJ Annotation Processing
 Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
