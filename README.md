@@ -149,7 +149,7 @@ cd invesdwin-oss
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*' -> Remove any
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*' -> Remove All
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
 		* File -> Preferences -> Other Settings -> Save Actions -> Activate save actions on save -> Check
