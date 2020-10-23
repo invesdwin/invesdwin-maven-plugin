@@ -159,7 +159,7 @@ cd invesdwin-oss
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
 
 ### IntelliJ Annotation Processing
-Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
+Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
 * Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
