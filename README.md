@@ -110,9 +110,9 @@ cd invesdwin-oss
 
 ## Eclipse Tips
 * Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
-	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): apt install alacarte
+	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): `apt install alacarte`
 	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
-* Install Eclipse Plugins
+* Install Plugins
 	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
 	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
@@ -120,11 +120,11 @@ cd invesdwin-oss
 	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
 	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
-* In Package Explorer configure (three dots):
+* In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
 	* Package Presentation -> Hierarchical
 	* or use Project Explorer instead
-* In Problems View configure (three dots):
+* In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
@@ -136,10 +136,14 @@ cd invesdwin-oss
 ## IntelliJ Tips
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
-* Install Eclipse-Code-Formatter and [follow instructions](https://github.com/krasa/EclipseCodeFormatter#instructions):
-	* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
-* Install [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
+* Install plugins
+	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
+		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
+	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
 	* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
+		* File -> Preferences -> Tools -> SpotBugs -> Analyze affected files after compile
+	* [Checkstyle]
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 
 ## Support
