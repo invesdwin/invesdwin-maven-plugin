@@ -164,8 +164,8 @@ Alternatively you can use Maven for building in IntelliJ by checking
 	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
 	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests
 Then speed up build by enabling parallel maven builds
-	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> "C"
-		* C means one thread per available cpu core
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
+		* "1C" stands for one thread per available cpu core
 
 ## Support
 
