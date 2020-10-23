@@ -105,17 +105,26 @@ done
 cd invesdwin-oss
 ./pull.sh
 ```
+* To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
+* There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
 
 ## Eclipse Tips
+* Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
+	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): apt install alacarte
+	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
+* Install Eclipse Plugins
+	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
+		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
+	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
+	* [spring tool suite](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
+	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
+* Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots):
 	* Top Level Elemements -> Working Sets
 	* Package Presentation -> Hierarchical
 	* or use Project Explorer instead
-* Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Problems View configure (three dots):
 	* Show -> Show All (default in Java Perspective)
-* Install Eclipse Plugins that are mentioned at the top
-	* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
