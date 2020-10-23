@@ -42,6 +42,100 @@ The plugins has the following goals which you can include/exclude:
 * `generate-sources`: this generates a helper class with which the JAXB context finds out about XSD files used by the invesdwin platform
 * `compile`: this sets up checkstyle and findbugs builder and nature for this eclipse project
 
+## Handling Multiple Projects
+* Check out individual git repos and create a parent pom to build them all in one go:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.invesdwin</groupId>
+	<artifactId>invesdwin-build-all</artifactId>
+	<version>0.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<!-- list all projects here -->
+		<module>invesdwin-oss</module>
+        	<module>invesdwin-trading/invesdwin-trading-parent</module>
+        	<module>invesdwin-trading-test/invesdwin-trading-backtest-test</module>
+        	<module>invesdwin-trading-jforex/invesdwin-trading-jforex-parent</module>
+        	<module>invesdwin-trading-fxcm/invesdwin-trading-fxcm-parent</module>
+        	<module>invesdwin-trading-metatrader/invesdwin-trading-metatrader-parent</module>
+        	<module>orbox/orbox-parent</module>
+        	<module>irisalpha/irisalpha-parent</module>
+  	</modules>
+
+</project>
+```
+* Install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
+	* run `mr register <PROJECT_FOLDER>` for each reposity
+	* edit `.mrconfig`:
+```sh
+# use special update scripts for invesdwin-oss that properly handle git submodules
+[/ABSOLUTE/PATH/TO/invesdwin/invesdwin-oss]
+update = bash pull.sh
+push = bash push.sh
+commit = bash commit.sh
+checkout = git clone 'https://github.com/subes/invesdwin-oss.git' 'invesdwin-oss'
+# private repos might require credentials in the URL
+[/ABSOLUTE/PATH/TO/invesdwin-trading]
+checkout = git clone 'https://<USERNAME>:<PASSWORD>@github.com/subes/invesdwin-trading.git' 'invesdwin-trading'
+```
+	* now you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
+* Alternatively on Windows
+	* Install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
+	* use a pull script like this:
+```sh
+#! /bin/bash
+
+for dir in *
+do
+  test "dependencies" = "$dir" && continue
+  test -d "$dir" || continue
+  echo -- $dir
+  cd $dir
+
+  git pull
+
+  cd ..
+done
+
+cd invesdwin-oss
+./pull.sh
+```
+
+## Eclipse Tips
+* In Package Explorer configure (three dots):
+	* Top Level Elemements -> Working Sets
+	* Package Presentation -> Hierarchical
+	* or use Project Explorer instead
+* Prefer Java Perspective over JEE Perspective (top right buttons)
+* In Problems View configure (three dots):
+	* Show -> Show All (default in Java Perspective)
+* Install Eclipse Plugins that are mentioned at the top
+	* Also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
+* Import each project into a separate Working Set
+	* With that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
+	* Except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
+	* Or use `mr commit` or direct git commands per project/repository on the console
+
+## Intellij Tips
+
+* Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
+* Install Eclipse-Code-Formatter and [follow instructions](https://github.com/krasa/EclipseCodeFormatter#instructions):
+	* Use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")
+	* Optimize Imports from File as [<SOME_PROJECT>/.settings/org.eclipse.jdt.ui.prefs](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
+* Install [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
+	* Activate save actions on save
+	* Optimize imports
+	* Reformat file
+	* Add final modifier to field
+	* Add final modifier to local variable or parameter
+	* Add missing @Override annotations
+	* Remove unnecessary semicolon
+	* And/Or "Use external Eclipse configuration file (.epf): [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+
 ## Support
 
 If you need further assistance or have some ideas for improvements and don't want to create an issue here on github, feel free to start a discussion in our [invesdwin-platform](https://groups.google.com/forum/#!forum/invesdwin-platform) mailing list.
