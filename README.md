@@ -129,6 +129,7 @@ cd invesdwin-oss
 * Change some general settings
 	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling
 	* Window -> Preferences -> General -> Show heap status
+	* Window -> Preferences -> Java -> Editor -> Code Minings -> Show method parameter names 
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
