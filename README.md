@@ -159,7 +159,7 @@ cd invesdwin-oss
 	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
 
 ### IntelliJ Annotation Processing
-Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely in IntelliJ
+Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
 * Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
@@ -167,7 +167,7 @@ Sadly annotation processing IntelliJ is buggy (as of October 2020) and aborts wi
 	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
 * Run `mvn clean generate-sources` from command line or do it in IntelliJ via: Right Click Root Project -> Maven -> Generate Sources and Update Folders
 
-Alternatively you can use Maven for building in IntelliJ by checking
+Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests
 Then speed up build by enabling parallel maven builds
