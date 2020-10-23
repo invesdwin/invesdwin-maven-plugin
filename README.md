@@ -158,7 +158,6 @@ cd invesdwin-oss
 		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml `
 		* set `config_loc` property to the path where `checkstyle.config.suppression.xml` resides
 		* activate the new configuration file (checkbox column)
-		* (it might be interesting to switch to SonarLint plugin in the future because intellij does not run checkstyle during IDE builds, instead it needs to be invoked manually)
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 * To enable automatic builds configure
