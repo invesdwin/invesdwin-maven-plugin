@@ -154,10 +154,9 @@ cd invesdwin-oss
 		* (it might be interesting to switch to SonarLint plugin in the future because intellij does not run checkstyle during IDE builds, instead it needs to be invoked manually)
 * To prevent import errors for `sun.misc.Unsafe` uncheck: File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
-* To enable automatic builds configure (not recommended, does not work when delegating build to maven)
+* To enable automatic builds configure
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
-	* though be aware of additional cpu/memory consumption as this is not as efficient as in Eclipse
 * Some modules do not support getting resolved from inside IntelliJ. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. You can resolve them from the maven repository instead by ignoring the project in IntelliJ:
 	* Right Click Project -> Maven -> Ignore Project -> Yes
         * then Right Click Parent Project -> Maven -> Reload Project
