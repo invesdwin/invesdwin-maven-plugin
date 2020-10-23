@@ -126,6 +126,9 @@ cd invesdwin-oss
 	* or use Project Explorer instead
 * In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
+* Change some general settings
+	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling
+	* Window -> Preferences -> General -> Show heap status
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
@@ -142,6 +145,9 @@ cd invesdwin-oss
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
 		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+		* Remove any: File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*'
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
 		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after compile
 		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after auto make
