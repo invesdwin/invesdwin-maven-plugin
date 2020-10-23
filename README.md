@@ -116,8 +116,9 @@ cd invesdwin-oss
 	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
 	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [spring tool suite](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
+	* [spring tool suite 4](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
 	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
+	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots):
 	* Top Level Elemements -> Working Sets
