@@ -119,6 +119,9 @@ cd invesdwin-oss
 	* [spring tool suite 4](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
 	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
 	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
+	* [JDT CodeMining](https://github.com/angelozerr/jdt-codemining)
+		* Window -> Preferences -> Java -> Editor -> Code Minigs (Experimental) -> Method parameter -> Show parameter only for literal -> Uncheck
+		* Window -> Preferences -> Java -> Editor -> Code Minigs (Experimental) -> Debugging -> Show variable values inline while debugging -> Check
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
@@ -127,8 +130,10 @@ cd invesdwin-oss
 * In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
 * Change some general settings
-	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling
-	* Window -> Preferences -> General -> Show heap status
+	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling -> Check
+	* Window -> Preferences -> General -> Show heap status -> Check
+	* Window -> Preferences -> Java -> Editor -> Code Minings -> Show method parameter names -> Check
+	* Window -> Preferences -> General -> Editors -> Text Editors -> Show code minings for problem annotations -> Errors and Warnings
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
@@ -144,40 +149,47 @@ cd invesdwin-oss
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-		* Import configuration with "Use external Eclipse configuration file (.epf)": [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 		* Remove any: File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*'
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
+		* File -> Preferences -> Other Settings -> Save Actions -> Activate save actions on save -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Optimize imports -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Reformat file -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Add final modifier to field -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Add final modifier to local variable or parameter except if it is implicit -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Add missing @Override annotations -> Check
+		* File -> Preferences -> Other Settings -> Save Actions -> Add blocks to if/while/for statements -> Check
 	* [Spotbugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) and configure
-		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after compile
-		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after auto make
+		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after compile -> Check
+		* File -> Preferences -> Tools -> SpotBugs -> General -> Analyze affected files after auto make -> Check
 		* File -> Preferences -> Tools -> SpotBugs -> Analysis Effort -> Minimal
 	* [Checkstyle](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) and configure
 		* File -> Preferences -> Tools -> Checkstyle -> Third-Party Checks -> [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin).jar
 		* Download [checkstyle.config.suppression.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.suppression.xml) and [checkstyle.config.xml](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/checkstyle.config.xml)
-		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml `
+		* File -> Preferences -> Tools -> Checkstyle -> Configuration File -> Select the downloaded `checkstyle.config.xml`
 		* set `config_loc` property to the path where `checkstyle.config.suppression.xml` resides
 		* activate the new configuration file (checkbox column)
-* To prevent import errors for `sun.misc.Unsafe` uncheck: 
-	* File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later)
+* To prevent import errors for `sun.misc.Unsafe` 
+	* File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use '--release' option for cross compilation (Java 9 and later) -> Uncheck
 * You can configure Eclipse Keymap if desired via: 
 	* File -> Settings -> Keymap -> Eclipse
 * To enable automatic builds configure
-	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically
-	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically -> Check
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel -> Check
 * Some modules do not support getting resolved from inside IntelliJ. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. You can resolve them from the maven repository instead by ignoring the project in IntelliJ:
 	* Right Click Project -> Maven -> Ignore Project -> Yes
         * then Right Click Parent Project -> Maven -> Reload Project
 
 ### IntelliJ Annotation Processing
 Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
-* Use Eclipse compiler (more robust with errors): File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
-* Uncheck: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)
+* Use Eclipse compiler (more robust against errors): 
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
+* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
 	* OR just uncheck "Enable annotation processing" for all modules individually.
-	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by unchecking: 
-		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts
+	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by: 
+		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts -> Uncheck
 * Run `mvn clean generate-sources` from command line or do it in IntelliJ via: 
 	* Right Click Root Project -> Maven -> Generate Sources and Update Folders
 * Reported Bugs: 
@@ -185,8 +197,8 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 	* https://youtrack.jetbrains.com/issue/IDEA-253720
 
 Alternatively you can use Maven for building in IntelliJ by checking:
-* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven
-* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests
+* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven -> Check
+* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests -> Check
 Then speed up build by enabling parallel maven builds
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
 	* "1C" stands for one thread per available cpu core
