@@ -42,7 +42,7 @@ The plugins has the following goals which you can include/exclude:
 * `generate-sources`: this generates a helper class with which the JAXB context finds out about XSD files used by the invesdwin platform
 * `compile`: this sets up checkstyle and findbugs builder and nature for this eclipse project
 
-## Handling Multiple Projects
+## Handling Multiple Projects/Repositories
 * Check out individual git repos and create a parent pom to build them all in one go:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -85,7 +85,7 @@ checkout = git clone 'https://<USERNAME>:<PASSWORD>@github.com/subes/invesdwin-t
 ```
 
 * Alternatively on Windows
-	* Install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
+	* install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
 	* use a pull script like this:
 ```sh
 #! /bin/bash
@@ -115,20 +115,20 @@ cd invesdwin-oss
 * In Problems View configure (three dots):
 	* Show -> Show All (default in Java Perspective)
 * Install Eclipse Plugins that are mentioned at the top
-	* Also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
+	* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
 * Import each project into a separate Working Set
-	* With that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
-	* Except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
-	* Or use `mr commit` or direct git commands per project/repository on the console
+	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
+	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
+	* or use `mr commit` or direct git commands per project/repository on the console
 * You can configure IntelliJ keymaps using [this plugin](https://github.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse)
-	* On macOS `CTRL+SPACE` might require remapping so that "Content Assist" (aka code completion or intellisense) becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
+	* on macOS `CTRL+SPACE` might require remapping so that "Content Assist" (aka code completion or intellisense) becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
 
 ## IntelliJ Tips
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
 * Install Eclipse-Code-Formatter and [follow instructions](https://github.com/krasa/EclipseCodeFormatter#instructions):
-	* Use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")
-	* Optimize Imports from File as [<SOME_PROJECT>/.settings/org.eclipse.jdt.ui.prefs](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
+	* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")
+	* use "Optimize Imports from File" as [<SOME_PROJECT>/.settings/org.eclipse.jdt.ui.prefs](https://github.com/subes/invesdwin-maven-plugin/blob/master/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 * Install [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
 	* Activate save actions on save
 	* Optimize imports
@@ -137,7 +137,7 @@ cd invesdwin-oss
 	* Add final modifier to local variable or parameter
 	* Add missing @Override annotations
 	* Remove unnecessary semicolon
-	* And/Or "Use external Eclipse configuration file (.epf): [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
+	* and/or "Use external Eclipse configuration file (.epf): [eclipse_settings.epf](https://github.com/subes/invesdwin-maven-plugin/blob/master/eclipse_settings.epf)
 * You can configure Eclipse Keymap if desired via: File -> Settings -> Keymap -> Eclipse
 
 ## Support
