@@ -133,7 +133,6 @@ cd invesdwin-oss
 	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling -> Check
 	* Window -> Preferences -> General -> Show heap status -> Check
 	* Window -> Preferences -> Java -> Editor -> Code Minings -> Show method parameter names -> Check
-	* Window -> Preferences -> General -> Editors -> Text Editors -> Show code minings for problem annotations -> Errors and Warnings
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
@@ -149,7 +148,7 @@ cd invesdwin-oss
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
-		* Remove any: File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*'
+		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Packages to Use Import with '*' -> Remove All
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Class count to use import with '*' -> 99
 		* File -> Preferences -> Editor -> Code Style -> Java -> Imports -> Names count to use static import with '*' -> 99
 		* File -> Preferences -> Other Settings -> Save Actions -> Activate save actions on save -> Check
@@ -187,7 +186,7 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 * File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
-	* OR just uncheck "Enable annotation processing" for all modules individually.
+	* OR just uncheck "Enable annotation processing" for all profiles individually.
 	* Sadly this setting is not persistent in IntelliJ and needs to be reapplied after any maven related changes that cause a reload of the maven modules. This can be prevented by: 
 		* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Reload project after changes in build scripts -> Uncheck
 * Run `mvn clean generate-sources` from command line or do it in IntelliJ via: 
@@ -199,9 +198,9 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven -> Check
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests -> Check
-Then speed up build by enabling parallel maven builds
-* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
-	* "1C" stands for one thread per available cpu core
+* Then speed up build by enabling parallel maven builds
+	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
+		* "1C" stands for one thread per available cpu core
 
 ## Support
 
