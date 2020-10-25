@@ -119,9 +119,6 @@ cd invesdwin-oss
 	* [spring tool suite 4](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse)
 	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
 	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
-	* [JDT CodeMining](https://github.com/angelozerr/jdt-codemining)
-		* Window -> Preferences -> Java -> Editor -> Code Minigs (Experimental) -> Method parameter -> Show parameter only for literal -> Uncheck
-		* Window -> Preferences -> Java -> Editor -> Code Minigs (Experimental) -> Debugging -> Show variable values inline while debugging -> Check
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
