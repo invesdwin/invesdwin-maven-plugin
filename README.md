@@ -106,6 +106,7 @@ cd invesdwin-oss
 ./pull.sh
 ```
 * To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
+	* For connecting to private invesdwin services (e.g. financial data) you have to download this protected [<USER_HOME>/.invesdwin/system.properties](https://github.com/subes/invesdwin-continuous-integration/blob/master/system.properties.xml)
 * There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
 
 ## Eclipse Tips
