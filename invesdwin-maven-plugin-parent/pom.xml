@@ -141,24 +141,4 @@
 		<url>https://invesdwin.de/jenkins/job/dgr-deploy-invesdwin-maven-plugin/</url>
 	</ciManagement>
 
-	<profiles>
-		<profile>
-			<id>jacoco</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-						<configuration>
-							<skip>true</skip>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 </project>
