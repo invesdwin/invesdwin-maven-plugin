@@ -108,7 +108,7 @@ cd invesdwin-oss
 * To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
 	* For connecting to private invesdwin services (e.g. financial data) you have to download this protected [<USER_HOME>/.invesdwin/system.properties](https://github.com/subes/invesdwin-continuous-integration/blob/master/system.properties)
 	* There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
-	* Otherwise consider setting network timeouts (about 30000 ms) in your custom `settings.xml` to prevent hanging downloads: https://stackoverflow.com/a/27015320/67492 
+	* Otherwise consider setting network timeouts (at least 30000 ms) in your custom `settings.xml` to prevent hanging downloads: https://stackoverflow.com/a/27015320/67492 
 
 ## Eclipse Tips
 * Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
