@@ -326,6 +326,15 @@
 				value="new Task() is not allowed. Use ATask instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="CREATE_REFERENCE_FILE\s+=\s+true" />
+			<property name="message"
+				value="set this to false before committing" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		
+		
 		<module
 			name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
 			<property name="format"
