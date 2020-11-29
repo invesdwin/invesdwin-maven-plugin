@@ -2,7 +2,7 @@
 
 This plugin provides auto configuration for eclipse projects using the invesdwin platform standards. It automatically sets up [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug), [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin), [spring tool suite](https://marketplace.eclipse.org/content/spring-tool-suite-sts-eclipse), [moreunit](https://marketplace.eclipse.org/content/moreunit), save actions, code formatter and other things.
 
-When using the included checkstyle config, please make sure you have the [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) installed in eclipse or else you will get exceptions thrown in during checks.
+When using the included checkstyle config, please make sure you have the [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) installed in eclipse or else you will get exceptions thrown during checks.
 
 ## Maven
 
