@@ -25,3 +25,4 @@ Report_*.java
 octave-workspace
 hs_err_pid*.log
 *.Rout
+.apt*
