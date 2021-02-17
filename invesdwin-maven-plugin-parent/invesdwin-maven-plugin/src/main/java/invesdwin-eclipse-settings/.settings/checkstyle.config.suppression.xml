@@ -7,5 +7,6 @@
 <suppressions>
 	<suppress files="[\\/]test[\\/]" checks="(StrictDuplicateCode|FileLength)" />
 	<suppress files="[\\/]generated-sources[\\/]" checks="[a-zA-Z0-9]*"/>
-	<suppress files="[\\/].apt_generated_tests[\\/]" checks="[a-zA-Z0-9]*"/>
+	<suppress files="[\\/]generated-test-sources[\\/]" checks="[a-zA-Z0-9]*"/>
+	<suppress files=".apt_generated_tests[\\/]" checks="[a-zA-Z0-9]*"/>
 </suppressions>
