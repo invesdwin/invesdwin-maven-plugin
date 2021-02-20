@@ -310,7 +310,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.google\.common\.base\.Strings|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
+				value="import\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
 			<property name="message" value="Use Strings.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
