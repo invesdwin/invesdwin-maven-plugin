@@ -43,6 +43,9 @@ The plugins has the following goals which you can include/exclude:
 * `compile`: this sets up checkstyle and findbugs builder and nature for this eclipse project
 
 ## Handling Multiple Projects/Repositories
+
+* Install [git-lfs](https://git-lfs.github.com/): `apt install git-lfs`
+	* some repos require this, otherwise large files might stay empty after cloning 
 * Check out individual git repos and create a parent pom to build them all in one go:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -105,7 +108,6 @@ done
 cd invesdwin-oss
 ./pull.sh
 ```
-* Install [git-lfs](https://git-lfs.github.com/): `apt install git-lfs`
 * To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
 	* For connecting to private invesdwin services (e.g. financial data) you have to download this protected [<USER_HOME>/.invesdwin/system.properties](https://github.com/subes/invesdwin-continuous-integration/blob/master/system.properties)
 	* There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
