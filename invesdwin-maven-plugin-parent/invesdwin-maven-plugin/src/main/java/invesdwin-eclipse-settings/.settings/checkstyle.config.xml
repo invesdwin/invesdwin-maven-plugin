@@ -95,7 +95,10 @@
 		<module name="MethodLength">
 			<property name="max" value="300" />
 		</module>
-		<module name="ParameterNumber" />
+		<module name="ParameterNumber">
+			<property name="max" value="15" />
+			<property name="ignoreOverriddenMethods" value="true" />
+		</module>
 		<module name="AnonInnerLength">
 			<property name="max" value="300" />
 		</module>
@@ -262,11 +265,13 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="String\.format\(" />
-			<property name="message" value="Use de.invesdwin...TextDescription.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...TextDescription.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="Strings\.split\(" />
-			<property name="message" value="Use splitPreserveAllTokens instead" />
+			<property name="message"
+				value="Use splitPreserveAllTokens instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -334,14 +339,13 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
-			<property name="format"
-				value="DEBUG\s+=\s+true" />
+			<property name="format" value="DEBUG\s+=\s+true" />
 			<property name="message"
 				value="set this to false before committing" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		
-		
+
+
 		<module
 			name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
 			<property name="format"
@@ -399,8 +403,7 @@
 				value="Use de.invesdwin...* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="Double.(MIN|MAX)_VALUE;" />
+			<property name="format" value="Double.(MIN|MAX)_VALUE;" />
 			<property name="message"
 				value="Use de.invesdwin...Doubles.* instead" />
 		</module>
@@ -514,7 +517,8 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="(TimeZone\.getTimeZone\(|ZoneId\.of\()" />
+			<property name="format"
+				value="(TimeZone\.getTimeZone\(|ZoneId\.of\()" />
 			<property name="message"
 				value="Use de.invesdwin...TimeZones instead" />
 		</module>
