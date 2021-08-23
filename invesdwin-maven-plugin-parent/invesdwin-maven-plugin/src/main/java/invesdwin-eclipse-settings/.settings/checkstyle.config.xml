@@ -261,6 +261,12 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="import\s+java\.nio\.ByteBuffer;" />
+			<property name="message"
+				value="Use de.invesdwin...IByteBuffer instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Files|FileUtil(s)?);" />
 			<property name="message"
 				value="Use de.invesdwin...Files instead" />
