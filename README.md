@@ -139,9 +139,9 @@ cd invesdwin-oss
 	* Window -> Preferences -> Run/Debug -> Console -> Console buffer size (characters) -> 8000000
 * Remove annoying completions
 	* Window -> Preferences -> Java -> Appearance -> Type Filters -> Add
-		* ch.qos.logback.core.recovery.ResilientSyslogOutputStream
-		* org.assertj.*.Arrays
-		* org.assertj.*.Assertions
+		* `ch.qos.logback.core.recovery.ResilientSyslogOutputStream`
+		* `org.assertj.*.Arrays`
+		* `org.assertj.*.Assertions`
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
