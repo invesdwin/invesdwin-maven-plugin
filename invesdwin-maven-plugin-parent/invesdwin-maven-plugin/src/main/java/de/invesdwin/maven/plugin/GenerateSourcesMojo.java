@@ -24,17 +24,11 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.jsonschema2pojo.DefaultGenerationConfig;
 import org.jsonschema2pojo.GenerationConfig;
-import org.jsonschema2pojo.Jackson2Annotator;
 import org.jsonschema2pojo.Jsonschema2Pojo;
-import org.jsonschema2pojo.SchemaGenerator;
-import org.jsonschema2pojo.SchemaMapper;
-import org.jsonschema2pojo.SchemaStore;
-import org.jsonschema2pojo.rules.RuleFactory;
 import org.xml.sax.InputSource;
 import org.zeroturnaround.exec.ProcessExecutor;
 import org.zeroturnaround.exec.stream.slf4j.Slf4jStream;
 
-import com.sun.codemodel.JCodeModel;
 import com.sun.tools.xjc.XJCFacade;
 
 /**
@@ -80,7 +74,7 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		// </executions>
 		// </plugin>
 		try {
-			GenerationConfig config = new DefaultGenerationConfig() {
+			final GenerationConfig config = new DefaultGenerationConfig() {
 				@Override
 				public boolean isGenerateBuilders() {
 					return false;
@@ -155,16 +149,16 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 				public boolean isIncludeHashcodeAndEquals() {
 					return false;
 				}
-				
+
 				@Override
 				public boolean isIncludeDynamicBuilders() {
 					return false;
 				}
-				
+
 			};
 
-			Jsonschema2Pojo.generate(config);
-		} catch (Throwable t) {
+			Jsonschema2Pojo.generate(config, DisabledRuleLogger.INSTANCE);
+		} catch (final Throwable t) {
 			throw new RuntimeException(t);
 		}
 	}
@@ -173,22 +167,22 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		final List<String> args = new ArrayList<String>();
 		args.add("-extension");
 		args.add("-d");
-		File genDir = getGenDir();
+		final File genDir = getGenDir();
 		args.add(genDir.getAbsolutePath());
 		args.add("-b");
 		args.add(new File(getProject().getBasedir(), ".settings/invesdwin.xjb").getAbsolutePath());
 
 		boolean xsdFound = false;
 		final File[] xsdDirs = getXsdDirs();
-		for (File xsdDir : xsdDirs) {
-			File[] xsds = xsdDir.listFiles(new FilenameFilter() {
+		for (final File xsdDir : xsdDirs) {
+			final File[] xsds = xsdDir.listFiles(new FilenameFilter() {
 				@Override
-				public boolean accept(File dir, String name) {
+				public boolean accept(final File dir, final String name) {
 					return name.endsWith(".xsd");
 				}
 			});
 			if (xsds != null) {
-				for (File xsd : xsds) {
+				for (final File xsd : xsds) {
 					args.add(xsd.getAbsolutePath());
 					xsdFound = true;
 				}
@@ -199,23 +193,24 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 			try {
 				FileUtils.forceMkdir(genDir);
 				callXjcFacade(args);
-			} catch (Throwable e) {
+			} catch (final Throwable e) {
 				throw new MojoExecutionException("XJC args: " + args.toString(), e);
 			}
 		}
 	}
 
-	private void callXjcFacade(List<String> args) throws Exception {
-		final String javaExecutable = System.getProperty("java.home") + File.separator+"bin"+File.separator+"java";
+	private void callXjcFacade(final List<String> args) throws Exception {
+		final String javaExecutable = System.getProperty("java.home") + File.separator + "bin" + File.separator
+				+ "java";
 		final URLClassLoader classLoader = (URLClassLoader) Thread.currentThread().getContextClassLoader();
-		StringBuilder classpath = new StringBuilder();
+		final StringBuilder classpath = new StringBuilder();
 		for (final URL url : classLoader.getURLs()) {
 			if (classpath.length() > 0) {
 				classpath.append(File.pathSeparator);
 			}
 			classpath.append(new File(url.getFile()).getAbsolutePath());
 		}
-		List<String> command = new ArrayList<String>();
+		final List<String> command = new ArrayList<String>();
 		command.add(javaExecutable);
 		command.add("-classpath");
 		command.add(classpath.toString());
@@ -227,19 +222,19 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 	}
 
 	private void generateMergedJaxbContextPaths() {
-		File[] xsdDirs = getXsdDirs();
-		for (File xsdDir : xsdDirs) {
+		final File[] xsdDirs = getXsdDirs();
+		for (final File xsdDir : xsdDirs) {
 			if (xsdDir.exists()) {
-				XPath xpath = XPathFactory.newInstance().newXPath();
+				final XPath xpath = XPathFactory.newInstance().newXPath();
 				try {
-					for (File xsdFile : xsdDir.listFiles()) {
+					for (final File xsdFile : xsdDir.listFiles()) {
 						if (xsdFile.getName().endsWith(".xsd")) {
 							generateMergedJaxbContextPath(xpath, xsdFile);
 						}
 					}
-				} catch (XPathExpressionException e) {
+				} catch (final XPathExpressionException e) {
 					throw new RuntimeException(e);
-				} catch (IOException e) {
+				} catch (final IOException e) {
 					throw new RuntimeException(e);
 				}
 			}
@@ -247,42 +242,44 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 	}
 
 	private File[] getXsdDirs() {
-		File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
+		final File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
 				new File(getProject().getBasedir(), "src/main/java/META-INF/xsd") };
 		return xsdDirs;
 	}
 
 	private List<URL> getJsonschemaDirs() {
 		try {
-			File[] jsonschemaDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/jsonschema"),
+			final File[] jsonschemaDirs = {
+					new File(getProject().getBasedir(), "src/main/resources/META-INF/jsonschema"),
 					new File(getProject().getBasedir(), "src/main/java/META-INF/jsonschema") };
-			List<URL> existingDirs = new ArrayList<URL>();
-			for (File dir : jsonschemaDirs) {
+			final List<URL> existingDirs = new ArrayList<URL>();
+			for (final File dir : jsonschemaDirs) {
 				if (dir.exists()) {
 					existingDirs.add(dir.toURI().toURL());
 				}
 			}
 			return existingDirs;
-		} catch (MalformedURLException e) {
+		} catch (final MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	private void generateMergedJaxbContextPath(XPath xpath, File xsdFile) throws IOException, XPathExpressionException {
+	private void generateMergedJaxbContextPath(final XPath xpath, final File xsdFile)
+			throws IOException, XPathExpressionException {
 		String targetNamespace = (String) xpath.evaluate("//*[local-name()='schema']/@targetNamespace",
 				new InputSource(new FileInputStream(xsdFile)), XPathConstants.STRING);
 		targetNamespace = targetNamespace.replace("http://www.", "");
 		targetNamespace = targetNamespace.replace("http://", "");
 
-		List<String> packages = new ArrayList<String>();
-		for (String it : targetNamespace.split("/")) {
-			List<String> dotSplit = Arrays.asList(it.split("\\."));
+		final List<String> packages = new ArrayList<String>();
+		for (final String it : targetNamespace.split("/")) {
+			final List<String> dotSplit = Arrays.asList(it.split("\\."));
 			Collections.reverse(dotSplit);
 			packages.addAll(dotSplit);
 		}
 		String packageDeclaration = "";
 		String packageFilePath = "";
-		for (String p : packages) {
+		for (final String p : packages) {
 			packageDeclaration += p + ".";
 			packageFilePath += p + "/";
 		}
@@ -292,9 +289,9 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		String schemaPath = xsdFile.getAbsolutePath().replace("\\", "/");
 		schemaPath = schemaPath.substring(schemaPath.indexOf("/META-INF/"));
 
-		String className = "MergedJaxbContextPath_" + xsdFile.getName().replace(".xsd", "").replace(".", "_");
+		final String className = "MergedJaxbContextPath_" + xsdFile.getName().replace(".xsd", "").replace(".", "_");
 
-		StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder();
 		sb.append("package " + packageDeclaration + ";\n");
 		sb.append("\n");
 		sb.append("import de.invesdwin.context.integration.IMergedJaxbContextPath;\n");
@@ -314,11 +311,11 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		sb.append("    }\n");
 		sb.append("\n");
 		sb.append("}\n");
-		String newContent = sb.toString();
+		final String newContent = sb.toString();
 
-		File genDir = getGenDir();
+		final File genDir = getGenDir();
 		FileUtils.forceMkdir(genDir);
-		File genFile = new File(genDir, packageFilePath + "/" + className + ".java");
+		final File genFile = new File(genDir, packageFilePath + "/" + className + ".java");
 		if (writeFileIfDifferent(genFile, newContent)) {
 			getLog().debug("Generated [" + genFile + "]");
 		} else {
@@ -327,7 +324,8 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 	}
 
 	private File getGenDir() {
-		File genDir = new File(getProject().getBasedir().getAbsolutePath() + "/target/generated-sources/invesdwin");
+		final File genDir = new File(
+				getProject().getBasedir().getAbsolutePath() + "/target/generated-sources/invesdwin");
 		return genDir;
 	}
 

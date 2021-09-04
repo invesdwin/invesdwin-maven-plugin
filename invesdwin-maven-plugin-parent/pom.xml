@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.invesdwin</groupId>
@@ -30,7 +32,7 @@
 		<version.compiler>1.8</version.compiler>
 
 		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
-		<version.jsonschema2pojo>1.0.1</version.jsonschema2pojo>
+		<version.jsonschema2pojo>1.1.1</version.jsonschema2pojo>
 	</properties>
 
 	<dependencyManagement>
@@ -48,6 +50,10 @@
 					<exclusion>
 						<groupId>commons-logging</groupId>
 						<artifactId>commons-logging</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.validation</groupId>
+						<artifactId>validation-api</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>
