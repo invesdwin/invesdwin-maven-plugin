@@ -267,6 +267,18 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="import\s+java\.io\.ByteArrayInputStream;" />
+			<property name="message"
+				value="Use it.unimi.dsi.fastutil.io.FastByteArrayInputStream instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+java\.io\.ByteArrayOutputStream;" />
+			<property name="message"
+				value="Use de.invesdwin...PooledFastByteArrayInputStream instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Files|FileUtil(s)?);" />
 			<property name="message"
 				value="Use de.invesdwin...Files instead" />
