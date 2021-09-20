@@ -5,8 +5,8 @@ sudo cp /opt/eclipse/plugins/org.eclipse.platform_*/eclipse48.png /opt/eclipse
 sudo chown $USER:$USER -R /opt/eclipse
 # give it more ram
 sudo sed -i s/-XX:MaxPermSize=[0-9]*m/-XX:MaxPermSize=256m/ /opt/eclipse/eclipse.ini
-sudo sed -i s/-Xms[0-9]*m/-Xms40m/ /opt/eclipse/eclipse.ini
-sudo sed -i s/-Xmx[0-9]*m/-Xmx3g/ /opt/eclipse/eclipse.ini
+sudo sed -i s/-Xms[0-9]*m/-Xms2g/ /opt/eclipse/eclipse.ini
+sudo sed -i s/-Xmx[0-9]*m/-Xmx5g/ /opt/eclipse/eclipse.ini
 # create a launcher
 echo "cd /opt/eclipse && ./eclipse \$*" | sudo tee /usr/local/bin/eclipse
 sudo chmod +x /usr/local/bin/eclipse
