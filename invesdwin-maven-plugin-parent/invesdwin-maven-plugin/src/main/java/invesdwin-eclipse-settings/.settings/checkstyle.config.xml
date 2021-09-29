@@ -248,6 +248,10 @@
 			<property name="message" value="Use URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format" value="UnsafeAccess\.UNSAFE" />
+			<property name="message" value="Use Reflections.getUnsafe() instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Dates|DateUtil(s)?);" />
 			<property name="message"
