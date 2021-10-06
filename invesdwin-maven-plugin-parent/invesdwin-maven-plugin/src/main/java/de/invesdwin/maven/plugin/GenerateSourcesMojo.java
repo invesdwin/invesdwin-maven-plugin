@@ -10,7 +10,6 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.concurrent.NotThreadSafe;
@@ -22,9 +21,6 @@ import javax.xml.xpath.XPathFactory;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.jsonschema2pojo.DefaultGenerationConfig;
-import org.jsonschema2pojo.GenerationConfig;
-import org.jsonschema2pojo.Jsonschema2Pojo;
 import org.xml.sax.InputSource;
 import org.zeroturnaround.exec.ProcessExecutor;
 import org.zeroturnaround.exec.stream.slf4j.Slf4jStream;
@@ -44,123 +40,8 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 
 	@Override
 	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
-		invokeJsonschema2pojo();
 		invokeXjc();
 		generateMergedJaxbContextPaths();
-	}
-
-	private void invokeJsonschema2pojo() {
-		// <plugin>
-		// <groupId>org.jsonschema2pojo</groupId>
-		// <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-		// <version>${version.jsonschema2pojo-maven-plugin}</version>
-		// <configuration>
-		// <sourceDirectory>${project.basedir}/src/main/java/META-INF/jsonschema</sourceDirectory>
-		// <targetPackage>de.invesdwin.jsonschema</targetPackage>
-		// <useCommonsLang3>true</useCommonsLang3>
-		// <useDoubleNumbers>true</useDoubleNumbers>
-		// <useLongIntegers>true</useLongIntegers>
-		// <dateType>de.invesdwin.util.time.fdate.FDate</dateType>
-		// <dateTimeType>de.invesdwin.util.time.fdate.FDate</dateTimeType>
-		// <includeJsr303Annotations>true</includeJsr303Annotations>
-		// <outputDirectory>${project.build.directory}/generated-sources/jsonschema</outputDirectory>
-		// </configuration>
-		// <executions>
-		// <execution>
-		// <goals>
-		// <goal>generate</goal>
-		// </goals>
-		// </execution>
-		// </executions>
-		// </plugin>
-		try {
-			final GenerationConfig config = new DefaultGenerationConfig() {
-				@Override
-				public boolean isGenerateBuilders() {
-					return false;
-				}
-
-				@Override
-				public boolean isIncludeJsr303Annotations() {
-					return true;
-				}
-
-				@Override
-				public boolean isIncludeJsr305Annotations() {
-					return false;
-				}
-
-				@Override
-				public boolean isUseJodaDates() {
-					return true;
-				}
-
-				@Override
-				public boolean isUseJodaLocalDates() {
-					return true;
-				}
-
-				@Override
-				public boolean isUseJodaLocalTimes() {
-					return true;
-				}
-
-				@Override
-				public Iterator<URL> getSource() {
-					return getJsonschemaDirs().iterator();
-				}
-
-				@Override
-				public File getTargetDirectory() {
-					return getGenDir();
-				}
-
-				@Override
-				public String getTargetPackage() {
-					return "de.invesdwin.jsonschema";
-				}
-
-				@Override
-				public boolean isUseBigDecimals() {
-					return true;
-				}
-
-				@Override
-				public boolean isUseBigIntegers() {
-					return true;
-				}
-
-				@Override
-				public boolean isRemoveOldOutput() {
-					return false;
-				}
-
-				@Override
-				public boolean isIncludeAdditionalProperties() {
-					return false;
-				}
-
-				@Override
-				public boolean isIncludeToString() {
-					return false;
-				}
-
-				@Override
-				public boolean isIncludeHashcodeAndEquals() {
-					return false;
-				}
-
-				@Override
-				public boolean isIncludeDynamicBuilders() {
-					return false;
-				}
-
-			};
-
-			Jsonschema2Pojo.generate(config, DisabledRuleLogger.INSTANCE);
-		} catch (final Throwable t) {
-			throw new RuntimeException(t);
-		}
 	}
 
 	private void invokeXjc() throws MojoExecutionException {

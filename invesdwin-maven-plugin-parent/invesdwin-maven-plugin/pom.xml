@@ -62,10 +62,6 @@
 			<artifactId>zt-exec</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.jsonschema2pojo</groupId>
-			<artifactId>jsonschema2pojo-core</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
 		</dependency>

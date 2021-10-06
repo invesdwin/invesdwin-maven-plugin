@@ -32,7 +32,6 @@
 		<version.compiler>1.8</version.compiler>
 
 		<version.maven-source-plugin>3.0.1</version.maven-source-plugin>
-		<version.jsonschema2pojo>1.1.1</version.jsonschema2pojo>
 	</properties>
 
 	<dependencyManagement>
@@ -41,21 +40,6 @@
 				<groupId>de.invesdwin</groupId>
 				<artifactId>invesdwin-maven-plugin-util</artifactId>
 				<version>${project.version.invesdwin-maven-plugin}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jsonschema2pojo</groupId>
-				<artifactId>jsonschema2pojo-core</artifactId>
-				<version>${version.jsonschema2pojo}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>javax.validation</groupId>
-						<artifactId>validation-api</artifactId>
-					</exclusion>
-				</exclusions>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
