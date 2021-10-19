@@ -128,6 +128,7 @@ cd invesdwin-oss
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
 	* Package Presentation -> Hierarchical
+	* Filters and Customization... -> .* resources -> Uncheck -> OK
 	* or use Project Explorer instead
 * In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
