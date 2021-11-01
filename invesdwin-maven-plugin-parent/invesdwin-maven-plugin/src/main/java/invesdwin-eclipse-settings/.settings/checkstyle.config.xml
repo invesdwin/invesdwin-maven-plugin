@@ -512,6 +512,12 @@
 				value="Use the String constructor instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="public.*with.*\(" />
+			<property name="message"
+				value="Use set as prefix instead ..." />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format" value="@Controller\(.+\)" />
 			<property name="message"
 				value="@Controller cannot define a different component name. This prevents the mapping from being found. Change the class name instead." />
