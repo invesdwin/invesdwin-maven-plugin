@@ -511,11 +511,12 @@
 			<property name="message"
 				value="Use the String constructor instead" />
 		</module>
+		<!-- https://stackoverflow.com/questions/2169190/example-of-builder-pattern-in-java-api -->
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="public.*with.*\(" />
 			<property name="message"
-				value="Use set as prefix instead ..." />
+				value="Use set as prefix for builder pattern (as java internals do), only use with when returning a new instance ..." />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="@Controller\(.+\)" />
