@@ -44,8 +44,6 @@ The plugins has the following goals which you can include/exclude:
 
 ## Handling Multiple Projects/Repositories
 
-* Install [git-lfs](https://git-lfs.github.com/): `apt install git-lfs`
-	* some repos require this, otherwise large files might stay empty after cloning 
 * Check out individual git repos and create a parent pom to build them all in one go:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
