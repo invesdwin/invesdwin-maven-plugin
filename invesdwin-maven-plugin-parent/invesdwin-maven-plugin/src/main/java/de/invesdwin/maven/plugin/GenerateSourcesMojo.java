@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -126,23 +125,6 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		final File[] xsdDirs = { new File(getProject().getBasedir(), "src/main/resources/META-INF/xsd"),
 				new File(getProject().getBasedir(), "src/main/java/META-INF/xsd") };
 		return xsdDirs;
-	}
-
-	private List<URL> getJsonschemaDirs() {
-		try {
-			final File[] jsonschemaDirs = {
-					new File(getProject().getBasedir(), "src/main/resources/META-INF/jsonschema"),
-					new File(getProject().getBasedir(), "src/main/java/META-INF/jsonschema") };
-			final List<URL> existingDirs = new ArrayList<URL>();
-			for (final File dir : jsonschemaDirs) {
-				if (dir.exists()) {
-					existingDirs.add(dir.toURI().toURL());
-				}
-			}
-			return existingDirs;
-		} catch (final MalformedURLException e) {
-			throw new RuntimeException(e);
-		}
 	}
 
 	private void generateMergedJaxbContextPath(final XPath xpath, final File xsdFile)
