@@ -372,7 +372,12 @@
 				value="set this to false before committing" />
 			<property name="illegalPattern" value="true" />
 		</module>
-
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+java\.security\.SecureRandom;" />
+			<property name="message"
+				value="Use de.invesdwin...CryptoRandomGenerator instead" />
+		</module>
 
 		<module
 			name="de.invesdwin.checkstyle.StackOverflowErrorIgnoringRegexpCheck">
