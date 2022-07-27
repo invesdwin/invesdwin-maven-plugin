@@ -431,7 +431,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin|com\.mysema|com\.querydsl).*(Tuple|Pair|Triple|Quadruple);" />
+				value="import\s+(?!de\.invesdwin|com\.mysema|com\.querydsl).*\.(Tuple|Pair|Triple|Quadruple);" />
 			<property name="message"
 				value="Use de.invesdwin...* instead" />
 		</module>
