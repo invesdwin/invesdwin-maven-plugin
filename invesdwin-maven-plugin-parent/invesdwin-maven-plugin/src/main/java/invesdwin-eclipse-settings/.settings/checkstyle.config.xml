@@ -588,13 +588,49 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.google\.common\.collect\.Lists|org\.apache\.commons\.collections4\.ListUtils);" />
+				value="import\s+(?!de\.invesdwin).*(Lists|ListUtils);" />
 			<property name="message"
 				value="Use de.invesdwin...Lists instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.apache\.commons\.collections\..*;" />
+				value="import\s+(?!de\.invesdwin).*(Collections|CollectionUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Collections instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Arrays|ArrayUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Arrays instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Sets|SetUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Sets instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Maps|MapUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Maps instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Iterables|IterableUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Iterables instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*(Iterators|IteratorUtils);" />
+			<property name="message"
+				value="Use de.invesdwin...Iterators instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+org\.apache\.commons\.(collections\.|collections15\.).*;" />
 			<property name="message"
 				value="Use org.apache.commons.collections4... instead" />
 		</module>
