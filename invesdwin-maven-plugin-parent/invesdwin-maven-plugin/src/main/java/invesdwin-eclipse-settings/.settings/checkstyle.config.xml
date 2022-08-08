@@ -606,6 +606,12 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="import\s+java\.lang\.reflect\.Array;" />
+			<property name="message"
+				value="Use de.invesdwin...Arrays instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Sets|SetUtils);" />
 			<property name="message"
 				value="Use de.invesdwin...Sets instead" />
