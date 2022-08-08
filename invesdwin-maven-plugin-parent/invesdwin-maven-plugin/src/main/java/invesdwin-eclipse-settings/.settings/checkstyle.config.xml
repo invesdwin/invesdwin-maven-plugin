@@ -374,9 +374,15 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.security\.SecureRandom;" />
+				value="import\s+(java\.security\.SecureRandom|org\.apache\.commons\.crypto\.random\.CryptoRandom);" />
 			<property name="message"
 				value="Use de.invesdwin...CryptoRandomGenerator instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(?!de\.invesdwin).*\.(RandomGenerator|RandomDataGenerator|RandomData|Random);" />
+			<property name="message"
+				value="Use de.invesdwin...IRandomGenerator instead" />
 		</module>
 
 		<module
