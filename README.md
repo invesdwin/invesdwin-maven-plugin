@@ -1,6 +1,6 @@
 # invesdwin-maven-plugin
 
-This plugin provides auto configuration for eclipse projects using the invesdwin platform standards. It automatically sets up [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug), [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin), [spring tools](https://marketplace.eclipse.org/content/spring-tools-3-standalone-edition), [moreunit](https://marketplace.eclipse.org/content/moreunit), [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt), save actions, code formatter and other things.
+This plugin provides auto configuration for eclipse projects using the invesdwin platform standards. It automatically sets up [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug), [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin), [spring tools](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4), [moreunit](https://marketplace.eclipse.org/content/moreunit), [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt), save actions, code formatter and other things.
 
 When using the included checkstyle config, please make sure you have the [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) installed in eclipse or else you will get exceptions thrown during checks.
 
@@ -119,7 +119,7 @@ cd invesdwin-oss
 	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
 	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [spring tools 3 standalone](https://marketplace.eclipse.org/content/spring-tools-3-standalone-edition)
+	* [spring tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)
 	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
 	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
