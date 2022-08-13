@@ -143,7 +143,6 @@ cd invesdwin-oss
 		* `org.assertj.*.Assertions`
 * Assign the File Associations for .class files without sources to enhanced class decompiler
 	* Window -> Preferences -> Java -> Debug -> Use advanced source lookup (JRE 1.5 and higher) -> [Uncheck](https://github.com/ecd-plugin/ecd/issues/58#issuecomment-580295517)
-	* Window -> Preferences -> General -> Editors -> *.class -> Class Decompiler Viewer -> Default
 	* Window -> Preferences -> General -> Editors -> *.class without source -> Class Decompiler Viewer -> Default
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
