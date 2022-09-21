@@ -1,6 +1,6 @@
 # invesdwin-maven-plugin
 
-This plugin provides auto configuration for eclipse projects using the invesdwin platform standards. It automatically sets up [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug), [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin), [spring tools](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4), [moreunit](https://marketplace.eclipse.org/content/moreunit), [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt), save actions, code formatter and other things.
+This plugin provides auto configuration for eclipse projects using the invesdwin platform standards. It automatically sets up [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug), [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin), [Spring Tools](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4), [MoreUnit](https://marketplace.eclipse.org/content/moreunit), [m2e-apt](https://marketplace.eclipse.org/content/m2e-apt), save actions, code formatter and other things.
 
 When using the included checkstyle config, please make sure you have the [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) installed in eclipse or else you will get exceptions thrown during checks.
 
@@ -116,12 +116,13 @@ cd invesdwin-oss
 	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): `apt install alacarte`
 	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
 * Install Plugins
-	* [checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
+	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
-	* [spotbugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [spring tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)
-	* [moreunit](https://marketplace.eclipse.org/content/moreunit)
-	* [enhanced class decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
+	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
+	* [Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)
+	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
+	* [Enhanced Class Decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
+	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
