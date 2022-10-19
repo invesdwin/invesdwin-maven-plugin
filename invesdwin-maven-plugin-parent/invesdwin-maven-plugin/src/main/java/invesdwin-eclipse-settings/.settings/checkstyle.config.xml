@@ -224,20 +224,24 @@
 			value="Line has trailing spaces."/> </module> -->
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="System\.(out|err)\.print" />
-			<property name="message" value="Use Log instead" />
+			<property name="message" value="Use de.invesdwin...Log instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="\.printStackTrace" />
-			<property name="message" value="Use Err instead" />
+			<property name="message" value="Use de.invesdwin...Err instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+UR(L|I)\(" />
-			<property name="message" value="Use URIs.* instead" />
+			<property name="message" value="Use de.invesdwin...URIs.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="new\s+JTable\(" />
+			<property name="message" value="Use de.invesdwin...JTableWithHorizontalScoll.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="new\s+(ReentrantLock|ReentrantReadWriteLock|CompositeLock)\(" />
-			<property name="message" value="Use Locks.* instead" />
+			<property name="message" value="Use de.invesdwin...Locks.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -247,11 +251,11 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="UrlUtils\.toUrlSafe\(" />
-			<property name="message" value="Use URIs.* instead" />
+			<property name="message" value="Use de.invesdwin...URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="UnsafeAccess\.UNSAFE" />
-			<property name="message" value="Use Reflections.getUnsafe() instead" />
+			<property name="message" value="Use de.invesdwin...Reflections.getUnsafe() instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -291,7 +295,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="InetAddress\.getByName\(" />
-			<property name="message" value="Use NetworkUtil.* instead" />
+			<property name="message" value="Use de.invesdwin...NetworkUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="String\.format\(" />
@@ -346,7 +350,7 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
-			<property name="message" value="Use Strings.* instead" />
+			<property name="message" value="Use de.invesdwin...Strings.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -358,7 +362,7 @@
 			<property name="format"
 				value="import\s+.*org\.jdesktop\.application\.Task;(.*[\n])*.*new Task(\)|\&lt;)" />
 			<property name="message"
-				value="new Task() is not allowed. Use ATask instead" />
+				value="new Task() is not allowed. Use de.invesdwin...ATask instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
@@ -399,7 +403,7 @@
 			<property name="format"
 				value="System\.(get|set|clear)Propert(y|ies)" />
 			<property name="message"
-				value="Use SystemProperties.* instead" />
+				value="Use de.invesdwin...SystemProperties.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="IOUtils\.closeQuietly\(\)" />
@@ -419,23 +423,23 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Reflection(Util)?(s)?|GenericTypeResolver);" />
-			<property name="message" value="Use Reflections.* instead" />
+			<property name="message" value="Use de.invesdwin...Reflections.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="(SwingUtilities|EventQueue)\.(invokeLater|invokeAndWait|isDispatchThread)" />
 			<property name="message"
-				value="Use EventDispatchThreadUtil.* instead" />
+				value="Use de.invesdwin...EventDispatchThreadUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="(Platform|PlatformImpl)\.(runLater|runAndWait|isFxApplicationThread)" />
 			<property name="message"
-				value="Use FxApplicationThreadUtil.* instead" />
+				value="Use de.invesdwin...FxApplicationThreadUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="import\s+.*OptionPane;" />
-			<property name="message" value="Use Dialogs.* instead" />
+			<property name="message" value="Use de.invesdwin...Dialogs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -487,7 +491,7 @@
 			<property name="format"
 				value="hashCode().*\+.*&quot;&quot;.*\+ .*\.hashCode()" />
 			<property name="message"
-				value="Use Objects.hashcode(...) instead" />
+				value="Use de.invesdwin...Objects.hashcode(...) instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -499,13 +503,13 @@
 			<property name="format"
 				value="import\s+org\.springframework\.data\.repository\.cdi\.Eager;" />
 			<property name="message"
-				value="Maybe you wanted de.invesdwin...*.Eager?" />
+				value="Maybe you wanted de.invesdwin...Eager?" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="(void finalize\(\)|import\s+io\.netty\.util\.internal\.ObjectCleaner;|import\s+java\.lang\.ref\.Cleaner;)" />
 			<property name="message"
-				value="Use de.invesdwin...*.FinalizerManager instead" />
+				value="Use de.invesdwin...FinalizerManager instead" />
 		</module>
 
 		<module name="RegexpSinglelineJava">
@@ -513,7 +517,7 @@
 			<property name="format"
 				value="import\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider;" />
 			<property name="message"
-				value="Use de.invesdwin.*.ClassPathScanner instead" />
+				value="Use de.invesdwin...ClassPathScanner instead" />
 		</module>
 		<!-- <module name="RegexpSinglelineJava"> <property name="format" value="&lt;&gt;" 
 			/> <property name="message" value="The diamond operator should not be used 
