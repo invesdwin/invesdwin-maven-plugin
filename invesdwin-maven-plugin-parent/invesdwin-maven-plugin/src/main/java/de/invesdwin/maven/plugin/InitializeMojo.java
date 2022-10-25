@@ -46,6 +46,15 @@ public class InitializeMojo extends AInvesdwinMojo {
 				updateGitProperties();
 			}
 			createDefaultFolders();
+			deleteFactoryPath();
+		}
+	}
+	
+	private void deleteFactoryPath() {
+		File parent = getProject().getBasedir();
+		File factorypath = new File(parent, ".factorypath");
+		if (factorypath.exists()) {
+			factorypath.delete();
 		}
 	}
 
