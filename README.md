@@ -123,6 +123,8 @@ cd invesdwin-oss
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
 	* [Enhanced Class Decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder)
+	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)
+	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
