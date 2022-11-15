@@ -125,6 +125,7 @@ cd invesdwin-oss
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder)
 	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
+	* [Invesdwin Checkstyle Plugin](https://github.com/invesdwin/invesdwin-checkstyle-plugin) (via dropins)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
