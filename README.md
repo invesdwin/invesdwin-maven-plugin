@@ -117,7 +117,7 @@ cd invesdwin-oss
 	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
 * Install Plugins
 	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
-		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin)
+		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) via dropins
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
 	* [Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
@@ -125,7 +125,6 @@ cd invesdwin-oss
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder)
 	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
-	* [Invesdwin Checkstyle Plugin](https://github.com/invesdwin/invesdwin-checkstyle-plugin) (via dropins)
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
