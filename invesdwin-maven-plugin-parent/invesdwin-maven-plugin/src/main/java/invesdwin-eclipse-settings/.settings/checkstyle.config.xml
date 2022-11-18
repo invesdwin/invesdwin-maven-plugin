@@ -349,6 +349,25 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
+				value="import\s+(javax\.validation\.|net\.openhft\.chronicle\.values|org\.codehaus\.commons\.nullanalysis|org\.jetbrains\.annotations|org\.intellij\.lang\.annotations)" />
+			<property name="message"
+				value="Use jakarta.validation... instead." />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(javax\.servlet)" />
+			<property name="message"
+				value="Use jakarta.servlet... instead." />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(javax\.inject)" />
+			<property name="message"
+				value="Use jakarta.inject... instead." />
+		</module>
+		
+		<module name="RegexpSinglelineJava">
+			<property name="format"
 				value="import\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
 			<property name="message" value="Use de.invesdwin...Strings.* instead" />
 		</module>

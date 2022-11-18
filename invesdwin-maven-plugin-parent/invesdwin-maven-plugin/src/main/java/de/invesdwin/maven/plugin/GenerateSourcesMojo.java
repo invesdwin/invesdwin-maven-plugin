@@ -158,7 +158,7 @@ public class GenerateSourcesMojo extends AInvesdwinMojo {
 		sb.append("package " + packageDeclaration + ";\n");
 		sb.append("\n");
 		sb.append("import de.invesdwin.context.integration.marshaller.IMergedJaxbContextPath;\n");
-		sb.append("import javax.inject.Named;\n");
+		sb.append("import jakarta.inject.Named;\n");
 		sb.append("\n");
 		sb.append("@Named(\"mergedJaxbContextPath_" + packageDeclaration + "\")\n");
 		sb.append("public class " + className + " implements IMergedJaxbContextPath {\n");
