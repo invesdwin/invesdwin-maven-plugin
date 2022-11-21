@@ -156,6 +156,9 @@ cd invesdwin-oss
 	* with Eclipse Keymap on macOS `CTRL+SPACE` might require remapping so that code completion becomes usable (macOS might occupy that shortcut): Window -> Preferences -> Keys -> Content Assist
 * Some modules do not support getting resolved from inside Eclipse, you can resolve them from the maven repository instead by closing or removing the project in eclipse. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. Though normally the pom.xml contains hints/tips like this for specific modules that require workarounds like this.
 * Removing JPA Change Events which can slow down the IDE: https://stackoverflow.com/questions/19649847/eclipse-jpa-project-change-event-handler-waiting
+* Disable Spring Boot validations that can slow down the IDE:
+        * Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 2.x Validation -> Enablement -> Off
+        * Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 3.x Validation -> Enablement -> Off
 
 ## IntelliJ Tips
 
