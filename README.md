@@ -159,6 +159,10 @@ cd invesdwin-oss
 * Disable Spring Boot validations that can slow down the IDE:
 	* Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 2.x Validation -> Enablement -> Off
 	* Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 3.x Validation -> Enablement -> Off
+* To prevent deadlocks when importing projects in Eclipse 2022-09 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=579076)
+	* Window -> Prefernences -> Maven -> Annotation Processing -> Select Annotation Processing Mode -> Do not automatically configure/execute annotation processing from pom.xml
+* When a project is missing generated sources (sometimes build-helper-maven-plugin fails to be considered correctly by eclipse-m2e)
+	* Right Click on the Project -> Propertries -> Java Build Path -> Source -> Add Folder… -> Select `target/generated-sources/apt`
 
 ## IntelliJ Tips
 
