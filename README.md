@@ -126,7 +126,7 @@ cd invesdwin-oss
 	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
 * Install m2eclipse connectors:
-	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" and "m2e-apt" -> Finish
+	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
