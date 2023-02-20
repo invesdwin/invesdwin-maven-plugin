@@ -127,7 +127,9 @@ cd invesdwin-oss
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
 * Install m2eclipse connectors:
 	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
-	* If this does not work, install manually using the update site: https://github.com/tesla/m2eclipse-buildhelper/releases/download/latest/
+		* If this does not work, install manually using the update site: https://github.com/tesla/m2eclipse-buildhelper/releases/download/latest/
+		* This plugin will ensure that generated sources are added to the project build path.
+		* Manual Workaround: Right Click on the Project -> Propertries -> Java Build Path -> Source -> Add Folder… -> Select `target/generated-sources/apt`
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
@@ -164,8 +166,6 @@ cd invesdwin-oss
 	* Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 3.x Validation -> Enablement -> Off
 * To prevent deadlocks when importing projects in Eclipse 2022-09 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=579076):
 	* Window -> Prefernences -> Maven -> Annotation Processing -> Select Annotation Processing Mode -> Do not automatically configure/execute annotation processing from pom.xml
-* When a project is missing generated sources (sometimes build-helper-maven-plugin fails to be considered correctly by eclipse-m2e):
-	* Right Click on the Project -> Propertries -> Java Build Path -> Source -> Add Folder… -> Select `target/generated-sources/apt`
 
 ## IntelliJ Tips
 
