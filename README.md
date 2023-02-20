@@ -127,6 +127,7 @@ cd invesdwin-oss
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
 * Install m2eclipse connectors:
 	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
+	* If this does not work, install manually using the update site: https://github.com/tesla/m2eclipse-buildhelper/releases/download/latest/
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* Top Level Elemements -> Working Sets
