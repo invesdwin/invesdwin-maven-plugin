@@ -222,9 +222,10 @@
 		<!-- <module name="RegexpSinglelineJava"> <property name="ignoreComments" 
 			value="true"/> <property name="format" value="\s+$"/> <property name="message" 
 			value="Line has trailing spaces."/> </module> -->
-		<module name="RegexpSinglelineJava">
+		<module name="Regexp">
 			<property name="format" value="System\.(out|err)(\s)*\.print" />
 			<property name="message" value="Use de.invesdwin...Log instead" />
+			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="\.printStackTrace" />
