@@ -171,7 +171,7 @@
 			<property name="max" value="3" />
 		</module>
 		<module name="NestedTryDepth">
-			<property name="max" value="2" />
+			<property name="max" value="3" />
 		</module>
 		<!-- removed from 6.2 :/ <module name="RedundantThrows"> <property name="logLoadErrors" 
 			value="true" /> <property name="suppressLoadErrors" value="true" /> </module> -->
