@@ -201,7 +201,7 @@
 			<property name="max" value="30" />
 		</module>
 		<module name="NPathComplexity">
-		   <property name="max" value="400"/>
+		   <property name="max" value="1000"/>
 		 </module>
 		<module name="JavaNCSS">
 			<property name="methodMaximum" value="150" />
