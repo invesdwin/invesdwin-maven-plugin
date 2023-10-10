@@ -83,7 +83,7 @@
 		<!--<module name="AvoidStarImport"/> -->
 		<module name="IllegalImport">
 			<property name="illegalPkgs"
-				value="sun, javax.transaction, com.mysql, org.hsqldb, java.util.logging, org.apache.log4j, org.apache.commons.logging, org.springframework.test.annotation, junit.framework, org.junit, org.hibernate.annotations, com.esotericsoftware.minlog" />
+				value="sun, javax.transaction, com.mysql, org.hsqldb, java.util.logging, org.apache.log4j, org.apache.commons.logging, org.springframework.test.annotation, junit.framework, org.hibernate.annotations, com.esotericsoftware.minlog" />
 		</module>
 		<module name="RedundantImport" />
 		<module name="UnusedImports" />
@@ -312,6 +312,11 @@
 			<property name="format"
 				value="import\s+(com\.mysql\.stereotype\..*|org.springframework.stereotype\.(Component|Repository));" />
 			<property name="message" value="Use @Named instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="import\s+(org\.junit\.Test;" />
+			<property name="message" value="Use org.junit.jupiter.api.Test instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
