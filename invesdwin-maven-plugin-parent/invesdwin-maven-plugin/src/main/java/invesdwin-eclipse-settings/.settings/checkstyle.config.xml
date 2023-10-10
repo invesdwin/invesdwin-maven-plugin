@@ -315,7 +315,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(org\.junit\.Test;" />
+				value="import\s+org\.junit\.Test;" />
 			<property name="message" value="Use org.junit.jupiter.api.Test instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
