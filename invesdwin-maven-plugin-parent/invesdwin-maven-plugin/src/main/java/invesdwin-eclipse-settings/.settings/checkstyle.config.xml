@@ -83,7 +83,7 @@
 		<!--<module name="AvoidStarImport"/> -->
 		<module name="IllegalImport">
 			<property name="illegalPkgs"
-				value="sun, javax.transaction, com.mysql, org.hsqldb, java.util.logging, org.apache.log4j, org.apache.commons.logging, org.springframework.test.annotation, junit.framework, org.junit.Test, org.hibernate.annotations, com.esotericsoftware.minlog" />
+				value="sun, javax.transaction, com.mysql, org.hsqldb, java.util.logging, org.apache.log4j, org.apache.commons.logging, org.springframework.test.annotation, junit.framework, org.junit, org.hibernate.annotations, com.esotericsoftware.minlog" />
 		</module>
 		<module name="RedundantImport" />
 		<module name="UnusedImports" />
