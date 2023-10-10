@@ -203,7 +203,7 @@ public class InitializeMojo extends AInvesdwinMojo {
 	}
 
 	private void createDefaultFolders() {
-		if (checkSourceFolderExists()) {
+		if (checkSourceFoldersMustExist()) {
 			try {
 				for (String mandatoryDir : new String[] { "src/main/java", "src/test/java" }) {
 					FileUtils.forceMkdir(new File(getProject().getBasedir(), mandatoryDir));
@@ -220,8 +220,15 @@ public class InitializeMojo extends AInvesdwinMojo {
 		}
 	}
 
-	private boolean checkSourceFolderExists() {
-		return new File(getProject().getBasedir(), "src").exists();
+	private boolean checkSourceFoldersMustExist() {
+		if(new File(getProject().getBasedir(), "src").exists()) {
+			return true;
+		}
+		final String packaging = getProject().getPackaging();
+		if("jar".equalsIgnoreCase(packaging)) {
+			return true;
+		}
+		return false;
 	}
 
 }
