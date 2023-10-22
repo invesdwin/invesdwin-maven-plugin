@@ -22,14 +22,14 @@ import org.apache.maven.plugin.MojoFailureException;
 public class CompileMojo extends AInvesdwinMojo {
 
 	private static final String[] ADDITIONAL_PROJECT_BUILD_COMMANDS_FOR_JAVA_PROJECTS = {
-			"net.sf.eclipsecs.core.CheckstyleBuilder", "com.github.spotbugs.plugin.eclipse.findbugsBuilder" };
+			"net.sf.eclipsecs.core.CheckstyleBuilder", "edu.umd.cs.findbugs.plugin.eclipse.findbugsBuilder" };
 	private static final String[] ADDITIONAL_PROJECT_NATURES_FOR_JAVA_PROJECTS = {
-			"net.sf.eclipsecs.core.CheckstyleNature", "com.github.spotbugs.plugin.eclipse.findbugsNature" };
+			"net.sf.eclipsecs.core.CheckstyleNature", "edu.umd.cs.findbugs.plugin.eclipse.findbugsNature" };
 	private static final String[] REMOVE_PROJECT_NATURES = { "org.eclipse.pde.PluginNature",
-			"edu.umd.cs.findbugs.plugin.eclipse.findbugsNature", "org.eclipse.jem.workbench.JavaEMFNature",
+			"com.github.spotbugs.plugin.eclipse.findbugsNature", "org.eclipse.jem.workbench.JavaEMFNature",
 			"org.eclipse.wst.common.project.facet.core.nature" };
 	private static final String[] REMOVE_PROJECT_BUILD_COMMANDS = {
-			"edu.umd.cs.findbugs.plugin.eclipse.findbugsBuilder", "org.eclipse.wst.common.project.facet.core.builder",
+			"com.github.spotbugs.plugin.eclipse.findbugsBuilder", "org.eclipse.wst.common.project.facet.core.builder",
 			"org.eclipse.wst.validation.validationbuilder" };
 
 	protected void internalExecute() throws MojoExecutionException, MojoFailureException {
