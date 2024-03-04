@@ -167,6 +167,10 @@ cd invesdwin-oss
 * To prevent deadlocks when importing projects in Eclipse 2022-09 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=579076):
 	* Window -> Prefernences -> Maven -> Annotation Processing -> Select Annotation Processing Mode -> Do not automatically configure/execute annotation processing from pom.xml
 
+## Eclipse Troubleshooting
+
+* In 2023 eclipse-m2e had a bug where resources were not copied correctly. So if you start a process and it complains about files being missing, you might be affected by [this bug](https://github.com/eclipse-m2e/m2e-core/issues/1511). Try upgrade eclipse-m2e. Alternatively copy the resources again via maven: `mvn process-resources -T1C`
+
 ## IntelliJ Tips
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
