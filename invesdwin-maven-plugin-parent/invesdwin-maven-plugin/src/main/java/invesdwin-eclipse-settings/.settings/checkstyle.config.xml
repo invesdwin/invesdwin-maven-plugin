@@ -765,6 +765,13 @@
 				value="Use javax.annotation..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="import\s+.*io\.jenetics\..*(Gene|Chromosome);" />
+			<property name="message"
+				value="Use de.invesdwin..* instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
 
 
 
