@@ -767,7 +767,7 @@
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*io\.jenetics\..*(Gene|Chromosome);" />
+				value="import\s+.*io\.jenetics\..*(Double|Integer)(Gene|Chromosome);" />
 			<property name="message"
 				value="Use de.invesdwin..* instead" />
 			<property name="illegalPattern" value="true" />
