@@ -170,6 +170,13 @@ cd invesdwin-oss
 ## Eclipse Troubleshooting
 
 * In 2023 eclipse-m2e had a bug where resources were not copied correctly. So if you start a process and it complains about files being missing, you might be affected by [this bug](https://github.com/eclipse-m2e/m2e-core/issues/1511). Try upgrade eclipse-m2e. Alternatively copy the resources again via maven: `mvn process-resources -T1C`
+* When eclipse is not closed properly it might crash on startup due to corrupt snap files or it might fail to find jvm internal classes because of corrupt indexes. To solve this, the workspace needs to be repaired:
+```sh
+cd <ECLIPSE_WORKSPACE_FOLDER>
+rm -rf .metadata/.plugins/org.eclipse.jdt.core
+rm -rf .metadata/.plugins/org.eclipse.core.resources/*.snap
+eclipse -clean
+```
 
 ## IntelliJ Tips
 
