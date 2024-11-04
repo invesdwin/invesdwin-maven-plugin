@@ -201,8 +201,8 @@
 			<property name="max" value="30" />
 		</module>
 		<module name="NPathComplexity">
-		   <property name="max" value="2000"/>
-		 </module>
+			<property name="max" value="2000" />
+		</module>
 		<module name="JavaNCSS">
 			<property name="methodMaximum" value="150" />
 		</module>
@@ -223,26 +223,32 @@
 			value="true"/> <property name="format" value="\s+$"/> <property name="message" 
 			value="Line has trailing spaces."/> </module> -->
 		<module name="Regexp">
-			<property name="format" value="System\.(out|err)(\s)*\.print" />
-			<property name="message" value="Use de.invesdwin...Log instead" />
+			<property name="format"
+				value="System\.(out|err)(\s)*\.print" />
+			<property name="message"
+				value="Use de.invesdwin...Log instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="\.printStackTrace" />
-			<property name="message" value="Use de.invesdwin...Err instead" />
+			<property name="message"
+				value="Use de.invesdwin...Err instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+UR(L|I)\(" />
-			<property name="message" value="Use de.invesdwin...URIs.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+JTable\(" />
-			<property name="message" value="Use de.invesdwin...JTableWithHorizontalScoll.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...JTableWithHorizontalScoll.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="new\s+(ReentrantLock|ReentrantReadWriteLock|CompositeLock)\(" />
-			<property name="message" value="Use de.invesdwin...Locks.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...Locks.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -252,11 +258,13 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="UrlUtils\.toUrlSafe\(" />
-			<property name="message" value="Use de.invesdwin...URIs.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="UnsafeAccess\.UNSAFE" />
-			<property name="message" value="Use de.invesdwin...Reflections.getUnsafe() instead" />
+			<property name="message"
+				value="Use de.invesdwin...Reflections.getUnsafe() instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -265,8 +273,7 @@
 				value="Use de.invesdwin...FDates instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="import\s+ezdb\.serde\..*;" />
+			<property name="format" value="import\s+ezdb\.serde\..*;" />
 			<property name="message"
 				value="Use de.invesdwin...ISerde instead" />
 		</module>
@@ -296,7 +303,8 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="InetAddress\.getByName\(" />
-			<property name="message" value="Use de.invesdwin...NetworkUtil.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...NetworkUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="String\.format\(" />
@@ -314,9 +322,9 @@
 			<property name="message" value="Use @Named instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="import\s+org\.junit\.Test;" />
-			<property name="message" value="Use org.junit.jupiter.api.Test instead" />
+			<property name="format" value="import\s+org\.junit\.Test;" />
+			<property name="message"
+				value="Use org.junit.jupiter.api.Test instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -360,22 +368,21 @@
 				value="Use jakarta.validation... instead." />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="import\s+(javax\.servlet)" />
+			<property name="format" value="import\s+(javax\.servlet)" />
 			<property name="message"
 				value="Use jakarta.servlet... instead." />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="import\s+(javax\.inject)" />
+			<property name="format" value="import\s+(javax\.inject)" />
 			<property name="message"
 				value="Use jakarta.inject... instead." />
 		</module>
-		
+
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
-			<property name="message" value="Use de.invesdwin...Strings.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...Strings.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -448,7 +455,8 @@
 		<module name="RegexpSinglelineJava">
 			<property name="format"
 				value="import\s+(?!de\.invesdwin).*(Reflection(Util)?(s)?|GenericTypeResolver);" />
-			<property name="message" value="Use de.invesdwin...Reflections.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...Reflections.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -464,7 +472,8 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="import\s+.*OptionPane;" />
-			<property name="message" value="Use de.invesdwin...Dialogs.* instead" />
+			<property name="message"
+				value="Use de.invesdwin...Dialogs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
@@ -554,15 +563,13 @@
 				value="Use the String constructor instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="new\s+EOFException\(" />
+			<property name="format" value="new\s+EOFException\(" />
 			<property name="message"
 				value="Use the de.invesdwin...FastEOFException instead" />
 		</module>
 		<!-- https://stackoverflow.com/questions/2169190/example-of-builder-pattern-in-java-api -->
 		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="public.*with.*\(" />
+			<property name="format" value="public.*with.*\(" />
 			<property name="message"
 				value="Use set as prefix for builder pattern (as java internals do), only use with when returning a new instance ..." />
 		</module>
@@ -760,6 +767,13 @@
 		</module>
 		<module name="Regexp">
 			<property name="format"
+				value="import\s+(?!de\.invesdwin\.).*\.InterruptedRuntimeException;" />
+			<property name="message"
+				value="Use de.invesdwin..InterruptedRuntimeException instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
 				value="import\s+.*com\.google\.errorprone\.annotations\..*;" />
 			<property name="message"
 				value="Use javax.annotation..* instead" />
@@ -768,8 +782,7 @@
 		<module name="Regexp">
 			<property name="format"
 				value="import\s+.*io\.jenetics\..*(Double|Integer)(Gene|Chromosome);" />
-			<property name="message"
-				value="Use de.invesdwin..* instead" />
+			<property name="message" value="Use de.invesdwin..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 
