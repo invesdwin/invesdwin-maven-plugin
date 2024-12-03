@@ -113,7 +113,7 @@ cd invesdwin-oss
 
 ## Eclipse Tips
 * Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
-	* on Ubuntu you can create a shortcut via [Alacarte](https://en.wikipedia.org/wiki/Alacarte): `apt install alacarte`
+	* on Ubuntu you can create a shortcut via [Menulibre]([https://github.com/bluesabre/menulibre): `apt install menulibre`
 	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
 * Install Plugins
 	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
