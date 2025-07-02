@@ -44,6 +44,12 @@ The plugins has the following goals which you can include/exclude:
 
 ## Handling Multiple Projects/Repositories
 
+* Git setup:
+```
+# On windows open terminal as administrator
+git config --global core.longpaths true
+git config --global core.autocrlf false
+```
 * Check out individual git repos and create a parent pom to build them all in one go:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
