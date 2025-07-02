@@ -49,6 +49,8 @@ The plugins has the following goals which you can include/exclude:
 # On windows open terminal as administrator
 git config --global core.longpaths true
 git config --global core.autocrlf false
+# On linux if thre is no credential manager available
+git config --global  credential.helper store
 ```
 * Check out individual git repos and create a parent pom to build them all in one go:
 ```xml
