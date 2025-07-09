@@ -268,36 +268,36 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Dates|DateUtil(s)?);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Dates|DateUtil(s)?)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...FDates instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="import\s+ezdb\.serde\..*;" />
+			<property name="format" value="import(\s+static)?\s+ezdb\.serde\..*;" />
 			<property name="message"
 				value="Use de.invesdwin...ISerde instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.nio\.ByteBuffer;" />
+				value="import(\s+static)?\s+java\.nio\.ByteBuffer(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...IByteBuffer instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.io\.ByteArrayInputStream;" />
+				value="import(\s+static)?\s+java\.io\.ByteArrayInputStream(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use it.unimi.dsi.fastutil.io.FastByteArrayInputStream instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.io\.ByteArrayOutputStream;" />
+				value="import(\s+static)?\s+java\.io\.ByteArrayOutputStream(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...PooledFastByteArrayInputStream instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Files|FileUtil(s)?);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Files|FileUtil(s)?)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Files instead" />
 		</module>
@@ -318,81 +318,81 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(com\.mysql\.stereotype\..*|org.springframework.stereotype\.(Component|Repository));" />
+				value="import(\s+static)?\s+(com\.mysql\.stereotype\..*|org.springframework.stereotype\.(Component|Repository))(\.[a-z_].*)?;" />
 			<property name="message" value="Use @Named instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="import\s+org\.junit\.Test;" />
+			<property name="format" value="import(\s+static)?\s+org\.junit\.Test(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use org.junit.jupiter.api.Test instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(javax.annotation.Resource|org\.springframework\.beans\.factory\.annotation\.(Autowired|Qualifier));" />
+				value="import(\s+static)?\s+(javax.annotation.Resource|org\.springframework\.beans\.factory\.annotation\.(Autowired|Qualifier))(\.[a-z_].*)?;" />
 			<property name="message" value="Use @Inject instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.springframework\.beans\.factory\.annotation\.(Required|Value);" />
+				value="import(\s+static)?\s+org\.springframework\.beans\.factory\.annotation\.(Required|Value)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="This annotation is not allowed. No real use for it at the moment." />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.util\.concurrent\.(Executors|ScheduledThreadPoolExecutor|ThreadPoolExecutor);" />
+				value="import(\s+static)?\s+java\.util\.concurrent\.(Executors|ScheduledThreadPoolExecutor|ThreadPoolExecutor)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+com\.mysema\.commons\.lang\.CloseableIterator;" />
+				value="import(\s+static)?\s+com\.mysema\.commons\.lang\.CloseableIterator(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...ICloseableIterator instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+.*(Logger|LoggerFactory);" />
+				value="import(\s+static)?\s+.*(Logger|LoggerFactory)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Log instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*\.(Assert(ions)?|Preconditions);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*\.(Assert(ions)?|Preconditions)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Assertions.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(javax\.validation\.|net\.openhft\.chronicle\.values|org\.codehaus\.commons\.nullanalysis|org\.jetbrains\.annotations|org\.intellij\.lang\.annotations)" />
+				value="import(\s+static)?\s+(javax\.validation\.|net\.openhft\.chronicle\.values|org\.codehaus\.commons\.nullanalysis|org\.jetbrains\.annotations|org\.intellij\.lang\.annotations)" />
 			<property name="message"
 				value="Use jakarta.validation... instead." />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="import\s+(javax\.servlet)" />
+			<property name="format" value="import(\s+static)?\s+(javax\.servlet)" />
 			<property name="message"
 				value="Use jakarta.servlet... instead." />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="import\s+(javax\.inject)" />
+			<property name="format" value="import(\s+static)?\s+(javax\.inject)" />
 			<property name="message"
 				value="Use jakarta.inject... instead." />
 		</module>
 
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?));" />
+				value="import(\s+static)?\s+((?!de\.invesdwin).*(Strings)|.*\.((StringUtil|HtmlUtil|HtmlEscape|StringEscapeUtil|WordUtil)(s)?))(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Strings.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+.*org\.apache\.commons\.lang\." />
+				value="import(\s+static)?\s+.*org\.apache\.commons\.lang\." />
 			<property name="message"
 				value="Use org.apache.commons.lang3.* instead" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org\.jdesktop\.application\.Task;(.*[\n])*.*new Task(\)|\&lt;)" />
+				value="import(\s+static)?\s+.*org\.jdesktop\.application\.Task;(.*[\n])*.*new Task(\)|\&lt;)" />
 			<property name="message"
 				value="new Task() is not allowed. Use de.invesdwin...ATask instead" />
 			<property name="illegalPattern" value="true" />
@@ -412,13 +412,13 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(java\.security\.SecureRandom|org\.apache\.commons\.crypto\.random\.CryptoRandom);" />
+				value="import(\s+static)?\s+(java\.security\.SecureRandom|org\.apache\.commons\.crypto\.random\.CryptoRandom)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...CryptoRandomGenerator instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*\.(RandomGenerator|RandomDataGenerator|RandomData|Random);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*\.(RandomGenerator|RandomDataGenerator|RandomData|Random)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...IRandomGenerator instead" />
 		</module>
@@ -444,7 +444,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Closeables);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Closeables)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Closeables instead" />
 		</module>
@@ -454,7 +454,7 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Reflection(Util)?(s)?|GenericTypeResolver);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Reflection(Util)?(s)?|GenericTypeResolver)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Reflections.* instead" />
 		</module>
@@ -471,13 +471,13 @@
 				value="Use de.invesdwin...FxApplicationThreadUtil.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
-			<property name="format" value="import\s+.*OptionPane;" />
+			<property name="format" value="import(\s+static)?\s+.*OptionPane(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Dialogs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin|com\.mysema|com\.querydsl).*\.(Tuple|Pair|Triple|Quadruple);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin|com\.mysema|com\.querydsl).*\.(Tuple|Pair|Triple|Quadruple)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...* instead" />
 		</module>
@@ -488,36 +488,36 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Booleans|Bytes|Characters|Chars|Shorts|Ints|Integers|Longs|Floats|Doubles|BigIntegers|BigDecimals);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Booleans|Bytes|Characters|Chars|Shorts|Ints|Integers|Longs|Floats|Doubles|BigIntegers|BigDecimals)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*Duration;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*Duration(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Duration instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*TextDescription;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*TextDescription(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...TextDescription instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*Instant;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*Instant(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Instant instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(net\.sf|org)\.ehcache.*;" />
+				value="import(\s+static)?\s+(net\.sf|org)\.ehcache.*;" />
 			<property name="message" value="Use javax.cache.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*\.Object(Util)?(s)?;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*\.Object(Util)?(s)?(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Objects instead" />
 		</module>
@@ -529,19 +529,19 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.springframework\.cache\.annotation.*;" />
+				value="import(\s+static)?\s+org\.springframework\.cache\.annotation.*;" />
 			<property name="message"
 				value="Use javax.cache.annotation.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.springframework\.data\.repository\.cdi\.Eager;" />
+				value="import(\s+static)?\s+org\.springframework\.data\.repository\.cdi\.Eager(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Maybe you wanted de.invesdwin...Eager?" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="(void finalize\(\)|import\s+io\.netty\.util\.internal\.ObjectCleaner;|import\s+java\.lang\.ref\.Cleaner;)" />
+				value="(void finalize\(\)|import(\s+static)?\s+io\.netty\.util\.internal\.ObjectCleaner;|import(\s+static)?\s+java\.lang\.ref\.Cleaner;)" />
 			<property name="message"
 				value="Use de.invesdwin...FinalizerManager instead" />
 		</module>
@@ -549,7 +549,7 @@
 		<module name="RegexpSinglelineJava">
 			<!-- https://jira.springsource.org/browse/SPR-9616 -->
 			<property name="format"
-				value="import\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider;" />
+				value="import(\s+static)?\s+org\.springframework\.context\.annotation\.ClassPathScanningCandidateComponentProvider(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...ClassPathScanner instead" />
 		</module>
@@ -580,13 +580,13 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*\.Index(es|Collection)?;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*\.Index(es|Collection)?(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Index(es) instead, these annotations will be converted properly between ORMs" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*\.Persistence(Unit|Context)(s)?;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*\.Persistence(Unit|Context)(s)?(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...PersistenceUnitName on class level instead;
 			 or @Transactional with the appropriate transaction manager name;
@@ -614,92 +614,92 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.apache\.hadoop\.mapred\..*;" />
+				value="import(\s+static)?\s+org\.apache\.hadoop\.mapred\..*;" />
 			<property name="message"
 				value="Use org.apache.hadoop.mapreduce.* instead for MR2" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.apache\.hadoop\.mapreduce\.Reducer;" />
+				value="import(\s+static)?\s+org\.apache\.hadoop\.mapreduce\.Reducer(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...AReducer instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.apache\.hadoop\.mapreduce\.Mapper;" />
+				value="import(\s+static)?\s+org\.apache\.hadoop\.mapreduce\.Mapper(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...AMapper instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.springframework\.batch\.core\.(launch\.JobOperator|explore\.JobExplorer|configuration\.JobRegistry|launch\.JobLauncher|repository\.JobRepository);" />
+				value="import(\s+static)?\s+org\.springframework\.batch\.core\.(launch\.JobOperator|explore\.JobExplorer|configuration\.JobRegistry|launch\.JobLauncher|repository\.JobRepository)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...IJobService instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Lists|ListUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Lists|ListUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Lists instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Collections|CollectionUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Collections|CollectionUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Collections instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Arrays|ArrayUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Arrays|ArrayUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Arrays instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+java\.lang\.reflect\.Array;" />
+				value="import(\s+static)?\s+java\.lang\.reflect\.Array(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Arrays instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Sets|SetUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Sets|SetUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Sets instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Maps|MapUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Maps|MapUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Maps instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Iterables|IterableUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Iterables|IterableUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Iterables instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin).*(Iterators|IteratorUtils);" />
+				value="import(\s+static)?\s+(?!de\.invesdwin).*(Iterators|IteratorUtils)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...Iterators instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import\s+org\.apache\.commons\.(collections\.|collections15\.).*;" />
+				value="import(\s+static)?\s+org\.apache\.commons\.(collections\.|collections15\.).*;" />
 			<property name="message"
 				value="Use org.apache.commons.collections4... instead" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+org\.apache\.wicket\.(Page|markup\.html\.WebPage);(.*[\n])*.* extends (Page|WebPage) " />
+				value="import(\s+static)?\s+org\.apache\.wicket\.(Page|markup\.html\.WebPage);(.*[\n])*.* extends (Page|WebPage) " />
 			<property name="message"
 				value="Use de.invesdwin...AWebPage instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*\.SerializationUtils" />
+				value="import(\s+static)?\s+.*\.SerializationUtils" />
 			<property name="message"
 				value="Use de.invesdwin...Objects instead" />
 			<property name="illegalPattern" value="true" />
@@ -712,76 +712,76 @@
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*\.(Simple|Fast)DateFormat" />
+				value="import(\s+static)?\s+.*\.(Simple|Fast)DateFormat" />
 			<property name="message"
 				value="Use de.invesdwin...FDate.toString(...) instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org\.apache\.wicket\.authroles\.authorization\.strategies\.role\.Roles" />
+				value="import(\s+static)?\s+.*org\.apache\.wicket\.authroles\.authorization\.strategies\.role\.Roles" />
 			<property name="message"
 				value="Use de.invesdwin...Roles instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*(org\.apache\.wicket\.authroles\.authentication\.AuthenticatedWebSession|org\.apache\.wicket\.authroles\.authentication\.AbstractAuthenticatedWebSession|org\.apache\.wicket\.protocol\.http\.WebSession|org\.apache\.wicket\.Session)" />
+				value="import(\s+static)?\s+.*(org\.apache\.wicket\.authroles\.authentication\.AuthenticatedWebSession|org\.apache\.wicket\.authroles\.authentication\.AbstractAuthenticatedWebSession|org\.apache\.wicket\.protocol\.http\.WebSession|org\.apache\.wicket\.Session)" />
 			<property name="message"
 				value="Use de.invesdwin...AWebSession instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*(org\.apache\.wicket\.authroles\.authentication\.AuthenticatedWebApplication|org\.apache\.wicket\.protocol\.http\.WebApplication|org\.apache\.wicket\.Application)" />
+				value="import(\s+static)?\s+.*(org\.apache\.wicket\.authroles\.authentication\.AuthenticatedWebApplication|org\.apache\.wicket\.protocol\.http\.WebApplication|org\.apache\.wicket\.Application)" />
 			<property name="message"
 				value="Use de.invesdwin...AWebApplication instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org\.springframework\.expression\..*" />
+				value="import(\s+static)?\s+.*org\.springframework\.expression\..*" />
 			<property name="message"
 				value="Use de.invesdwin...Roles.get().evaluate(...) instead in invesdwin-client-wicket; otherwise rather don't use SPEL" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*org.apache.wicket.authroles.authentication.(pages|panel)..*" />
+				value="import(\s+static)?\s+.*org.apache.wicket.authroles.authentication.(pages|panel)..*" />
 			<property name="message" value="Use de.invesdwin... instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+(?!org\.apache\.commons\.io)\.IOUtils;" />
+				value="import(\s+static)?\s+(?!org\.apache\.commons\.io)\.IOUtils(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use org.apache.commons.io.IOUtils instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin\.).*\.Throwables;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin\.).*\.Throwables(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin..Throwables instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+(?!de\.invesdwin\.).*\.InterruptedRuntimeException;" />
+				value="import(\s+static)?\s+(?!de\.invesdwin\.).*\.InterruptedRuntimeException(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin..InterruptedRuntimeException instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*com\.google\.errorprone\.annotations\..*;" />
+				value="import(\s+static)?\s+.*com\.google\.errorprone\.annotations\..*;" />
 			<property name="message"
 				value="Use javax.annotation..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
 			<property name="format"
-				value="import\s+.*io\.jenetics\..*(Double|Integer)(Gene|Chromosome);" />
+				value="import(\s+static)?\s+.*io\.jenetics\..*(Double|Integer)(Gene|Chromosome)(\.[a-z_].*)?;" />
 			<property name="message" value="Use de.invesdwin..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
