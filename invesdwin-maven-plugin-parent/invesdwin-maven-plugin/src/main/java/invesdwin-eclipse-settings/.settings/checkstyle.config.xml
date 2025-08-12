@@ -405,7 +405,7 @@
 			<property name="illegalPattern" value="true" />
 		</module>
 		<module name="Regexp">
-			<property name="format" value="DEBUG\s+=\s+true" />
+			<property name="format" value="DEBUG[a-zA-Z_]*\s+=\s+true" />
 			<property name="message"
 				value="set this to false before committing" />
 			<property name="illegalPattern" value="true" />
