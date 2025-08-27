@@ -127,12 +127,12 @@ cd invesdwin-oss
 	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) via dropins
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)
+	* [Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4) (optional, slows down eclipse with the spring language server)
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
 	* [Enhanced Class Decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
-	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder)
-	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)
-	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0)
+	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
+	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse) (optional, for e.g. thesis documents)
+	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
 * Install m2eclipse connectors:
 	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
 		* If this does not work, install manually using the update site: https://github.com/tesla/m2eclipse-buildhelper/releases/download/latest/
@@ -140,18 +140,18 @@ cd invesdwin-oss
 		* Manual Workaround: Right Click on the Project -> Propertries -> Java Build Path -> Source -> Add Folder… -> Select `target/generated-sources/apt`
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
-	* Top Level Elemements -> Working Sets
-	* Package Presentation -> Hierarchical
-	* Filters and Customization... -> .* resources -> Uncheck -> OK
+	* **Top Level Elemements -> Working Sets**
+	* **Package Presentation -> Hierarchical**
+	* **Filters and Customization... -> .\* resources -> Uncheck -> OK**
 	* or use Project Explorer instead
 * In Problems View configure (three dots)
 	* Show -> Show All (default in Java Perspective)
 * Change some general settings
-	* Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling -> Check
-	* Window -> Preferences -> General -> Show heap status -> Check
+	* **Window -> Preferences -> General -> Workspace -> Refresh using native hooks or polling -> Check**
+	* **Window -> Preferences -> General -> Show heap status -> Check**
 	* Window -> Preferences -> Java -> Editor -> Content Assist -> Completion inserts -> Select
 	* Window -> Preferences -> Run/Debug -> Console -> Limit console output -> Check
-	* Window -> Preferences -> Run/Debug -> Console -> Console buffer size (characters) -> 8000000
+	* **Window -> Preferences -> Run/Debug -> Console -> Console buffer size (characters) -> 8000000**
 * Remove annoying completions
 	* Window -> Preferences -> Java -> Appearance -> Type Filters -> Add
 		* `ch.qos.logback.core.recovery.ResilientSyslogOutputStream`
