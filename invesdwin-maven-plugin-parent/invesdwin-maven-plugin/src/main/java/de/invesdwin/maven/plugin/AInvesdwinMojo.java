@@ -50,11 +50,11 @@ public abstract class AInvesdwinMojo extends AbstractMojo {
 		}
 	}
 
-	protected MavenProject getProject() {
+	public MavenProject getProject() {
 		return project;
 	}
 
-	protected BuildContext getBuildContext() {
+	public BuildContext getBuildContext() {
 		return buildContext;
 	}
 
