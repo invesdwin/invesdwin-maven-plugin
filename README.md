@@ -174,6 +174,8 @@ cd invesdwin-oss
 	* Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 3.x Validation -> Enablement -> Off
 * To prevent deadlocks when importing projects in Eclipse 2022-09 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=579076):
 	* Window -> Prefernences -> Maven -> Annotation Processing -> Select Annotation Processing Mode -> Do not automatically configure/execute annotation processing from pom.xml
+* To prevent the debugger always stopping on uncaught exceptions:
+    * Window -> Preferences -> Java -> Debug -> Suspend Execution on uncaught exceptions -> Off
 
 ## Eclipse Troubleshooting
 
