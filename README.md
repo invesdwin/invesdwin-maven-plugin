@@ -269,7 +269,7 @@ Alternatively you can use Maven for building in IntelliJ by checking:
 
 ## AI Copilot/Assistant Tips
 
-* IMPORTANT: If you use AI plugins in your IDE, make sure *Optional Telemetry is disabled* in your personal account to achieve *ZDR (Zero-Data-Retention)*
+* IMPORTANT: If you use AI plugins in your IDE, make sure *Optional Telemetry* is disabled in your personal account to achieve *ZDR (Zero-Data-Retention)*
 * IMPORTANT: When using online prompts, the information shared and used for training the models, so be careful with sensitive information
 
 ## Support
