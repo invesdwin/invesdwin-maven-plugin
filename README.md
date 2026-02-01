@@ -227,11 +227,17 @@ eclipse -clean
 	* Right Click Project -> Maven -> Ignore Project -> Yes
         * then Right Click Parent Project -> Maven -> Reload Project
 
-### IntelliJ Annotation Processing
-Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts with invalid compilation errors (generated classes are not picked up and cause class not found compilation errors). The only workaround seems to be using maven for generating classes and disabling annotation processing completely:
-* Use Eclipse compiler (more robust against errors): 
-	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
-* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
+### IntelliJ Annotation Processing Workarounds
+
+Configure annotation processing properly:
+	* Use Eclipse compiler (more robust against errors): 
+		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
+  	* Prevent generated classes from being deleted right after getting generated:
+		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
+	* Make sure annotation processing generates files before trying to compile the source code:
+		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors -> Run processors in a separate step before compiling java (-proc:only mode) -> Check
+
+Workaround 1: If annotation processing causes errors, a workaround seems to be using maven for generating classes and disabling annotation processing completely:
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
 	* OR just uncheck "Enable annotation processing" for all profiles individually.
@@ -243,7 +249,7 @@ Sadly annotation processing in IntelliJ is buggy (as of October 2020) and aborts
 	* https://youtrack.jetbrains.com/issue/IDEA-253719
 	* https://youtrack.jetbrains.com/issue/IDEA-253720
 
-Alternatively you can use Maven for building in IntelliJ by checking:
+Workaround 2: Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven -> Check
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests -> Check
 * Then speed up build by enabling parallel maven builds
