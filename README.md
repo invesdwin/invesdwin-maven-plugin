@@ -291,8 +291,8 @@ Configure annotation processing properly:
 
 * IMPORTANT:
 	* If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **Zero DataRetention (ZDR)**
-	* When using **online/web prompts**, the information is generally shared and used for training the models, so be careful to **share no sensitive information**
-	* When using CLI/IDE **AI tools that can directly read and modify files** without review, the AI may have access to the whole computer, or at least everything visible from within the IDE and could leak data via **prompt injection**, consider using a **sandbox** like a virtual machine and share no sensitive information.
+	* When using **online/web prompts**, the information is generally shared and used for training the models. So be careful to **share no sensitive information**
+	* Be careful when using CLI/IDE **AI tools that can directly read and modify files** while being able to invoke arbitrary commands, code, or web requests. The AI may have access to the whole computer, or at least everything visible from within the IDE and could leak data via **prompt injection**. Consider using a **sandbox** like a virtual machine and **share no sensitive information**.
 * For Visual Studio Code:
 	* Separate distributions where you can add extensions and configure just like any other Visual Studo Code installation:
  		* [Cursor](https://cursor.com/home)
