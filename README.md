@@ -191,7 +191,8 @@ eclipse -clean
 ## IntelliJ Tips
 
 * Import all projects as Maven using a parent-pom that lists projects as modules (see above for an example pom.xml)
-* Install plugins
+	* IMPORANT: Make sure not to use paths that contain symlinks, as IntelliJ has issues with that which are noticeable when trying to execute tests
+* Install plugins:
 	* [Eclipse-Code-Formatter](https://github.com/krasa/EclipseCodeFormatter#instructions)
 		* use "Resolve project specific config" (should be equivalent to "Eclipse [built-in]")/invesdwin-maven-plugin-parent/invesdwin-maven-plugin/src/main/java/invesdwin-eclipse-settings/.settings/org.eclipse.jdt.ui.prefs)
 	* [Save Actions plugin](https://plugins.jetbrains.com/plugin/7642-save-actions) and configure:
@@ -248,6 +249,28 @@ Alternatively you can use Maven for building in IntelliJ by checking:
 * Then speed up build by enabling parallel maven builds
 	* File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Thread count -> 1C
 		* "1C" stands for one thread per available cpu core
+
+## Visual Studio Code Tips
+
+* Install extensions:
+	* [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+ 	* [Eclipse Keymap](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
+* Import all projects as Maven by opening the respective workspace root folder, then navigating to the Java Projects view and telling it to import everything as Maven (if it is confused by Gradle files)
+	* IMPORANT: Make sure not to use paths that contain symlinks, as VS-Code has issues with that which are noticeable when trying to execute tests (https://stackoverflow.com/a/76516730/67492)
+* Change java version and redirect JavaSE-1.8 to a reject JDK (though with a correct path to a recent JDK installation):
+	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Startup -> `Java › Jdt › Ls › Java: Home` -> Edit in settings.json -> Put `"java.jdt.ls.java.home": "/usr/lib/jvm/default",`
+    * File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Installed JDKs -> `Java › Configuration: Runtimes` -> Edit in settings.json -> Uncheck -> Put `"java.configuration.runtimes": [ { "name": "JavaSE-1.8", "path": "/usr/lib/jvm/default" }, ],`
+* In Java Projects configure (three dots)
+	* Hierarchical View -> Click 
+ * Configure settings:
+	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Maven -> `Java › Maven: Download Sources` -> Check
+ 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Eclipse: Download Sources` -> Check
+	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Editor: Reload Changed Sources` -> Auto
+
+## AI Copilot/Assistant Tips
+
+* IMPORTANT: If you use AI plugins in your IDE, make sure optional Telemetry is disable in your personal account to achieve ZDR (Zero-Data-Retention).
+* IMPORTANT: When using online prompts, the information shared and used for training the models, so be careful with sensitive information.
 
 ## Support
 
