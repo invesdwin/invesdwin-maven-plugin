@@ -290,7 +290,7 @@ Configure annotation processing properly:
 ## AI Copilot/Assistant Tips
 
 * IMPORTANT: If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **ZDR (Zero-Data-Retention)**
-* IMPORTANT: When using **online/web prompts**, the information is generally shared and used for training the models, so be careful with sensitive information
+* IMPORTANT: When using **online/web prompts**, the information is generally shared and used for training the models, so be careful to **share no sensitive information**
 * For Visual Studio Code: use the distributions of Cursor or Windsurf directly and install/configure just like any other Visual Studo Code installation
 * For IntelliJ: JetBrains AI, GitHub Copilot, Windsurf is available
 * For Eclipse: GitHub Copilot is available
