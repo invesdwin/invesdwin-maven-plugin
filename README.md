@@ -222,7 +222,7 @@ eclipse -clean
 	* File -> Settings -> Keymap -> Eclipse
 * To enable automatic builds configure
 	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Build project automatically -> Check
-	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel -> Check
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Compile independent modules in parallel -> Automatic
 * Some modules do not support getting resolved from inside IntelliJ. An example is the protected module `invesdwin-trading-jforex-runtime-bundle`. You can resolve them from the maven repository instead by ignoring the project in IntelliJ:
 	* Right Click Project -> Maven -> Ignore Project -> Yes
         * then Right Click Parent Project -> Maven -> Reload Project
