@@ -259,6 +259,7 @@ Alternatively you can use Maven for building in IntelliJ by checking:
 	* IMPORANT: Make sure not to use paths that contain symlinks, as VS-Code has issues with that which are noticeable when trying to execute tests (https://stackoverflow.com/a/76516730/67492)
 * Change java version and redirect JavaSE-1.8 to a reject JDK (though with a correct path to a recent JDK installation):
 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Startup -> `Java › Jdt › Ls › Java: Home` -> Edit in settings.json -> Put `"java.jdt.ls.java.home": "/usr/lib/jvm/default",`
+    * File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Startup -> `Java › Jdt › Ls: Vmargs` -> Edit in settings.json -> Put `"java.jdt.ls.vmargs": "-Xmx5g",`
     * File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Installed JDKs -> `Java › Configuration: Runtimes` -> Edit in settings.json -> Uncheck -> Put `"java.configuration.runtimes": [ { "name": "JavaSE-1.8", "path": "/usr/lib/jvm/default" }, ],`
 * In Java Projects configure (three dots)
 	* Hierarchical View -> Click 
