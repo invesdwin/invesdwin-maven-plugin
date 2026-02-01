@@ -230,14 +230,14 @@ eclipse -clean
 ### IntelliJ Annotation Processing Workarounds
 
 Configure annotation processing properly:
-	* Use Eclipse compiler (more robust against errors): 
-		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
-  	* Prevent generated classes from being deleted right after getting generated:
-		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
-	* Make sure annotation processing generates files before trying to compile the source code:
-		* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors -> Run processors in a separate step before compiling java (-proc:only mode) -> Check
+* Use Eclipse compiler (more robust against errors): 
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Java Compiler -> Use Compiler -> Eclipse
+* Prevent generated classes from being deleted right after getting generated:
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Clear output directory on rebuild (otherwise generated classes from maven will be deleted)  -> Uncheck
+* Make sure annotation processing generates files before trying to compile the source code:
+	* File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors -> Run processors in a separate step before compiling java (-proc:only mode) -> Check
 
-Workaround 1: If annotation processing causes errors, a workaround seems to be using maven for generating classes and disabling annotation processing completely:
+**Workaround 1:** If annotation processing causes errors, a workaround seems to be using maven for generating classes and disabling annotation processing completely:
 * Go to: File -> Preferences -> Build, Execution, Deployment -> Compiler -> Annotation Processors
 	* Add a new profile (+ icon) with name "Disabled" and uncheck: "Enable annotation processing" then move all modules into disabled profile (-> icon).
 	* OR just uncheck "Enable annotation processing" for all profiles individually.
@@ -249,7 +249,7 @@ Workaround 1: If annotation processing causes errors, a workaround seems to be u
 	* https://youtrack.jetbrains.com/issue/IDEA-253719
 	* https://youtrack.jetbrains.com/issue/IDEA-253720
 
-Workaround 2: Alternatively you can use Maven for building in IntelliJ by checking:
+**Workaround 2:** Alternatively you can use Maven for building in IntelliJ by checking:
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Delegate IDE build/run actions to maven -> Check
 * File -> Preferences -> Build, Execution, Deployment -> Build Tools -> Maven -> Runner -> Skip Tests -> Check
 * Then speed up build by enabling parallel maven builds
@@ -289,8 +289,8 @@ Workaround 2: Alternatively you can use Maven for building in IntelliJ by checki
 
 ## AI Copilot/Assistant Tips
 
-* IMPORTANT: If you use AI plugins in your IDE, make sure *Optional Telemetry* is disabled or *Privacy Mode* is enabled in your personal account to achieve *ZDR (Zero-Data-Retention)*
-* IMPORTANT: When using online prompts, the information is generally shared and used for training the models, so be careful with sensitive information
+* IMPORTANT: If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **ZDR (Zero-Data-Retention)**
+* IMPORTANT: When using **online/web prompts**, the information is generally shared and used for training the models, so be careful with sensitive information
 * For Visual Studio Code: use the distributions of Cursor or Windsurf directly and install/configure just like any other Visual Studo Code installation
 * For IntelliJ: JetBrains AI, GitHub Copilot, Windsurf is available
 * For Eclipse: GitHub Copilot is available
