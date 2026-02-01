@@ -268,10 +268,26 @@ Alternatively you can use Maven for building in IntelliJ by checking:
  	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Eclipse: Download Sources` -> Check
 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Editor: Reload Changed Sources` -> Auto
 
+```json
+{
+    "workbench.colorTheme": "Default Light Modern",
+    "redhat.telemetry.enabled": false,
+    "java.configuration.runtimes": [ { "name": "JavaSE-1.8", "path": "/usr/lib/jvm/default" }, ],
+    "workbench.startupEditor": "none",
+    "java.jdt.ls.java.home": "/usr/lib/jvm/default",
+    "java.maven.downloadSources": true,
+    "java.eclipse.downloadSources": true,
+    "java.jdt.ls.vmargs": "-Xmx5g",
+}
+```
+
 ## AI Copilot/Assistant Tips
 
 * IMPORTANT: If you use AI plugins in your IDE, make sure *Optional Telemetry* is disabled in your personal account to achieve *ZDR (Zero-Data-Retention)*
 * IMPORTANT: When using online prompts, the information shared and used for training the models, so be careful with sensitive information
+* For Visual Studio Code: use the distributions of Cursor or Windsurf directly and install/configure just like any other Visual Studo Code installation
+* For IntelliJ: JetBrains AI, GitHub Copilot, Windsurf is available
+* For Eclipse: GitHub Copilot is available
 
 ## Support
 
