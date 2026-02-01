@@ -292,8 +292,15 @@ Configure annotation processing properly:
 * IMPORTANT: If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **Zero DataRetention (ZDR)**
 * IMPORTANT: When using **online/web prompts**, the information is generally shared and used for training the models, so be careful to **share no sensitive information**
 * For Visual Studio Code:
-	* use the distributions of [Cursor](https://cursor.com/home) or [Windsurf](https://windsurf.com/) directly, add extensions and configure just like any other Visual Studo Code installation
- 	* or add extensions like [Roo Code](https://roocode.com/), [Cline](https://cline.bot/), or [Kilo Code](https://kilo.ai/) in a vanilla Visual Studio Code installation
+	* Separate distributions where you can add extensions and configure just like any other Visual Studo Code installation:
+ 		* [Cursor](https://cursor.com/home)
+   		* [Windsurf](https://windsurf.com/)
+     	* [Kiro](https://kiro.dev/)
+ 	* AI extensions for vanilla Visual Studio Code installations:
+  		* [Roo Code](https://roocode.com/)
+   		* [Cline](https://cline.bot/)
+     	* [Kilo Code](https://kilo.ai/)
+      	* [Codex](https://openai.com/codex/)
 * For IntelliJ:
 	* [JetBrains AI](https://www.jetbrains.com/ai/) and [Junie](https://www.jetbrains.com/junie/)
  	* [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
