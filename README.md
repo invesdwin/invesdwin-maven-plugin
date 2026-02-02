@@ -139,7 +139,7 @@ cd invesdwin-oss
 		* This plugin will ensure that generated sources are added to the project build path.
 		* Manual Workaround: Right Click on the Project -> Propertries -> Java Build Path -> Source -> Add Folder… -> Select `target/generated-sources/apt`
   	* Window -> Preferences -> Maven -> Java Configurator -> JRE System Library Version -> Use Workspace Default
-  		* This ensures that maven-surefire-plugin settings are not applied to eclipse JUnit launchers and that these launchers don't mess up the default JDK version when creating new launchers
+  		* This ensures that maven-surefire-plugin settings are not applied to eclipse JUnit launchers and that these launchers don't mess up the default JDK version when creating new launchers.
 * Prefer Java Perspective over JEE Perspective (top right buttons)
 * In Package Explorer configure (three dots)
 	* **Top Level Elemements -> Working Sets**
