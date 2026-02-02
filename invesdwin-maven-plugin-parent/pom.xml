@@ -31,7 +31,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<version.compiler>1.8</version.compiler>
 
-		<version.maven-source-plugin>3.2.1</version.maven-source-plugin>
+		<version.maven-source-plugin>3.4.0</version.maven-source-plugin>
 	</properties>
 
 	<dependencyManagement>
