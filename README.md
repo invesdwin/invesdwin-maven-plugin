@@ -290,7 +290,7 @@ Configure annotation processing properly:
 ## AI Copilot/Assistant Tips
 
 * IMPORTANT:
-	* If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **Zero DataRetention (ZDR)**
+	* If you use AI plugins in your IDE, make sure **Optional Telemetry** is disabled or **Privacy Mode** is enabled in your personal account to achieve **Zero Data Retention (ZDR)**
 	* When using **online/web prompts**, the information is generally shared and used for training the models. So be careful to **share no sensitive information**
 	* Be careful when using CLI/IDE **AI tools that can directly read and modify files** while being able to invoke arbitrary commands, code, or web requests. The AI may have access to the whole computer, or at least everything visible from within the IDE and could leak data via **prompt injection**. Consider using a **sandbox** like a virtual machine and **share no sensitive information**.
 * For Visual Studio Code:
