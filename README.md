@@ -128,7 +128,7 @@ cd invesdwin-oss
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) via dropins
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
-	* [Enhanced Class Decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
+	* [ECD++ - Fork of Enhanced Class Decompiler](https://marketplace.eclipse.org/content/ecd-fork-enhanced-class-decompiler)
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
 	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server)
