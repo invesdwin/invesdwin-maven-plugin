@@ -133,7 +133,7 @@ cd invesdwin-oss
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
  		* Alternative: [Wild Web Developer](https://marketplace.eclipse.org/content/wild-web-developer-html-css-javascript-typescript-nodejs-angular-json-yaml-kubernetes-xml) (optional, can also be installed together with Web Developer Tools)
-	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server)
+	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server and can cause issues when updating eclipse, requiring uninstall of this plogin or reinstalling eclipse from scratch)
 	* ~~[TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)~~ (optional, for writing e.g. thesis documents)
 * Install m2eclipse connectors:
 	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
