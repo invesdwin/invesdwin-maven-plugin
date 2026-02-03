@@ -127,12 +127,12 @@ cd invesdwin-oss
 	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) via dropins
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4) (optional, slows down eclipse with the spring language server)
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
 	* [Enhanced Class Decompiler](https://marketplace.eclipse.org/content/enhanced-class-decompiler)
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
-	* [TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse) (optional, for e.g. thesis documents)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
+	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server)
+	* ~~[TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)~~ (optional, for writing e.g. thesis documents)
 * Install m2eclipse connectors:
 	* Window -> Preferences -> Maven -> Discovery -> Open Catalog -> Select "buildhelper" -> Finish
 		* If this does not work, install manually using the update site: https://github.com/tesla/m2eclipse-buildhelper/releases/download/latest/
