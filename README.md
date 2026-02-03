@@ -304,18 +304,19 @@ Configure annotation processing properly:
 * For Visual Studio Code:
 	* Separate distributions where you can add extensions and configure just like any other Visual Studo Code installation:
  		* [Cursor](https://cursor.com/home)
-   		* [Windsurf](https://windsurf.com/)
      	* [Kiro](https://kiro.dev/)
+   		* [Windsurf](https://windsurf.com/)
  	* AI extensions for vanilla Visual Studio Code installations:
+      	* [Codex](https://openai.com/codex/)
   		* [Roo Code](https://roocode.com/)
    		* [Cline](https://cline.bot/)
      	* [Kilo Code](https://kilo.ai/)
-      	* [Codex](https://openai.com/codex/)
+      	* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 * For IntelliJ:
 	* [JetBrains AI](https://www.jetbrains.com/ai/) and [Junie](https://www.jetbrains.com/junie/)
- 	* [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
-  	* [Windsurf](https://plugins.jetbrains.com/plugin/20540-windsurf-plugin-for-python-js-java-go--)
   	* [Kilo Code](https://plugins.jetbrains.com/plugin/28350-kilo-code)
+  	* [Windsurf](https://plugins.jetbrains.com/plugin/20540-windsurf-plugin-for-python-js-java-go--)
+ 	* [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
 * For Eclipse:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
 
