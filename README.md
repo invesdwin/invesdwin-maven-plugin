@@ -129,6 +129,7 @@ cd invesdwin-oss
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
 	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
 	* [ECD++ - Fork of Enhanced Class Decompiler](https://marketplace.eclipse.org/content/ecd-fork-enhanced-class-decompiler)
+ 		* Desktop alternative: [jd-gui-duo](https://github.com/nbauma109/jd-gui-duo)
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
 	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server)
@@ -163,6 +164,10 @@ cd invesdwin-oss
 	* Window -> Preferences -> Java -> Debug -> Use advanced source lookup (JRE 1.5 and higher) -> [Uncheck](https://github.com/ecd-plugin/ecd/issues/58#issuecomment-580295517)
 	* Window -> Preferences -> General -> Editors -> *.class without source -> Class Decompiler Viewer -> Default
 	* Window -> Preferences -> General -> Editors -> *.class -> Class Decompiler Viewer -> Default
+ * Make it easier to debug decompiler classes
+	* Window -> Preferences -> Java -> Decompiler -> Output original line numbers as comments -> Check
+ 	* Window -> Preferences -> Java -> Decompiler -> Align code for debugging -> Check
+    * (make sure a Default Class Decompiler is selected at the top, otherwise saving the dialog might not work)
 * Import each project into a separate Working Set
 	* with that it becomes easy to commit individual projects using Git Staging View by selecting the Working Sets
 	* except invesdwin-oss requires each project to be selected individually since Git Submodules need to be committed separately
