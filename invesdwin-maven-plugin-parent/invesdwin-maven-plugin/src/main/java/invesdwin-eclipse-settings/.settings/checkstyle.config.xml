@@ -240,6 +240,11 @@
 				value="Use de.invesdwin...URIs.* instead" />
 		</module>
 		<module name="RegexpSinglelineJava">
+			<property name="format" value="new\s+((Concurrent|Linked)?Hash|(Identity|Tree))Map" />
+			<property name="message"
+				value="Use de.invesdwin...ILockCollectionFactory.getInstance(true/false).new.* instead" />
+		</module>
+		<module name="RegexpSinglelineJava">
 			<property name="format" value="new\s+JTable\(" />
 			<property name="message"
 				value="Use de.invesdwin...JTableWithHorizontalScoll.* instead" />
