@@ -195,6 +195,7 @@ rm -rf .metadata/.plugins/org.eclipse.jdt.core
 rm -rf .metadata/.plugins/org.eclipse.core.resources/*.snap
 eclipse -clean
 ```
+* In 2024 and 2025 eclipse-m2e automatically copies settings from maven-surefire-plugin (JVM arguments) and maven-enforcer-plugin (JDK version) into newly created JUnit launchers. This can currently not be disabled. A [feature request](https://github.com/eclipse-m2e/m2e-core/issues/2137) has been created to be able to opt out of this behaviour. Though for the time being, launchers have to be manually edited after creating them to use "Project execution environment" for the JDK version and to remove JVM arguments copied from maven-surefire-plugin.
 
 ## IntelliJ Tips
 
