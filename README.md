@@ -44,15 +44,24 @@ The plugins has the following goals which you can include/exclude:
 
 ## Handling Multiple Projects/Repositories
 
+* On Windows, install [Git for Windows](https://git-scm.com/install/windows) and select the line break setting "Checkout as-is and commit as-is" to effectively select "git config --global core.autocrlf false" during the installation wizard of Git for Windows.
+ 	* It is recommended to install [Notepad++](https://notepad-plus-plus.org/downloads/) beforehand and select that as the default editor during the installation wizard of Git for Windows.
+	* You can optionally also install [TortoiseGit](https://tortoisegit.org/) which provides a File Explorer integration for Git.
+ 	* It is recommended to checkout repositories into a short path without any spaces and install tools near it. An example structure is this:
+    	* C:\tools\cygwin64 (add C:\tools\cygwin64\bin to the PATH)
+     	* C:\tools\maven (add C:\tools\maven\bin to the PATH)
+      	* C:\tools\invesdwin\eclipse (make sure to edit eclipse.ini to increase RAM by adding the line `-Xmx5g` and to add the [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) to the dropin folder dropin)
+      	* C:\tools\invesdwin\eclipse-workspace (the eclipse workspace with the hidedn .metadata folder should be separated from the checkouts)
+  		* C:\tools\invesdwin\invesdwin-workspace (the workspace repo checkout)
 * Git setup:
 ```
 # On windows open terminal as administrator
 git config --global core.longpaths true
-git config --global core.autocrlf false
+git config --global core.autocrlf false # 
 # On linux if thre is no credential manager available
 git config --global  credential.helper store
 ```
-* Check out individual git repos and create a parent pom to build them all in one go:
+* Optional: Check out individual git repos and create a parent pom to build them all in one go (invesdwin-workspace and invesdwin-oss already do that for you):
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
@@ -77,7 +86,7 @@ git config --global  credential.helper store
 
 </project>
 ```
-* Install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
+* Optional: On Linux, install [myrepos](https://myrepos.branchable.com/): `apt install myrepos`
 	* run `mr register <PROJECT_FOLDER>` for each repository
 	* with that you can use `mr update` from any parent directory to pull all projects (nested symlinks are not supported)
 	* edit `.mrconfig` as below
@@ -92,10 +101,11 @@ checkout = git clone 'https://github.com/subes/invesdwin-oss.git' 'invesdwin-oss
 [/ABSOLUTE/PATH/TO/invesdwin-trading]
 checkout = git clone 'https://<USERNAME>:<PASSWORD>@github.com/subes/invesdwin-trading.git' 'invesdwin-trading'
 ```
-
-* Alternatively on Windows
-	* install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe`
-	* use a pull script like this:
+* On Windows
+	* install [Cygwin](https://www.cygwin.com/) and [add it to the PATH](https://www.howtogeek.com/howto/41382/how-to-use-linux-commands-in-windows-with-cygwin/) or run scripts directly from `<CYGWIN_HOME>/bin/bash.exe` (or use **Git Bash** which was installed with Git for Windows the File Explorer context menu).
+ 		* A recent [Maven](https://maven.apache.org/) version should be downloaded and added to the PATH.
+   		* A recent [JDK](https://adoptium.net/) version should be donloaded and added to the PATH, as well as JAVA_HOME defined.
+	* Optional: Use a pull script like this (invesdwin-workspace and invesdwin-oss already have that for you, as well as a build_offline_parents.sh to resolve pom issues before a build):
 ```sh
 #! /bin/bash
 
@@ -116,11 +126,10 @@ cd invesdwin-oss
 ```
 * To build private invesdwin projects you have to use this protected [<USER_HOME>/.m2/settings.xml](https://github.com/subes/invesdwin-continuous-integration/blob/master/settings.xml)
 	* For connecting to private invesdwin services (e.g. financial data) you have to download this protected [<USER_HOME>/.invesdwin/system.properties](https://github.com/subes/invesdwin-continuous-integration/blob/master/system.properties)
-	* There is also a protected [ansible project](https://github.com/subes/invesdwin-continuous-integration/tree/master/invesdwin-setup/src/ansible) that automates some of these steps
-	* Otherwise consider setting network timeouts (at least 30000 ms) in your custom `settings.xml` to prevent hanging downloads: https://stackoverflow.com/a/27015320/67492 
+	* Otherwise consider setting network timeouts (at least 30000 ms) in your custom `settings.xml` to prevent hanging downloads: https://stackoverflow.com/a/27015320/67492
 
 ## Eclipse Tips
-* Download Eclipse JEE package and install similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
+* Download [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/packages/) as a zip package (not the Oomph installer, as that can cause issues with plugins) and install it similar to: [installEclipse.sh](https://github.com/subes/invesdwin-maven-plugin/blob/master/installEclipse.sh)
 	* on Ubuntu you can create a shortcut via [Menulibre](https://github.com/bluesabre/menulibre): `apt install menulibre`
 	* using the created `/usr/local/bin/eclipse` launcher script and `<ECLIPSE_HOME>/eclipse48.png`
 * Install Plugins
