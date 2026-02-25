@@ -572,6 +572,11 @@
 			<property name="message"
 				value="Use the de.invesdwin...FastEOFException instead" />
 		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="new\s+IndexOutOfBoundsException\(" />
+			<property name="message"
+				value="Use the de.invesdwin...FastIndexOutOfBoundsException instead" />
+		</module>
 		<!-- https://stackoverflow.com/questions/2169190/example-of-builder-pattern-in-java-api -->
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="public.*with.*\(" />
