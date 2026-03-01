@@ -288,10 +288,12 @@ Configure annotation processing properly:
     * File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Installed JDKs -> `Java › Configuration: Runtimes` -> Edit in settings.json -> Uncheck -> Put `"java.configuration.runtimes": [ { "name": "JavaSE-1.8", "path": "/usr/lib/jvm/default" }, ],`
 * In Java Projects configure (three dots)
 	* Hierarchical View -> Click 
- * Configure settings:
+* Configure settings:
 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Maven -> `Java › Maven: Download Sources` -> Check
  	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Eclipse: Download Sources` -> Check
 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Editor: Reload Changed Sources` -> Auto
+* If you have Eclipse open at the same time and want Visual Studio Code to not compile for a while to prevent confusing the other instances build (since Visual Studio Code uses the Eclipse compiler as a language server):
+ 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Build -> `Java › Autobuild: Enabled` -> Uncheck
 
 ```json
 {
@@ -303,6 +305,7 @@ Configure annotation processing properly:
     "java.maven.downloadSources": true,
     "java.eclipse.downloadSources": true,
     "java.jdt.ls.vmargs": "-Xmx5g",
+    "java.autobuild.enabled": false,
 }
 ```
 
