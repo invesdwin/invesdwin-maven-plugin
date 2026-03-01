@@ -294,6 +294,8 @@ Configure annotation processing properly:
 	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Other -> `Java › Editor: Reload Changed Sources` -> Auto
 * If you have Eclipse open at the same time and want Visual Studio Code to not compile for a while to prevent confusing the other instances build (since Visual Studio Code uses the Eclipse compiler as a language server):
  	* File -> Preferences -> Settings -> Extensions -> Language Support for Java(TM) by Red Hat -> Build -> `Java › Autobuild: Enabled` -> Uncheck
+* To manually build in Visual Studio Code:
+    * Terminal -> Run Build Task... Ctrl+Shift+B -> java (build): Build Workspace
 
 ```json
 {
