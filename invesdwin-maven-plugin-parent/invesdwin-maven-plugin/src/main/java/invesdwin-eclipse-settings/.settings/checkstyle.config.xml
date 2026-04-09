@@ -795,8 +795,26 @@
 			<property name="message" value="Use de.invesdwin..* instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-
-
+		<module name="RegexpSinglelineJava">
+			<property name="format"
+				value="Math\." />
+			<property name="message"
+				value="Use de.invesdwin...Integers/Longs/Doubles instead" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="(import(\s+static)?\s+.*\.RandomUtils|Math\.random)" />
+			<property name="message"
+				value="Use de.invesdwin..PseudoRandomGenerators instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
+		<module name="Regexp">
+			<property name="format"
+				value="import(\s+static)?\s+.*com\.google\.errorprone\.annotations\..*;" />
+			<property name="message"
+				value="Use de.invesdwin..PseudoRandomGenerators instead" />
+			<property name="illegalPattern" value="true" />
+		</module>
 
 		<!--<module name="TodoComment"/> -->
 		<module name="UpperEll" />
