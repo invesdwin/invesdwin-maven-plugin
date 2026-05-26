@@ -815,16 +815,6 @@
 				value="Use de.invesdwin..PseudoRandomGenerators instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		<module name="RegexpSinglelineJava">
-			<property name="format" value="System\.currentTimeMillis\(" />
-			<property name="message"
-				value="Use de.invesdwin...FDateMillis.nowMillis() instead" />
-		</module>
-		<module name="RegexpSinglelineJava">
-			<property name="format" value="System\.nanoTime\(" />
-			<property name="message"
-				value="Use de.invesdwin...FDateNanos.elapsedNanos() instead" />
-		</module>
 
 		<!--<module name="TodoComment"/> -->
 		<module name="UpperEll" />
