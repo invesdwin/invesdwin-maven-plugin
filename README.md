@@ -321,7 +321,7 @@ Configure annotation processing properly:
 	* Separate distributions where you can add extensions and configure just like any other Visual Studo Code installation:
  		* [Cursor](https://cursor.com/home)
      	* [Kiro](https://kiro.dev/)
-   		* [Devin](https://devin.ai/desktop/) (formerly Windsurf)
+   		* [Devin](https://devin.ai/desktop/) (formerly Windsurf, formerly Codeium)
  	* AI extensions for vanilla Visual Studio Code installations:
       	* [Codex](https://openai.com/codex/)
   		* [Roo Code](https://roocode.com/)
