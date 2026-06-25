@@ -136,12 +136,12 @@ cd invesdwin-oss
 	* [Checkstyle](https://marketplace.eclipse.org/content/checkstyle-plug)
 		* also install [invesdwin-checkstyle-plugin](https://github.com/subes/invesdwin-checkstyle-plugin) via dropins
 	* [SpotBugs](http://marketplace.eclipse.org/content/spotbugs-eclipse-plugin)
-	* [MoreUnit](https://marketplace.eclipse.org/content/moreunit)
 	* [ECD++ - Fork of Enhanced Class Decompiler](https://marketplace.eclipse.org/content/ecd-fork-enhanced-class-decompiler)
  		* Desktop alternative: [jd-gui-duo](https://github.com/nbauma109/jd-gui-duo)
 	* [WindowBuilder](https://marketplace.eclipse.org/content/windowbuilder) (use stable/release, not nightly)
 	* [Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-web-developer-tools-0) (optional, if you used Eclipse Java, already contained in Eclipse JEE)
  		* Alternative: [Wild Web Developer](https://marketplace.eclipse.org/content/wild-web-developer-html-css-javascript-typescript-nodejs-angular-json-yaml-kubernetes-xml) (optional, can also be installed together with Web Developer Tools)
+	* ~~[MoreUnit](https://marketplace.eclipse.org/content/moreunit)~~ (buggy lately and slowing down eclipse)
 	* ~~[Spring Tools 4](https://marketplace.eclipse.org/content/spring-tools-4-aka-spring-tool-suite-4)~~ (optional, slows down eclipse with the spring language server and can cause issues when updating eclipse, requiring uninstall of this plogin before update or having to reinstall eclipse from scratch)
 	* ~~[TeXlipse](https://marketplace.eclipse.org/content/eclipse-texlipse)~~ (optional, for writing e.g. thesis documents)
 * Install m2eclipse connectors:
@@ -191,6 +191,8 @@ cd invesdwin-oss
 	* Window -> Preferences -> Language Servers -> Spring Language Servers -> Boot 3.x Validation -> Enablement -> Off
 * To prevent deadlocks when importing projects in Eclipse 2022-09 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=579076):
 	* Window -> Prefernences -> Maven -> Annotation Processing -> Select Annotation Processing Mode -> Do not automatically configure/execute annotation processing from pom.xml
+* To prevent eclipse from updating dependencies to later versions than the local build (e.g. when working on different branches):
+	* Window -> Prefernences -> Maven -> Offline -> Check
 * To prevent the debugger always stopping on uncaught exceptions:
     * Window -> Preferences -> Java -> Debug -> Suspend execution on uncaught exceptions -> Off
 
