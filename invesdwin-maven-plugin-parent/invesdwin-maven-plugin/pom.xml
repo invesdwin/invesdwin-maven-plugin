@@ -44,6 +44,10 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-transform-maven-shade-plugin-extensions</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>de.invesdwin</groupId>
 			<artifactId>invesdwin-maven-plugin-util</artifactId>
 		</dependency>
