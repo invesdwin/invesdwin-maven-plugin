@@ -21,11 +21,17 @@ import org.codehaus.plexus.util.IOUtil;
  * newline.
  */
 public class RegexAppendingTransformer implements ResourceTransformer {
-	String resource;
+	private String resource;
 	private Pattern resourcePattern;
 
-	Map<String, ByteArrayOutputStream> resource_data = new HashMap<String, ByteArrayOutputStream>();
-
+	private Map<String, ByteArrayOutputStream> resource_data = new HashMap<String, ByteArrayOutputStream>();
+	
+	public RegexAppendingTransformer() {}
+	
+	public RegexAppendingTransformer(String resource) {
+		this.resource = resource;
+	}
+	
 	public boolean canTransformResource(String r) {
 		if(resource == null) {
 			return false;

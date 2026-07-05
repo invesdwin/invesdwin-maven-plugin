@@ -20,6 +20,13 @@ public class WebFragmentTransformer implements ResourceTransformer {
 	private String resource;
 	private List<TransformerResource> resources = new ArrayList<TransformerResource>();
 
+	public WebFragmentTransformer() {
+	}
+	
+	public WebFragmentTransformer(String resource) {
+		this.resource = resource;
+	}
+	
 	public boolean canTransformResource(String r) {
 		if (resource != null && resource.equalsIgnoreCase(r)) {
 			return true;
