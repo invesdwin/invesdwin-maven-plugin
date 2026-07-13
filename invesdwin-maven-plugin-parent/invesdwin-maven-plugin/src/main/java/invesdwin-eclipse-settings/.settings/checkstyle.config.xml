@@ -630,18 +630,6 @@
 		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format"
-				value="import(\s+static)?\s+org\.apache\.hadoop\.mapreduce\.Reducer(\.[a-z_].*)?;" />
-			<property name="message"
-				value="Use de.invesdwin...AReducer instead" />
-		</module>
-		<module name="RegexpSinglelineJava">
-			<property name="format"
-				value="import(\s+static)?\s+org\.apache\.hadoop\.mapreduce\.Mapper(\.[a-z_].*)?;" />
-			<property name="message"
-				value="Use de.invesdwin...AMapper instead" />
-		</module>
-		<module name="RegexpSinglelineJava">
-			<property name="format"
 				value="import(\s+static)?\s+org\.springframework\.batch\.core\.(launch\.JobOperator|explore\.JobExplorer|configuration\.JobRegistry|launch\.JobLauncher|repository\.JobRepository)(\.[a-z_].*)?;" />
 			<property name="message"
 				value="Use de.invesdwin...IJobService instead" />
