@@ -11,8 +11,13 @@ import de.invesdwin.maven.plugin.util.internal.WebFragmentOrdering;
 // @NotThreadSafe
 public abstract class AWebFragmentConfigurationMerger {
 
-    private static final String CONFIGURATION_OPEN = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-fragment xmlns=\"http://java.sun.com/xml/ns/j2ee\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd\" version=\"3.0\">";
-    private static final String CONFIGURATION_CLOSE = "</web-fragment>";
+	private static final String CONFIGURATION_OPEN = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+            + "<web-app xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\n"
+            + "         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n"
+            + "         xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee \n"
+            + "                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd\"\n"
+            + "         version=\"5.0\">";
+    private static final String CONFIGURATION_CLOSE = "</web-app>";
 
     private void handleException(final Throwable cause, final Resource r) {
         try {
