@@ -337,7 +337,8 @@ Configure annotation processing properly:
 * For Eclipse:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
  		* Disable overlapping completions that can not be removed without closing the editor by disabling colliding code minings in eclipse
-    		* Window -> Preferences -> Java -> Editor -> Code Minings -> Enable Code Minings (also controls code minings of Text Editors) -> Uncheck
+    		* Window -> Preferences -> Java -> Editor -> Code Minings -> Only if there is at least one result -> Uncheck
+    		* Window -> Preferences -> Java -> Editor -> Code Minings -> Ignore inexact reference matches -> Uncheck
 
 ## Support
 
