@@ -239,11 +239,6 @@
 			<property name="message"
 				value="Use de.invesdwin...URIs.* instead" />
 		</module>
-		<module name="RegexpSinglelineJava">
-			<property name="format" value="new\s+[A-Za-z0-9_]*FileChannel\(" />
-			<property name="message"
-				value="Use de.invesdwin...FileChannelRegistry.newInstance(...) instead" />
-		</module>
 		
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="(new|extends)\s+((Concurrent|Linked)?Hash|(Identity(Hash)?|Tree))(Map|Set)" />
