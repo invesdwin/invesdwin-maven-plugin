@@ -239,6 +239,11 @@
 			<property name="message"
 				value="Use de.invesdwin...URIs.* instead" />
 		</module>
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="URI.create\(" />
+			<property name="message"
+				value="Use de.invesdwin...URIs.* instead" />
+		</module>
 		
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="(new|extends)\s+((Concurrent|Linked)?Hash|(Identity(Hash)?|Tree))(Map|Set)" />
