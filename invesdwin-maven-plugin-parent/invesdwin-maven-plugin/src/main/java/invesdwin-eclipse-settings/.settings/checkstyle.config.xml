@@ -802,13 +802,6 @@
 				value="Use de.invesdwin..PseudoRandomGenerators instead" />
 			<property name="illegalPattern" value="true" />
 		</module>
-		<module name="Regexp">
-			<property name="format"
-				value="import(\s+static)?\s+.*com\.google\.errorprone\.annotations\..*;" />
-			<property name="message"
-				value="Use de.invesdwin..PseudoRandomGenerators instead" />
-			<property name="illegalPattern" value="true" />
-		</module>
 		<module name="RegexpSinglelineJava">
 			<property name="format" value="System\.currentTimeMillis\(" />
 			<property name="message"
