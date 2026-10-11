@@ -326,8 +326,7 @@ Configure annotation processing properly:
    		* [Devin](https://devin.ai/desktop/) (formerly Windsurf, formerly Codeium)
  	* AI extensions for vanilla Visual Studio Code installations:
      	* [Kilo Code](https://kilo.ai/) (similar to Cline+Continue; supports local model)
-		* [Cline](https://cline.bot/) (supports local model)
-  		* [Continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue) (supports local model)
+		* [Cline](https://cline.bot/) & [Continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue) (supports local model)
       	* [Codex](https://openai.com/codex/)
   		* [Roo Code](https://roocode.com/)
       	* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
