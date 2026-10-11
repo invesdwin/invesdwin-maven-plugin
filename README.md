@@ -325,10 +325,11 @@ Configure annotation processing properly:
      	* [Kiro](https://kiro.dev/)
    		* [Devin](https://devin.ai/desktop/) (formerly Windsurf, formerly Codeium)
  	* AI extensions for vanilla Visual Studio Code installations:
+     	* [Kilo Code](https://kilo.ai/) (similar to Cline+Continue; supports local model)
+		* [Cline](https://cline.bot/) (supports local model)
+  		* [Continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue) (supports local model)
       	* [Codex](https://openai.com/codex/)
   		* [Roo Code](https://roocode.com/)
-   		* [Cline](https://cline.bot/)
-     	* [Kilo Code](https://kilo.ai/)
       	* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 * For IntelliJ:
 	* [JetBrains AI](https://www.jetbrains.com/ai/) and [Junie](https://www.jetbrains.com/junie/)
@@ -336,6 +337,8 @@ Configure annotation processing properly:
  	* [GitHub Copilot](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
 * For Eclipse:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
+
+Local model via [Strata](https://github.com/Niko1221/Strata).
 
 ## Support
 
