@@ -338,7 +338,99 @@ Configure annotation processing properly:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
 
 Local model via [Strata](https://github.com/Niko1221/Strata).
+* Claude: replace content
+```json
+# nano ~/.claude/settings.json
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:8080",
+    "ANTHROPIC_AUTH_TOKEN": "not-needed",
+    "ANTHROPIC_MODEL":"claude-sonnet-5-5",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "theme": "auto",
+  "hasCompletedOnboarding": true
+}
+```
+* Codex: replace [model = "..."] at the top
+```json
+# nano ~/.codex/config.toml
+model = "local-model"                        # any name; Strata answers with its model
+model_provider = "local-provider"
+model_context_window = 2621144            # the context you chose in setup: Codex compacts before it gets there
+show_raw_agent_reasoning = true         # show the model's thinking (it writes no summaries)
+model_reasoning_effort = "high"     # none, low, medium or high; default: the model's (high)
 
+[model_providers.strata]
+name = "Local-Model"
+base_url = "http://127.0.0.1:8080/v1"
+wire_api = "responses"
+stream_idle_timeout_ms = 600000         # a first, long prompt can take minutes to read
+```
+* Kilo-Code: replace content
+```json
+# ollama pull nomic-embed-text
+# nano ~/.config/kilo/kilo.jsonc
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "disabled_providers": [],
+  "provider": {
+    "local-provider": {
+      "name": "local-model",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:8080/v1"
+      },
+      "models": {
+        "local-model": {
+          "name": "local-model",
+          "reasoning": true,
+          "limit": {
+            "context": 262144,
+            "output": 8192
+          }
+        }
+      }
+    }
+  },
+  "indexing": {
+    "enabled": true,
+    "provider": "ollama",
+    "model": "nomic-embed-text",
+    "vectorStore": "lancedb",
+    "ollama": {
+      "baseURL": "http://localhost:11434"
+    },
+    "embeddingBatchSize": 120
+  },
+  "reasoning_display": "preview",
+  "terminal_command_display": "collapsed",
+  "code_edit_display": "collapsed",
+  "mcp_tool_display": "collapsed",
+  "model": "local-provider/local-model",
+  "small_model": "local-provider/local-model",
+  "subagent_model": "local-provider/local-model",
+  "subagent_variant": "high",
+  "agent": {
+    "plan": {
+      "model": "local-provider/local-model"
+    },
+    "debug": {
+      "model": "local-provider/local-model"
+    },
+    "orchestrator": {
+      "model": "local-provider/local-model"
+    },
+    "ask": {
+      "model": "local-provider/local-model"
+    },
+    "code": {
+      "model": "local-provider/local-model"
+    }
+  },
+  "default_agent": "code"
+}
+```
 ## Support
 
 If you need further assistance or have some ideas for improvements and don't want to create an issue here on github, feel free to start a discussion in our [invesdwin-platform](https://groups.google.com/forum/#!forum/invesdwin-platform) mailing list.
