@@ -361,7 +361,7 @@ model_context_window = 2621144            # the context you chose in setup: Code
 show_raw_agent_reasoning = true         # show the model's thinking (it writes no summaries)
 model_reasoning_effort = "high"     # none, low, medium or high; default: the model's (high)
 
-[model_providers.strata]
+[model_providers.local-provider]
 name = "Local-Model"
 base_url = "http://127.0.0.1:8080/v1"
 wire_api = "responses"
