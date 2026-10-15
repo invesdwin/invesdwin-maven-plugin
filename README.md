@@ -337,7 +337,7 @@ Configure annotation processing properly:
 * For Eclipse:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
 
-Local model via [Strata](https://github.com/Niko1221/Strata).
+Local model via [Strata](https://github.com/Niko1221/Strata):
 * Claude: replace content
 ```json
 # nano ~/.claude/settings.json
@@ -353,7 +353,7 @@ Local model via [Strata](https://github.com/Niko1221/Strata).
 }
 ```
 * Codex: replace [model = "..."] at the top
-```json
+```toml
 # nano ~/.codex/config.toml
 model = "local-model"                        # any name; Strata answers with its model
 model_provider = "local-provider"
