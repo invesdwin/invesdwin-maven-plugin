@@ -346,11 +346,16 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
     "ANTHROPIC_BASE_URL": "http://localhost:8080",
     "ANTHROPIC_AUTH_TOKEN": "not-needed",
     "ANTHROPIC_MODEL":"claude-sonnet-5-5",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "262144"
   },
   "theme": "auto",
-  "hasCompletedOnboarding": true
+  "hasCompletedOnboarding": true,
+  "showThinkingSummaries": true,
+  "verbose": true
 }
+
 ```
 * Codex: replace [model = "..."] at the top
 ```toml
