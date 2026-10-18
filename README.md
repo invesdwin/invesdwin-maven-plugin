@@ -356,7 +356,7 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
   },
   "modelSettings": {
     "qwen3.8-flash-next-nvfp4": {
-      "effortLevel": "xhigh"
+      "effortLevel": "high"
     }
   },
   "showThinkingSummaries": true,
