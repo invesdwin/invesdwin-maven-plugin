@@ -345,24 +345,33 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
   "env": {
     "ANTHROPIC_BASE_URL": "http://localhost:8080",
     "ANTHROPIC_AUTH_TOKEN": "not-needed",
-    "ANTHROPIC_MODEL":"claude-sonnet-5-5",
+    "ANTHROPIC_MODEL": "qwen3.8-flash-next-nvfp4",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "250000"
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "498000"
   },
-  "theme": "auto",
-  "hasCompletedOnboarding": true,
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "disableAutoMode": "disable"
+  },
+  "modelSettings": {
+    "qwen3.8-flash-next-nvfp4": {
+      "effortLevel": "xhigh"
+    }
+  },
   "showThinkingSummaries": true,
-  "verbose": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
+  "verbose": true,
+  "hasCompletedOnboarding": true
 }
-
 ```
 * Codex: replace [model = "..."] at the top
 ```toml
 # nano ~/.codex/config.toml
 model = "local-model"                        # any name; Strata answers with its model
 model_provider = "local-provider"
-model_context_window = 250000            # the context you chose in setup: Codex compacts before it gets there
+model_context_window = 498000            # the context you chose in setup: Codex compacts before it gets there
 show_raw_agent_reasoning = true         # show the model's thinking (it writes no summaries)
 model_reasoning_effort = "high"     # none, low, medium or high; default: the model's (high)
 
@@ -391,7 +400,7 @@ stream_idle_timeout_ms = 600000         # a first, long prompt can take minutes 
           "name": "local-model",
           "reasoning": true,
           "limit": {
-            "context": 250000,
+            "context": 498000,
             "output": 8192
           }
         }
