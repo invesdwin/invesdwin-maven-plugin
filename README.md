@@ -348,7 +348,7 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
     "ANTHROPIC_MODEL":"claude-sonnet-5-5",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "262144"
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "250000"
   },
   "theme": "auto",
   "hasCompletedOnboarding": true,
@@ -362,7 +362,7 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
 # nano ~/.codex/config.toml
 model = "local-model"                        # any name; Strata answers with its model
 model_provider = "local-provider"
-model_context_window = 2621144            # the context you chose in setup: Codex compacts before it gets there
+model_context_window = 250000            # the context you chose in setup: Codex compacts before it gets there
 show_raw_agent_reasoning = true         # show the model's thinking (it writes no summaries)
 model_reasoning_effort = "high"     # none, low, medium or high; default: the model's (high)
 
@@ -391,7 +391,7 @@ stream_idle_timeout_ms = 600000         # a first, long prompt can take minutes 
           "name": "local-model",
           "reasoning": true,
           "limit": {
-            "context": 262144,
+            "context": 250000,
             "output": 8192
           }
         }
