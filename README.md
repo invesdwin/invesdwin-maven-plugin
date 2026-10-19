@@ -348,7 +348,17 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
     "ANTHROPIC_MODEL": "qwen3.8-flash-next-nvfp4",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "498000"
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "498000",
+    "SHELL": "/bin/bash",
+    "API_TIMEOUT_MS": "1800000",
+    "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "1800000",
+    "CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS": "1800000",
+    "API_FORCE_IDLE_TIMEOUT": "0",
+    "CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK": "1",
+    "CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES": "0",
+    "CLAUDE_CODE_MAX_RETRIES": "2",
+    "XERJ_API_KEY": "<content of ~/.local/share/xerj/data/admin.key>",
+    "XERJ_URL": "http://localhost:8070"
   },
   "permissions": {
     "defaultMode": "bypassPermissions",
@@ -365,6 +375,8 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
   "verbose": true,
   "hasCompletedOnboarding": true
 }
+
+
 ```
 * Codex: replace [model = "..."] at the top
 ```toml
