@@ -70,3 +70,5 @@ opencode.json
 .cody
 .tabnine
 .goosehints
+.vscode
+.github
