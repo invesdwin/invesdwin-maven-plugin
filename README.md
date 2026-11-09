@@ -343,20 +343,14 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
 # nano ~/.claude/settings.json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "http://localhost:8080",
+    "ANTHROPIC_BASE_URL": "http://localhost:8081",
     "ANTHROPIC_AUTH_TOKEN": "not-needed",
-    "ANTHROPIC_MODEL": "qwen3.8-flash-next-nvfp4",
+    "ANTHROPIC_MODEL": "qwen3.8-flash-next",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
-    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "498000",
+    "CLAUDE_CODE_MAX_CONTEXT_TOKENS": "446464",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "65536",
+    "MAX_THINKING_TOKENS": "16384",
     "SHELL": "/bin/bash",
-    "API_TIMEOUT_MS": "1800000",
-    "CLAUDE_STREAM_IDLE_TIMEOUT_MS": "1800000",
-    "CLAUDE_BYTE_STREAM_IDLE_TIMEOUT_MS": "1800000",
-    "API_FORCE_IDLE_TIMEOUT": "0",
-    "CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK": "1",
-    "CLAUDE_CODE_NONSTREAMING_TIMEOUT_RETRIES": "0",
-    "CLAUDE_CODE_MAX_RETRIES": "2",
     "XERJ_API_KEY": "<content of ~/.local/share/xerj/data/admin.key>",
     "XERJ_URL": "http://localhost:8070"
   },
@@ -364,32 +358,116 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
     "defaultMode": "bypassPermissions",
     "disableAutoMode": "disable"
   },
+  "autoCompactWindow": 446464,
   "modelSettings": {
-    "qwen3.8-flash-next-nvfp4": {
-      "effortLevel": "high"
+    "qwen3.8-flash-next": {
+      "effortLevel": "xhigh"
     }
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
   },
   "showThinkingSummaries": true,
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "verbose": true,
-  "hasCompletedOnboarding": true
+  "hasCompletedOnboarding": true,
+  "enableWorkflows": true,
+  "skipWorkflowUsageWarning": true
 }
-
-
+```
+* Claude Desktop (claude-desktop-extra): add the repository
+```ini
+# nano /etc/pacman.conf
+[claude-desktop-extra]
+SigLevel = Required DatabaseRequired
+Server = https://github.com/patrickjaja/claude-desktop-extra/releases/latest/download
+```
+and replace the profile config, where `<id>` is the `appliedId` from `_meta.json`:
+```json
+// nano ~/.config/Claude-3p/configLibrary/_meta.json
+{
+  "appliedId": "<id>",
+  "appliedAt": "2026-11-09T00:00:00.000Z"
+}
+```
+```json
+// nano ~/.config/Claude-3p/configLibrary/<id>.json
+{
+  "inferenceProvider": "gateway",
+  "inferenceCredentialKind": "static",
+  "inferenceGatewayBaseUrl": "http://localhost:8081",
+  "inferenceGatewayApiKey": "sk-<any value; the router does not check it>",
+  "inferenceModels": [
+    {
+      "name": "claude-sonnet-5",
+      "labelOverride": "Qwen 3.8 Flash Next"
+    }
+  ],
+  "defaultModelEffort": "xhigh",
+  "inferenceModelPricingEnabled": true
+}
+```
+```jsonc
+// nano ~/.config/Claude-3p/claude-desktop-extra.jsonc
+{
+  "allowNonAnthropicModels": true,
+  "transcriptLimits": true,
+  "transcriptLimitsMainMiB": 512,
+  "transcriptLimitsSubagentMiB": 384
+}
+```
+* DSH: replace the model rows (same block in each profile you use: `desktop`, `headless`, `tui`, `web`)
+```yaml
+# nano ~/.dsh/profiles/desktop/cordis.patch.yml
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: local
+    model: qwen3.8-flash-next-iq3_s
+    reasoningEffort: xhigh
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      local:
+        displayName: local
+        apiKeyEnv: LOCAL_API_KEY
+        api: openai-completions
+        baseURL: http://localhost:8081/v1
+        timeoutMs: 1800000
+        streamIdleTimeoutMs: 1800000
+        defaultContextWindow: 446464
+        defaultMaxTokens: 65536
+        models:
+          - id: qwen3.8-flash-next-iq3_s
+            name: qwen3.8-flash-next-iq3_s
+            contextWindow: 446464
+            maxTokens: 65536
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              off: none
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: xhigh
 ```
 * Codex: replace [model = "..."] at the top
 ```toml
 # nano ~/.codex/config.toml
-model = "local-model"                        # any name; Strata answers with its model
+model = "local-model"                        # any name; the router answers with its model
 model_provider = "local-provider"
-model_context_window = 498000            # the context you chose in setup: Codex compacts before it gets there
+model_context_window = 446464                # router n_ctx 524288 - 65536 output - buffer
 show_raw_agent_reasoning = true         # show the model's thinking (it writes no summaries)
 model_reasoning_effort = "high"     # none, low, medium or high; default: the model's (high)
 
 [model_providers.local-provider]
 name = "Local-Model"
-base_url = "http://127.0.0.1:8080/v1"
+base_url = "http://localhost:8081/v1"
 wire_api = "responses"
 stream_idle_timeout_ms = 600000         # a first, long prompt can take minutes to read
 ```
@@ -405,15 +483,15 @@ stream_idle_timeout_ms = 600000         # a first, long prompt can take minutes 
       "name": "local-model",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:8080/v1"
+        "baseURL": "http://localhost:8081/v1"
       },
       "models": {
         "local-model": {
           "name": "local-model",
           "reasoning": true,
           "limit": {
-            "context": 498000,
-            "output": 8192
+            "context": 446464,
+            "output": 65536
           }
         }
       }
