@@ -337,7 +337,7 @@ Configure annotation processing properly:
 * For Eclipse:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
 
-Local model via [Strata](https://github.com/Niko1221/Strata):
+Local model via [Strata](https://github.com/Niko1221/Strata) (any GPU) or [Basalt](https://github.com/jesdga95/basalt) (on Nvidia 50xx):
 * Claude Code: replace content
 ```json
 # nano ~/.claude/settings.json
@@ -377,7 +377,7 @@ Local model via [Strata](https://github.com/Niko1221/Strata):
   "skipWorkflowUsageWarning": true
 }
 ```
-* Claude Desktop (claude-desktop-extra): add the repository
+* Claude Desktop ([claude-desktop-extra](https://github.com/patrickjaja/claude-desktop-extra)): add the repository
 ```ini
 # nano /etc/pacman.conf
 [claude-desktop-extra]
