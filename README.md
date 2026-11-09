@@ -338,7 +338,7 @@ Configure annotation processing properly:
 	* [GitHub Copilot](https://marketplace.eclipse.org/content/github-copilot)
 
 Local model via [Strata](https://github.com/Niko1221/Strata):
-* Claude: replace content
+* Claude Code: replace content
 ```json
 # nano ~/.claude/settings.json
 {
